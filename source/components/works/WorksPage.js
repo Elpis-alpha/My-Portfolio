@@ -4,9 +4,11 @@ import { roles, allRoles, works as projects } from "../../utils"
 
 import { backWorks, frontWorks, sideWorks } from "../../store/slice/displaySlice"
 
-import { useEffect, useRef, useState } from "react"
+import { useRef } from "react"
 
 import { useDispatch, useSelector } from "react-redux"
+
+import { FaEye, FaGitAlt } from "react-icons/fa"
 
 
 const WorksPage = () => {
@@ -63,31 +65,55 @@ const WorksPage = () => {
 
       {getWorkLevel(works) === 2 && <div className="all-mi-works">
 
-        {projects.filter(proj => proj.type.includes(getWork(2, works))).map(project => <div className="work-hol" key={project._wid}>
+        <div className="absolute-works">
 
-          <div className="work-asp">
+          {projects.filter(proj => proj.type.includes(getWork(2, works))).map(project => <div className="work-hol" key={project._wid}>
 
-            <h1>{project.title}</h1>
+            <div className="work-asp">
 
-            <div className="p-img">
+              <h1>{project.title}</h1>
 
-              <img src={project.imageurl} alt={project.title} />
+              <div className="p-img">
+
+                <img src={project.imageurl} alt={project.title} />
+
+              </div>
+
+              <p>{project.description}</p>
+
+              <div className="asp-end">
+
+                <div className="asp-live">
+
+                  <a href={project.liveURL} target="_blank" rel="noopener noreferrer">
+
+                    <span className="icon"><FaEye size="1rem" /></span>
+
+                    <span className="text">Live Link</span>
+
+                  </a>
+
+                </div>
+
+                <div className="asp-src">
+
+                  <a href={project.sourceCode} target="_blank" rel="noopener noreferrer">
+
+                    <span className="icon"><FaGitAlt size="1rem" /></span>
+
+                    <span className="text">Source Code</span>
+
+                  </a>
+
+                </div>
+
+              </div>
 
             </div>
 
-            <p>{project.description}</p>
+          </div>)}
 
-            <div className="asp-end">
-
-              <div className="asp-live"></div>
-
-              <div className="asp-src"></div>
-
-            </div>
-
-          </div>
-
-        </div>)}
+        </div>
 
       </div>}
 
@@ -107,6 +133,7 @@ const WorksPageStyle = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   flex-wrap: wrap;
+  flex-direction: column;
   
   .all-mi-rols{
     display: flex;
@@ -166,11 +193,70 @@ const WorksPageStyle = styled.div`
   }
 
   .all-mi-works{
-    margin: auto 0;
-    width: 75%;
+    width: 100%;
+    flex: 1;
+    align-self: stretch;
 
-    img{
-      max-width: 100%;
+    .absolute-works{
+      position: absolute;
+      top: 0; bottom: 0;
+      left: 0; right: 0;
+      height: 100%;
+      width: 100%;
+      overflow: auto;
+      padding-top: 1rem;
+
+      .work-hol{
+        padding: 0 1rem;
+        padding-bottom: 1.5rem;
+
+        .work-asp{
+          padding: 1rem; border-radius: 1rem;
+          background: linear-gradient(145deg, #ffffff, #dadcdd);
+          box-shadow:  5px 5px 9px #e8eaeb, -5px -5px 9px #fcfeff;
+
+          h1{
+            font-size: 1rem;
+          }
+
+          .p-img{
+            width: 70%;
+            display: none;
+
+            img{
+              width: 100%;
+            }
+          }
+        }
+      }
+
+      .asp-end{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        a{
+          color: green;
+          display: flex;
+          align-items: center;
+          text-decoration: none;
+          transition: color .5s;
+
+          &:hover{
+            color: purple;
+          }
+
+          .icon{
+            display: flex;
+            align-items: center;
+            padding-right: 0.3rem;
+          }
+        }
+      }
+    }
+    
+    @media screen and (orientation: landscape) {
+      width: 75%;
     }
   }
 
@@ -205,6 +291,10 @@ const WorksPageStyle = styled.div`
         }
       }
     }
+  }
+
+  @media screen and (orientation: landscape) {
+    flex-direction: row;
   }
 
 `

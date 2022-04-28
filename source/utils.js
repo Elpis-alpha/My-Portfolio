@@ -252,13 +252,13 @@ export const works = [
 
     title: "Aide-mémoire",
 
-    description: <div>
+    description: <>
 
       A note keeping application where individuals sign up hence enabling them to create
 
       notes, sections and much more content.
 
-    </div>,
+    </>,
 
     liveURL: "https:\\aide-memoire.vercel.app/verify",
 
@@ -276,13 +276,13 @@ export const works = [
 
     title: "Little Gathering",
 
-    description: <div>
+    description: <>
 
       A forum website where individuals can view the thoughts (posts) of others or post theirs, comment on them, express
 
       their satisfaction by liking or disliking and do much more
 
-    </div>,
+    </>,
 
     liveURL: "https:\\little-gathering.vercel.app",
 
@@ -300,13 +300,13 @@ export const works = [
 
     title: "Elpis Weather",
 
-    description: <div>
+    description: <>
 
       A classic weather application that allows to obtain the weather forecast in a searched location or in their
 
       appproximate location. Sigining up also enables saving locations
 
-    </div>,
+    </>,
 
     liveURL: "https:\\elpis-weather.netlify.app",
 
@@ -324,13 +324,13 @@ export const works = [
 
     title: "Aide-mémoire (Backend)",
 
-    description: <div>
+    description: <>
 
       The backend side of Aide-mémoire which features the REST API, email verification,
 
       an express server, database, complaints and a nice UI.
 
-    </div>,
+    </>,
 
     liveURL: "https:\\elpis-aide-memoire.herokuapp.com",
 
@@ -348,13 +348,13 @@ export const works = [
 
     title: "Little Gathering (Backend)",
 
-    description: <div>
+    description: <>
 
       The backend side of Aide-mémoire which features the REST API,
 
       an express server, database and much more.
 
-    </div>,
+    </>,
 
     liveURL: "https:\\elpis-little-gathering.herokuapp.com/api/posts",
 
@@ -372,13 +372,13 @@ export const works = [
 
     title: "Elpis Weather (Backend)",
 
-    description: <div>
+    description: <>
 
       The backend side of Elpis Weather which features the REST API,
 
       an express server, database, a geolocation API, a weather api and much more.
 
-    </div>,
+    </>,
 
     liveURL: "https:\\elpis-little-gathering.herokuapp.com/api/posts",
 
@@ -396,13 +396,13 @@ export const works = [
 
     title: "Ludo",
 
-    description: <div>
+    description: <>
 
       A simple ludo game in which two to four players can engage and these players can be
 
       virtual or real with customized avatars and colors.
 
-    </div>,
+    </>,
 
     liveURL: "https://elpis-ludo.netifly.app",
 
@@ -420,13 +420,13 @@ export const works = [
 
     title: "Tic Tac Toe",
 
-    description: <div>
+    description: <>
 
       A simple game of naught and crosses (Tic Tac Toe) that can be played by two players or
 
       against the system. It also features multiple options including difficulty and much more.
 
-    </div>,
+    </>,
 
     liveURL: "https://elpis-alpha.github.io/tic-tac-toe",
 
@@ -444,13 +444,13 @@ export const works = [
 
     title: "My A.I",
 
-    description: <div>
+    description: <>
 
       It's not actually an A.I, it's just a simple application that registers a user,
 
       collects data from the user and process it into useful information.
 
-    </div>,
+    </>,
 
     liveURL: "https://elpis-alpha.github.io/my-a.i",
 
@@ -468,13 +468,13 @@ export const works = [
 
     title: "Elpis Works",
 
-    description: <div>
+    description: <>
 
       A list of some projects made by me, too little to add here but too great to ignore.
 
       So there you have it, kind of a mini portfolio.
 
-    </div>,
+    </>,
 
     liveURL: "https://elpis-alpha.github.io/elpis-works",
 
