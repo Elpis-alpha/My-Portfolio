@@ -264,7 +264,7 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: "rjd"
+    type: ["rjd", "---"]
 
   },
 
@@ -286,7 +286,7 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: "rjd"
+    type: ["rjd", "---"]
 
   },
 
@@ -308,7 +308,7 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: "rjd"
+    type: ["rjd", "---"]
 
   },
 
@@ -330,7 +330,7 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: "aed"
+    type: ["aed", "---"]
 
   },
 
@@ -352,7 +352,7 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: "aed"
+    type: ["aed", "---"]
 
   },
 
@@ -374,7 +374,7 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: "aed"
+    type: ["aed", "---"]
 
   },
 
@@ -396,7 +396,7 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: "wbd"
+    type: ["wbd", "---"]
 
   },
 
@@ -418,7 +418,7 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: "wbd"
+    type: ["wbd", "---"]
 
   },
 
@@ -440,7 +440,7 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: "wbd"
+    type: ["wbd", "---"]
 
   },
 
@@ -462,7 +462,7 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: "wbd"
+    type: ["wbd", "---"]
 
   },
 

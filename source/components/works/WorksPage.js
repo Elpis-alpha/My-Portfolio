@@ -1,10 +1,10 @@
 import styled from "styled-components"
 
-import { roles, allRoles } from "../../utils"
+import { roles, allRoles, works as projects } from "../../utils"
 
 import { backWorks, frontWorks, sideWorks } from "../../store/slice/displaySlice"
 
-import { useRef } from "react"
+import { useEffect, useRef, useState } from "react"
 
 import { useDispatch, useSelector } from "react-redux"
 
@@ -22,7 +22,7 @@ const WorksPage = () => {
     if (getWorkLevel(works) === 1) { // if its on roles preview
 
       dispatch(frontWorks(role.hook))
-      
+
     } else { // not on roles preview
 
       if (getWork(2, works) === role.hook) { // if clicked on the same role
@@ -34,11 +34,8 @@ const WorksPage = () => {
         dispatch(sideWorks(role.hook))
 
       }
-      
 
     }
-
-    console.log(getWorkLevel(works));
 
   }
 
@@ -64,6 +61,16 @@ const WorksPage = () => {
 
       </div>
 
+      {getWorkLevel(works) === 2 && <div className="all-mi-works">
+
+        {projects.filter(proj => proj.type.includes(getWork(2, works))).map(project => <div>
+
+          {project.title}
+
+        </div>)}
+
+      </div>}
+
     </WorksPageStyle>
 
   )
@@ -79,6 +86,7 @@ const WorksPageStyle = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
+  flex-wrap: wrap;
   
   .all-mi-rols{
     display: flex;
@@ -135,6 +143,12 @@ const WorksPageStyle = styled.div`
         }
       }
     }
+  }
+
+  .all-mi-works{
+    background-color: green;
+    margin: auto 0;
+    width: 75%;
   }
 
   &.hit-up{
