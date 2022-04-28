@@ -33,7 +33,7 @@ const IndexPage = () => {
 
         <div className="img-hol">
 
-          {/* <img src="/images/elpis-test.png" alt="Picture of Elpis (Festus Gbolade)" /> */}
+          <img src="/images/elpis-s-t.png" alt="Picture of Elpis (Festus Gbolade)" />
 
         </div>
 
@@ -172,8 +172,9 @@ const IndexPageStyle = styled.div`
     justify-content: center;
 
     img{
-      max-width: 100%;
-      max-height: 100%;
+      max-width: 30vw;
+      max-height: 80vh;
+      object-fit: contain;
     }
     /* overflow: hidden; */
   }
@@ -257,9 +258,15 @@ const IndexPageStyle = styled.div`
           color: #323232;
           background: linear-gradient(145deg, #dadcdd, #ffffff);
           box-shadow:  30px 30px 60px #a7a8a9, -30px -30px 60px #ffffff;
+          transform: scale(1);
+          transition: transform .5s;
           
           @media screen and (max-width: 500px) {
             width: 4rem; height: 4rem;
+          }
+
+          &:hover{
+            transform: scale(1.2);
           }
         }
       }
