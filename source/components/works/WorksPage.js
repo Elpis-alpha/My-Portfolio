@@ -7,7 +7,7 @@ const WorksPage = () => {
 
     <WorksPageStyle>
 
-      Works Page
+      Can you work for me
 
     </WorksPageStyle>
 

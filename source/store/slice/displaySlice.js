@@ -7,23 +7,47 @@ const displaySlice = createSlice({
 
   initialState: {
 
-    showNav: true,
-
-    revealView: false,
+    works: ""
 
   },
 
   reducers: {
 
-    setShowNav: (state, { payload }) => {
+    setWorks: (state, { payload }) => {
 
-      state.showNav = payload
+      state.works = payload
 
     },
 
-    setRevealView: (state, { payload }) => {
+    backWorks: (state) => {
 
-      state.revealView = payload
+      const worksList = state.works.split('/')
+
+      worksList.pop()
+
+      state.works = worksList.join('/')
+
+    },
+
+    frontWorks: (state, { payload }) => {
+
+      const worksList = state.works.split('/')
+
+      worksList.push(payload)
+
+      state.works = worksList.join('/')
+
+    },
+
+    sideWorks: (state, { payload }) => {
+
+      const worksList = state.works.split('/')
+
+      worksList.pop()
+
+      worksList.push(payload)
+
+      state.works = worksList.join('/')
 
     },
 
@@ -33,4 +57,4 @@ const displaySlice = createSlice({
 
 export default displaySlice.reducer;
 
-export const { setShowNav, setRevealView } = displaySlice.actions
+export const { } = displaySlice.actions

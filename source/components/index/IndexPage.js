@@ -171,6 +171,10 @@ const IndexPageStyle = styled.div`
     align-items: center;
     justify-content: center;
 
+    @media screen and (orientation: portrait) {
+      left: 40vw; right: 30vw;
+    }
+
     img{
       max-width: 30vw;
       max-height: 80vh;
@@ -203,6 +207,7 @@ const IndexPageStyle = styled.div`
       padding: 1.3rem 1.5rem;
       box-shadow:  30px 30px 60px #a7a8a9, -30px -30px 60px #ffffff;
       background-color: #f2f4f5;
+      margin-top: 1rem;
 
       .role-hol{
         padding: .3rem 0;

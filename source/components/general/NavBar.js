@@ -17,8 +17,6 @@ const NavBar = () => {
 
   const navChildrenRef = useRef(null)
 
-  const { showNav } = useSelector(store => store.display)
-
   const [currentURL, setCurrentURL] = useState("")
 
   useEffect(() => {
@@ -39,7 +37,7 @@ const NavBar = () => {
 
   return (
 
-    <NavStyle className={showNav ? 'show-nav' : 'hide-nav'}>
+    <NavStyle className={'show-nav'}>
 
       <div className="heading">
 
