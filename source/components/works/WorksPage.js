@@ -63,9 +63,29 @@ const WorksPage = () => {
 
       {getWorkLevel(works) === 2 && <div className="all-mi-works">
 
-        {projects.filter(proj => proj.type.includes(getWork(2, works))).map(project => <div>
+        {projects.filter(proj => proj.type.includes(getWork(2, works))).map(project => <div className="work-hol" key={project._wid}>
 
-          {project.title}
+          <div className="work-asp">
+
+            <h1>{project.title}</h1>
+
+            <div className="p-img">
+
+              <img src={project.imageurl} alt={project.title} />
+
+            </div>
+
+            <p>{project.description}</p>
+
+            <div className="asp-end">
+
+              <div className="asp-live"></div>
+
+              <div className="asp-src"></div>
+
+            </div>
+
+          </div>
 
         </div>)}
 
@@ -146,9 +166,12 @@ const WorksPageStyle = styled.div`
   }
 
   .all-mi-works{
-    background-color: green;
     margin: auto 0;
     width: 75%;
+
+    img{
+      max-width: 100%;
+    }
   }
 
   &.hit-up{

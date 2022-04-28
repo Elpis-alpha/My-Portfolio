@@ -264,7 +264,9 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: ["rjd", "---"]
+    type: ["rjd", "---"],
+
+    imageurl: "/images/projects/aide-memoire.png"
 
   },
 
@@ -286,7 +288,9 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: ["rjd", "---"]
+    type: ["rjd", "---"],
+
+    imageurl: "/images/projects/little-gathering.png"
 
   },
 
@@ -308,7 +312,9 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: ["rjd", "---"]
+    type: ["rjd", "---"],
+
+    imageurl: "/images/projects/elpis-weather.png"
 
   },
 
@@ -330,7 +336,9 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: ["aed", "---"]
+    type: ["aed", "---"],
+
+    imageurl: "/images/projects/aide-memoire-back.png"
 
   },
 
@@ -352,7 +360,9 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: ["aed", "---"]
+    type: ["aed", "---"],
+
+    imageurl: "/images/projects/node-pic.png"
 
   },
 
@@ -374,7 +384,9 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: ["aed", "---"]
+    type: ["aed", "---"],
+
+    imageurl: "/images/projects/node-pic.png"
 
   },
 
@@ -396,7 +408,9 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: ["wbd", "---"]
+    type: ["wbd", "---"],
+
+    imageurl: "/images/projects/ludo.png"
 
   },
 
@@ -418,7 +432,9 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: ["wbd", "---"]
+    type: ["wbd", "---"],
+
+    imageurl: "/images/projects/tic-tac-toe.png"
 
   },
 
@@ -440,7 +456,9 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: ["wbd", "---"]
+    type: ["wbd", "---"],
+
+    imageurl: "/images/projects/my-a-i.png"
 
   },
 
@@ -462,7 +480,9 @@ export const works = [
 
     sourceCode: "https://github.com/Elpis-alpha/...",
 
-    type: ["wbd", "---"]
+    type: ["wbd", "---"],
+
+    imageurl: "/images/projects/elpis-works.png"
 
   },
 
