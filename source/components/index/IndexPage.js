@@ -199,6 +199,7 @@ const IndexPageStyle = styled.div`
 
       h1.hext, strong.hext{
         font-size: 1.5rem;
+        display: flex;
       }
     }
 
@@ -220,11 +221,12 @@ const IndexPageStyle = styled.div`
 
       h1.hext, strong.hext{
         font-size: 1.5rem;
+        display: flex;
       }
 
       h2{
         font-size: .8rem;
-        line-height: 2rem;
+        line-height: 1.5rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;

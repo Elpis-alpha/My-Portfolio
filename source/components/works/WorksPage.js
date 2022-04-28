@@ -1,5 +1,7 @@
 import styled from "styled-components"
 
+import { roles } from "../../utils"
+
 
 const WorksPage = () => {
 
@@ -7,7 +9,11 @@ const WorksPage = () => {
 
     <WorksPageStyle>
 
-      Can you work for me
+      {roles.map(role => <div key={role.hook}>
+
+        {role.name}
+
+      </div>)}
 
     </WorksPageStyle>
 
