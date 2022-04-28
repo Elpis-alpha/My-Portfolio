@@ -262,7 +262,7 @@ export const works = [
 
     liveURL: "https:\\aide-memoire.vercel.app/verify",
 
-    sourceCode: "https://github.com/Elpis-alpha/...",
+    sourceCode: "https://github.com/Elpis-alpha/Aide-Memoire-Frontend",
 
     type: ["rjd", "---"],
 
@@ -286,7 +286,7 @@ export const works = [
 
     liveURL: "https:\\little-gathering.vercel.app",
 
-    sourceCode: "https://github.com/Elpis-alpha/...",
+    sourceCode: "https://github.com/Elpis-alpha/little-gathering-frontend",
 
     type: ["rjd", "---"],
 
@@ -310,7 +310,7 @@ export const works = [
 
     liveURL: "https:\\elpis-weather.netlify.app",
 
-    sourceCode: "https://github.com/Elpis-alpha/...",
+    sourceCode: "https://github.com/Elpis-alpha/weather-frontend",
 
     type: ["rjd", "---"],
 
@@ -334,7 +334,7 @@ export const works = [
 
     liveURL: "https:\\elpis-aide-memoire.herokuapp.com",
 
-    sourceCode: "https://github.com/Elpis-alpha/...",
+    sourceCode: "https://github.com/Elpis-alpha/Aide-Memoire-Backend",
 
     type: ["aed", "---"],
 
@@ -350,7 +350,7 @@ export const works = [
 
     description: <>
 
-      The backend side of Aide-mémoire which features the REST API,
+      The backend side of Little Gathering which features the REST API,
 
       an express server, database and much more.
 
@@ -358,7 +358,7 @@ export const works = [
 
     liveURL: "https:\\elpis-little-gathering.herokuapp.com/api/posts",
 
-    sourceCode: "https://github.com/Elpis-alpha/...",
+    sourceCode: "https://github.com/Elpis-alpha/little-gathering-backend",
 
     type: ["aed", "---"],
 
@@ -380,9 +380,9 @@ export const works = [
 
     </>,
 
-    liveURL: "https:\\elpis-little-gathering.herokuapp.com/api/posts",
+    liveURL: "https://github.com/Elpis-alpha/weather-backend",
 
-    sourceCode: "https://github.com/Elpis-alpha/...",
+    sourceCode: "https://github.com/Elpis-alpha/weather-backend",
 
     type: ["aed", "---"],
 
@@ -406,7 +406,7 @@ export const works = [
 
     liveURL: "https://elpis-ludo.netifly.app",
 
-    sourceCode: "https://github.com/Elpis-alpha/...",
+    sourceCode: "https://github.com/Elpis-alpha/Ludo",
 
     type: ["wbd", "---"],
 
@@ -430,7 +430,7 @@ export const works = [
 
     liveURL: "https://elpis-alpha.github.io/tic-tac-toe",
 
-    sourceCode: "https://github.com/Elpis-alpha/...",
+    sourceCode: "https://github.com/Elpis-alpha/Tic-Tac-Toe",
 
     type: ["wbd", "---"],
 
@@ -454,7 +454,7 @@ export const works = [
 
     liveURL: "https://elpis-alpha.github.io/my-a.i",
 
-    sourceCode: "https://github.com/Elpis-alpha/...",
+    sourceCode: "https://github.com/Elpis-alpha/My-A.I",
 
     type: ["wbd", "---"],
 
@@ -478,7 +478,7 @@ export const works = [
 
     liveURL: "https://elpis-alpha.github.io/elpis-works",
 
-    sourceCode: "https://github.com/Elpis-alpha/...",
+    sourceCode: "https://github.com/Elpis-alpha/Elpis-Works",
 
     type: ["wbd", "---"],
 
