@@ -40,7 +40,7 @@ export const roles = [
   {
     name: "React JS Developer", altName: "Front End Developer", hook: "rjd", description: "I use react to build responsive and interactive UI designs.",
 
-    projectDescription: "This includes all major projects designed with react or nextjs. Using these frameworks, I was able to design responsive and interactive websites."
+    projectDescription: "This includes all major projects designed with react or nextjs. Using these frameworks, I am able to design the responsive, optimized and interactive websites displayed in this section."
 
   },
 
@@ -54,7 +54,7 @@ export const roles = [
   {
     name: "Web Developer", altName: "Web Developer", hook: "wbd", description: "I use plain HTML, CSS and Javascript to build web applications.",
 
-    projectDescription: "This includes all major projects or minor projects containers designed with HTML, CSS and vanilla Javascript. It also features some web games."
+    projectDescription: "This includes all major projects or minor projects containers designed with HTML, CSS and vanilla Javascript. It also features some web games as well as some small projects containers."
 
   },
 
@@ -62,9 +62,9 @@ export const roles = [
 
 export const allRoles = {
 
-  name: "Full Stack Developer", altName: "Web Developer", hook: "---", description: "I use plain HTML, CSS and Javascript to build web applications.",
+  name: "Full Stack Developer", altName: "Elpis 😀😀😀", hook: "---", description: "I use many useful technologies to create amazing websites",
 
-  projectDescription: "This includes all the major projects I have participated in. Through the help React, Nextjs, Express, Node, Mongodb and many other useful technologies have I been able to create these wonders."
+  projectDescription: "This includes all the major projects I have participated in. Through the help React, Nextjs, Express, Node, Mongodb and other useful technologies have I been able to create these wonders."
 
 }
 

@@ -2,28 +2,67 @@ import styled from "styled-components"
 
 import { roles, allRoles } from "../../utils"
 
+import { backWorks, frontWorks, sideWorks } from "../../store/slice/displaySlice"
+
+import { useRef } from "react"
+
+import { useDispatch, useSelector } from "react-redux"
+
 
 const WorksPage = () => {
 
-  const getWork = (level, works) => works.split('')[level]
+  const parentAll = useRef(null)
+
+  const dispatch = useDispatch()
+
+  const { works } = useSelector(store => store.display)
+
+  const rolesClick = role => {
+
+    if (getWorkLevel(works) === 1) { // if its on roles preview
+
+      dispatch(frontWorks(role.hook))
+      
+    } else { // not on roles preview
+
+      if (getWork(2, works) === role.hook) { // if clicked on the same role
+
+        dispatch(backWorks())
+
+      } else { // not clicked on the same role
+
+        dispatch(sideWorks(role.hook))
+
+      }
+      
+
+    }
+
+    console.log(getWorkLevel(works));
+
+  }
 
   return (
 
-    <WorksPageStyle>
+    <WorksPageStyle ref={parentAll} className={getWorkLevel(works) === 2 ? "hit-up" : ""}>
 
-      {[allRoles].concat(roles).map(role => <div key={role.hook} className="role-hol">
+      <div className="all-mi-rols">
 
-        <div className="role-asp">
+        {[allRoles].concat(roles).map(role => <div key={role.hook} className={"role-hol " + (getWork(2, works) === role.hook ? "active" : "")}>
 
-          <h1>{role.name}</h1>
+          <div className="role-asp" onClick={e => rolesClick(role)}>
 
-          <h2>{role.altName}</h2>
+            <h1>{role.name}</h1>
 
-          <p>{role.projectDescription}</p>
+            <h2>{role.altName}</h2>
 
-        </div>
+            <p>{role.projectDescription}</p>
 
-      </div>)}
+          </div>
+
+        </div>)}
+
+      </div>
 
     </WorksPageStyle>
 
@@ -38,26 +77,103 @@ const WorksPageStyle = styled.div`
   animation: opacity 1s 1;
   flex: 1;
   display: flex;
-  /* flex-direction: column; */
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
+  align-items: flex-start;
+  
+  .all-mi-rols{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    transition: width .5s;
+    width: 100%;
 
-  .role-hol{
-    width: 50%;
-    padding: 1rem;
-    
-    .role-asp{
+    .role-hol{
+      width: 50%;
       padding: 1rem;
-      background: #f2f4f5;
-      box-shadow:  20px 20px 60px #cecfd0, -20px -20px 60px #ffffff;
-      border-radius: 1rem;
-      /* white-space: nowrap; */
-      overflow: hidden;
+      display: flex;
+      align-items: stretch;
+      justify-content: center;
+      align-self: stretch;
+      
+      .role-asp{
+        padding: 1rem;
+        background: #f2f4f5;
+        box-shadow:  20px 20px 60px #cecfd0, -20px -20px 60px #ffffff;
+        border-radius: 1rem;
+        overflow: hidden;
+        cursor: pointer;
+        border: 1px solid transparent;
+        transition: border .5s;
+
+        h1{
+          white-space: nowrap;
+          font-size: 1rem;
+          text-overflow: ellipsis;
+          overflow: hidden;
+        }
+        
+        h2{
+          white-space: nowrap;
+          font-size: .8rem;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          max-height: 2rem;
+          transition: max-height .5s;
+        }
+        
+        p{
+          max-height: 10rem;
+          overflow: hidden;
+          transition: max-height .5s;
+        }
+      }
+
+      &.active{
+
+        .role-asp{
+          border: 1px solid #2e4aff;
+        }
+      }
     }
   }
 
+  &.hit-up{
 
+    .all-mi-rols{
+
+      flex-wrap: nowrap;
+
+      .role-hol{
+        width: 25%;
+
+        .role-asp{
+
+          h2{
+            max-height: 0;
+          }
+          
+          p{
+            max-height: 0;
+          }
+        }
+      }
+
+      @media screen and (orientation: landscape) {
+        flex-wrap: wrap;
+        width: 25%;
+        margin: auto 0;
+        
+        .role-hol{
+          width: 100%;
+        }
+      }
+    }
+  }
 
 `
+
+const getWork = (level, works) => works.split('/')[level - 1]
+
+const getWorkLevel = works => works.split('/').length
 
 export default WorksPage

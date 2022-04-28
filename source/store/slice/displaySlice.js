@@ -7,7 +7,7 @@ const displaySlice = createSlice({
 
   initialState: {
 
-    works: ""
+    works: "elpis"
 
   },
 
@@ -25,7 +25,7 @@ const displaySlice = createSlice({
 
       worksList.pop()
 
-      state.works = worksList.join('/')
+      state.works = worksList.length === 0 ? "elpis" : worksList.join('/')
 
     },
 
@@ -57,4 +57,4 @@ const displaySlice = createSlice({
 
 export default displaySlice.reducer;
 
-export const { } = displaySlice.actions
+export const { setWorks, backWorks, frontWorks, sideWorks } = displaySlice.actions
