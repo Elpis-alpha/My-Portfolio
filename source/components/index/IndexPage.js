@@ -164,7 +164,7 @@ const IndexPageStyle = styled.div`
     position: fixed;
     width: 30vw;
     height: 90vh;
-    top: 5vh; bottom: 5vh;
+    top: 15vh; bottom: 5vh;
     left: 35vw; right: 35vw;
     padding: 1rem;
     display: flex;

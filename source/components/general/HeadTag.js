@@ -17,7 +17,7 @@ const HeadTag = ({ title, description }) => {
 
       <meta name='robots' content='index,follow' />
 
-      <meta name="theme-color" content="#000" />
+      <meta name="theme-color" content="#f2f4f5" />
 
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
