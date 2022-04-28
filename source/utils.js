@@ -260,7 +260,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https:\\aide-memoire.vercel.app/verify",
+    liveURL: "https://aide-memoire.vercel.app/verify",
 
     sourceCode: "https://github.com/Elpis-alpha/Aide-Memoire-Frontend",
 
@@ -284,7 +284,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https:\\little-gathering.vercel.app",
+    liveURL: "https://little-gathering.vercel.app",
 
     sourceCode: "https://github.com/Elpis-alpha/little-gathering-frontend",
 
@@ -308,7 +308,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https:\\elpis-weather.netlify.app",
+    liveURL: "https://elpis-weather.netlify.app",
 
     sourceCode: "https://github.com/Elpis-alpha/weather-frontend",
 
@@ -332,7 +332,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https:\\elpis-aide-memoire.herokuapp.com",
+    liveURL: "https://elpis-aide-memoire.herokuapp.com",
 
     sourceCode: "https://github.com/Elpis-alpha/Aide-Memoire-Backend",
 
@@ -356,7 +356,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https:\\elpis-little-gathering.herokuapp.com/api/posts",
+    liveURL: "https://elpis-little-gathering.herokuapp.com/api/posts",
 
     sourceCode: "https://github.com/Elpis-alpha/little-gathering-backend",
 
