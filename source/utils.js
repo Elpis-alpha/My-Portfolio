@@ -404,7 +404,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-ludo.netifly.app",
+    liveURL: "https://elpis-ludo.netlify.app",
 
     sourceCode: "https://github.com/Elpis-alpha/Ludo",
 
@@ -428,7 +428,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-alpha.github.io/tic-tac-toe",
+    liveURL: "https://elpis-alpha.github.io/Tic-Tac-Toe",
 
     sourceCode: "https://github.com/Elpis-alpha/Tic-Tac-Toe",
 
@@ -452,7 +452,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-alpha.github.io/my-a.i",
+    liveURL: "https://elpis-alpha.github.io/My-A.I",
 
     sourceCode: "https://github.com/Elpis-alpha/My-A.I",
 
@@ -476,7 +476,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-alpha.github.io/elpis-works",
+    liveURL: "https://elpis-alpha.github.io/Elpis-Works",
 
     sourceCode: "https://github.com/Elpis-alpha/Elpis-Works",
 
