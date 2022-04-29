@@ -368,7 +368,7 @@ export const services = [
 
     _sid: v4(),
 
-    title: "Building of Portfolios",
+    title: "Building Portfolios",
 
     description: <>
 

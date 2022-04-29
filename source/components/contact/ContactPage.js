@@ -7,7 +7,7 @@ const ContactPage = () => {
 
     <ContactPageStyle>
 
-      Contact Page
+      I am Elpis, contact me
 
     </ContactPageStyle>
 

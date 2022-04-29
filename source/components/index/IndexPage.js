@@ -5,6 +5,7 @@ import { FaEnvelope, FaTelegramPlane, FaPhone } from "react-icons/fa"
 import { SiUpwork } from "react-icons/si"
 
 import { dev, social, roles, elpis } from "../../utils"
+import Link from "next/link"
 
 
 const IndexPage = () => {
@@ -53,13 +54,13 @@ const IndexPage = () => {
 
           <strong className="hext">I occupy these roles</strong>
 
-          {roles.map(role => <div key={role.hook} className="role-hol">
+          {roles.map(role => <Link key={role.hook} href="/works"><a><div className="role-hol">
 
             <h2>{role.name}</h2>
 
             <p>{role.description}</p>
 
-          </div>)}
+          </div></a></Link>)}
 
         </div>
 
@@ -210,14 +211,18 @@ const IndexPageStyle = styled.div`
       background-color: #f2f4f5;
       margin-top: 1rem;
 
-      .role-hol{
+      a{
         padding: .3rem 0;
         cursor: pointer;
-
+        text-decoration: none;
+        color: inherit;
+        display: block;
+  
         &:hover{
           text-decoration: underline;
         }
       }
+
 
       h1.hext, strong.hext{
         font-size: 1.5rem;
