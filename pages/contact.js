@@ -24,7 +24,7 @@ export async function getServerSideProps() {
 
   console.log();
 
-  return { props: { token: process.env.NEXT_PUBLIC_BACKEND_TOKEN } }
+  return { props: { token: "process.env.NEXT_PUBLIC_BACKEND_TOKEN" } }
 
 }
 
