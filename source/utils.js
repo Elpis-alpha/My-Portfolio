@@ -72,13 +72,17 @@ export const skills = [
 
   {
 
-    _sid: 1,
+    _kid: v4(),
 
     title: "HTML",
 
     description: <>
 
-      HTML (HyperText Markup Language) is the code that is used to structure a web page and its content. For example, content could be structured within a set of paragraphs, a list of bulleted points, or using images and data tables.
+      HTML (HyperText Markup Language) is the code that is used to structure a web page and its content.
+
+      For example, content could be structured within a set of paragraphs, a list of bulleted points, 
+      
+      or using images and data tables.
 
     </>,
 
@@ -86,7 +90,7 @@ export const skills = [
 
   {
 
-    _sid: 2,
+    _kid: v4(),
 
     title: "CSS",
 
@@ -100,13 +104,13 @@ export const skills = [
 
   {
 
-    _sid: 3,
+    _kid: v4(),
 
     title: "Javascript",
 
     description: <>
 
-      JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc. — you can bet that JavaScript is probably involved.
+      JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc.
 
     </>,
 
@@ -114,7 +118,7 @@ export const skills = [
 
   {
 
-    _sid: 4,
+    _kid: v4(),
 
     title: "React",
 
@@ -128,7 +132,7 @@ export const skills = [
 
   {
 
-    _sid: 5,
+    _kid: v4(),
 
     title: "Nextjs",
 
@@ -142,7 +146,7 @@ export const skills = [
 
   {
 
-    _sid: 6,
+    _kid: v4(),
 
     title: "Express",
 
@@ -156,7 +160,7 @@ export const skills = [
 
   {
 
-    _sid: 7,
+    _kid: v4(),
 
     title: "Node",
 
@@ -170,7 +174,7 @@ export const skills = [
 
   {
 
-    _sid: 8,
+    _kid: v4(),
 
     title: "Mongodb",
 
@@ -184,7 +188,7 @@ export const skills = [
 
   {
 
-    _sid: 9,
+    _kid: v4(),
 
     title: "Nodemailer",
 
@@ -198,25 +202,7 @@ export const skills = [
 
   {
 
-    _sid: 10,
-
-    title: "English",
-
-    description: <>
-
-      English is a West Germanic language first spoken in early Medival England which eventually became the leading language of interna.... What am I even writing.
-
-      Sorry about all that fuss, bottom line is that I speak English. Why did I even bother writing this?
-
-      Anyways, thanks for taking your time to read this, pls proceed
-
-    </>,
-
-  },
-
-  {
-
-    _sid: 11,
+    _kid: v4(),
 
     title: "Tip Tap",
 
@@ -230,13 +216,33 @@ export const skills = [
 
   {
 
-    _sid: 12,
+    _kid: v4(),
 
     title: "Socket.IO",
 
     description: <>
 
       Socket.IO is a event-driven JavaScript library for real-time web applications. It enables real-time, bi-directional communication between web clients and servers. It has two parts: a client-side library that runs in the browser, and a server-side library for Node.js. Both components have a nearly identical API.
+
+    </>,
+
+  },
+
+  {
+
+    _kid: v4(),
+
+    title: "Others",
+
+    description: <>
+
+      Honestly to list all my skills is a hassle so I listed only the most relevant however there are much 
+
+      more skills I have. For instance I actually know Django, Python, Redis, Channels as that was what I first learnt 
+
+      before I moved to what I am <a href="https://chatty409.herokuapp.com" target="_blank" rel="noopener noreferrer">(a website I made with Django)</a>.
+
+      There's also Git and much more so let me just stop here 😁.
 
     </>,
 
@@ -318,7 +324,7 @@ export const services = [
 
     description: <>
 
-      I failed too provide an accurate description in the heading to prevent it from being too long. This service features the building
+      I failed to provide an accurate description in the heading to prevent it from being too long. This service features the building
 
       of dynamic websites or web applications through just HTML, CSS and Vanilla Javascript.
 

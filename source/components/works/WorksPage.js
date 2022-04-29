@@ -63,11 +63,11 @@ const WorksPage = () => {
 
       </div>
 
-      {getWorkLevel(works) === 2 && <div className="all-mi-works">
+      {<div className={"all-mi-works " + ((getWorkLevel(works) === 2) ? "show" : "")}>
 
         <div className="absolute-works">
 
-          {projects.filter(proj => proj.type.includes(getWork(2, works))).map(project => <div className="work-hol" key={project._wid}>
+          {projects.map(project => <div className={"work-hol " + (project.type.includes(getWork(2, works)) ? "show" : "")} key={project._wid}>
 
             <div className="work-asp">
 
@@ -193,9 +193,14 @@ const WorksPageStyle = styled.div`
   }
 
   .all-mi-works{
+    display: none;
     width: 100%;
     flex: 1;
     align-self: stretch;
+    
+    &.show{
+      display: block;
+    }
 
     .absolute-works{
       position: absolute;
@@ -207,8 +212,13 @@ const WorksPageStyle = styled.div`
       padding-top: 1rem;
 
       .work-hol{
+        display: none;
         padding: 0 1rem;
         padding-bottom: 1.5rem;
+        
+        &.show{
+          display: block;
+        }
 
         .work-asp{
           padding: 1rem; border-radius: 1rem;
