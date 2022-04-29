@@ -1,5 +1,7 @@
 import styled from "styled-components"
 
+import { isEmail } from "validator"
+
 import { social } from "../../utils"
 
 import { FaPhone, FaEnvelope, FaTelegramPlane, FaStackOverflow, FaLinkedin, FaInstagram } from "react-icons/fa"
@@ -10,12 +12,94 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { setEmail, clearAll, setMessage, setName } from "../../store/slice/emailSlice"
 
+import { postApiJson } from "../../controllers/APICtrl"
 
-const ContactPage = () => {
+import { sendMiniMessage } from "../../controllers/MessageCtrl"
+
+import { sendMail } from "../../api"
+
+import { hostEmail } from "../../__env"
+
+
+const ContactPage = ({ token }) => {
 
   const dispatch = useDispatch()
 
   const { name, email, message } = useSelector(store => store.email)
+
+  const sendContactMail = async e => {
+
+    e.preventDefault()
+
+    if (name.trim() === "" || !isEmail(email) || message.trim === "") {
+
+      return sendMiniMessage({
+
+        icon: { name: "times", style: {} },
+
+        content: { text: "Invalid Input!", style: {} },
+
+      }, 2000)
+
+    } else {
+
+      sendMiniMessage({
+
+        icon: { name: "loading", style: {} },
+
+        content: { text: "Sending Message", style: {} },
+
+      })
+
+      dispatch(clearAll())
+
+    }
+
+    try {
+
+      const msgRes = await postApiJson(sendMail(), {
+
+        title: "A Mail from Your Portfolio",
+
+        address: hostEmail, 
+
+        content: `
+
+          Name: ${name}
+
+          Email: ${email}
+
+          Message:
+
+          ${message}
+
+        `
+
+      }, token)
+
+      if (msgRes.error) throw new Error()
+
+      sendMiniMessage({
+
+        icon: { name: "ok", style: {} },
+
+        content: { text: "Message Sent", style: {} },
+
+      }, 2000)
+
+    } catch (error) {
+
+      return sendMiniMessage({
+
+        icon: { name: "times", style: {} },
+
+        content: { text: "An Error Occured", style: {} },
+
+      }, 2000)
+
+    }
+
+  }
 
   return (
 
@@ -187,7 +271,7 @@ const ContactPage = () => {
 
           </div>
 
-          <form>
+          <form onSubmit={sendContactMail}>
 
             <div className="form-pack">
 

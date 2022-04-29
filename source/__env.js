@@ -8,4 +8,8 @@ export const keywordx = ["elpis", "next", "nextjs", "portfolio", "elpis portfoli
 
 export const host = "http://localhost:3000"
 
+export const hostEmail = "elpis409@gmail.com"
+
+export const backendLocation = "https://elpis-portfolio.herokuapp.com"
+
 export const isProduction = false

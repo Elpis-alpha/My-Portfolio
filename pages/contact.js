@@ -3,7 +3,7 @@ import HeadTag from '../source/components/general/HeadTag'
 import ContactPageX from '../source/components/contact/ContactPage'
 
 
-const ContactPage = () => {
+const ContactPage = ({ token }) => {
 
   return (
 
@@ -12,11 +12,19 @@ const ContactPage = () => {
 
       <HeadTag />
 
-      <ContactPageX />
+      <ContactPageX token={token} />
 
     </>
 
   )
+
+}
+
+export async function getServerSideProps() {
+
+  console.log();
+
+  return { props: { token: process.env.NEXT_PUBLIC_BACKEND_TOKEN } }
 
 }
 
