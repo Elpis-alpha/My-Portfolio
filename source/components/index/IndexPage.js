@@ -5,6 +5,7 @@ import { FaEnvelope, FaTelegramPlane, FaPhone } from "react-icons/fa"
 import { SiUpwork } from "react-icons/si"
 
 import { dev, social, roles, elpis } from "../../utils"
+
 import Link from "next/link"
 
 

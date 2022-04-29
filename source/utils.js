@@ -634,6 +634,8 @@ export const social = {
 
   telegram: "https://t.me/Elpis407",
 
+  whatsapp: "https://wa.me/%2B2349163704134?text=Your%20services%20as%20a%20web%20developer%20are%20required.%20Reply%20if%20interested",
+
   paypal: "",
 
   twitter: "",
@@ -649,6 +651,8 @@ export const social = {
   instagram: "https://www.instagram.com/elpis_alpha/",
 
   github: "https://github.com/Elpis-alpha",
+
+  reddit: "https://www.reddit.com/user/Elpis409",
 
 }
 
