@@ -6,8 +6,16 @@ import { FaPhone, FaEnvelope, FaTelegramPlane, FaStackOverflow, FaLinkedin, FaIn
 
 import { SiFiverr, SiUpwork, SiTwitter, SiGithub, SiWhatsapp, SiReddit } from "react-icons/si"
 
+import { useDispatch, useSelector } from "react-redux"
+
+import { setEmail, clearAll, setMessage, setName } from "../../store/slice/emailSlice"
+
 
 const ContactPage = () => {
+
+  const dispatch = useDispatch()
+
+  const { name, email, message } = useSelector(store => store.email)
 
   return (
 
@@ -19,7 +27,7 @@ const ContactPage = () => {
 
         <div className="all-plat">
 
-          <div className="plat-item" dataInfo="Phone Line">
+          <div className="plat-item" datainfo="Phone Line">
 
             <a href={"tel:" + social.phoneLine} title="Phone Line" target="_blank" rel="noopener noreferrer">
 
@@ -31,7 +39,7 @@ const ContactPage = () => {
 
           </div>
 
-          <div className="plat-item" dataInfo="Whatsapp Link">
+          <div className="plat-item" datainfo="Whatsapp Link">
 
             <a href={social.whatsapp} title="Whatsapp Link" target="_blank" rel="noopener noreferrer">
 
@@ -43,7 +51,7 @@ const ContactPage = () => {
 
           </div>
 
-          <div className="plat-item" dataInfo="Email Link">
+          <div className="plat-item" datainfo="Email Link">
 
             <a href={"mailto:" + social.email} title="Email Link" target="_blank" rel="noopener noreferrer">
 
@@ -55,7 +63,7 @@ const ContactPage = () => {
 
           </div>
 
-          <div className="plat-item" dataInfo="Telegram Link">
+          <div className="plat-item" datainfo="Telegram Link">
 
             <a href={social.telegram} title="Telegram Link" target="_blank" rel="noopener noreferrer">
 
@@ -67,7 +75,7 @@ const ContactPage = () => {
 
           </div>
 
-          <div className="plat-item" dataInfo="Stack Overflow Link">
+          <div className="plat-item" datainfo="Stack Overflow Link">
 
             <a href={social.stackOverflow} title="Stack Overflow Link" target="_blank" rel="noopener noreferrer">
 
@@ -79,7 +87,7 @@ const ContactPage = () => {
 
           </div>
 
-          <div className="plat-item" dataInfo="Fiverr Link">
+          <div className="plat-item" datainfo="Fiverr Link">
 
             <a href={social.fiverr} title="Fiverr Link" target="_blank" rel="noopener noreferrer">
 
@@ -91,7 +99,7 @@ const ContactPage = () => {
 
           </div>
 
-          <div className="plat-item" dataInfo="Upwork Link">
+          <div className="plat-item" datainfo="Upwork Link">
 
             <a href={social.upwork} title="Upwork Link" target="_blank" rel="noopener noreferrer">
 
@@ -103,7 +111,7 @@ const ContactPage = () => {
 
           </div>
 
-          <div className="plat-item" dataInfo="Linkedin Link">
+          <div className="plat-item" datainfo="Linkedin Link">
 
             <a href={social.linkedin} title="Linkedin Link" target="_blank" rel="noopener noreferrer">
 
@@ -115,7 +123,7 @@ const ContactPage = () => {
 
           </div>
 
-          <div className="plat-item" dataInfo="Instagram Link">
+          <div className="plat-item" datainfo="Instagram Link">
 
             <a href={social.instagram} title="Instagram Link" target="_blank" rel="noopener noreferrer">
 
@@ -127,9 +135,9 @@ const ContactPage = () => {
 
           </div>
 
-          {/* <div className="plat-item" dataInfo="Twitter Link">
+          {/* <div className="plat-item" datainfo="Twitter Link">
 
-            <a href={social.twitter} title="{/* <div className="plat-item" dataInfo="Twitter Link">" target="_blank" rel="noopener noreferrer">
+            <a href={social.twitter} title="Twitter Link" target="_blank" rel="noopener noreferrer">
 
               <div className="icon"><SiTwitter size="1rem" /></div>
 
@@ -139,7 +147,7 @@ const ContactPage = () => {
 
           </div> */}
 
-          <div className="plat-item" dataInfo="Github Link">
+          <div className="plat-item" datainfo="Github Link">
 
             <a href={social.github} title="Github Link" target="_blank" rel="noopener noreferrer">
 
@@ -151,7 +159,7 @@ const ContactPage = () => {
 
           </div>
 
-          <div className="plat-item" dataInfo="Reddit Link">
+          <div className="plat-item" datainfo="Reddit Link">
 
             <a href={social.reddit} title="Reddit Link" target="_blank" rel="noopener noreferrer">
 
@@ -171,37 +179,31 @@ const ContactPage = () => {
 
       <section className="contact-form">
 
-        <div className="intro">
+        <div className="form-hol">
 
-          <h1>Say Hi to Elpis</h1>
+          <div className="intro">
 
-        </div>
+            <h1>Say Hi to Elpis</h1>
 
-        <div className="cont">
+          </div>
 
           <form>
 
             <div className="form-pack">
 
-              <label htmlFor="elp-port-name">Name</label>
-
-              <input type="text" id="elp-port-name" name="elp-port-name" />
+              <input type="text" id="elp-port-name" name="elp-port-name" placeholder="Name" required value={name} onInput={e => dispatch(setName(e.target.value))} />
 
             </div>
 
             <div className="form-pack">
 
-              <label htmlFor="elp-port-email">Email</label>
-
-              <input type="email" id="elp-port-email" name="elp-port-email" />
+              <input type="email" id="elp-port-email" name="elp-port-email" placeholder="Email" required value={email} onInput={e => dispatch(setEmail(e.target.value))} />
 
             </div>
 
             <div className="form-pack">
 
-              <label htmlFor="elp-port-msg">Message</label>
-
-              <textarea name="elp-port-msg" id="elp-port-msg"></textarea>
+              <textarea name="elp-port-msg" id="elp-port-msg" placeholder="Message" required value={message} onInput={e => dispatch(setMessage(e.target.value))}></textarea>
 
             </div>
 
@@ -230,7 +232,7 @@ const ContactPageStyle = styled.div`
   animation: opacity 1s 1;
   display: flex;
   align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   flex: 1;
 
   section{
@@ -297,16 +299,69 @@ const ContactPageStyle = styled.div`
       display: flex;
       align-items: center;
       justify-content: center;
-      text-align: center;
       flex-direction: column;
 
-      h2{
-        font-size: 1.2rem;
-        padding-bottom: 0.5rem;
-      }
+      .form-hol{
+        background: linear-gradient(145deg, #ffffff, #dadcdd);
+        box-shadow:  16px 16px 33px #c2c3c4, -16px -16px 33px #ffffff;
+        padding: 1.5rem;
+        border-radius: 2rem;
+        width: 100%;
 
-      & > p{
-        padding-top: .5rem;
+        .intro{
+          font-size: 1.2rem;
+        }
+
+        form{
+
+          .form-pack{
+            padding: 0.5rem 0;
+
+            input, textarea{
+              width: 100%;
+              border: 0 none;
+              outline: 0 none;
+              padding: 0 .5rem;
+              background: #f2f4f5;
+              box-shadow: inset 8px 8px 31px #c2c3c4, inset -8px -8px 31px #ffffff;
+              border-radius: 0.2rem;
+              display: block;
+            }
+
+            textarea{
+              height: 6rem;
+            }
+
+            &.end{
+
+              button{
+                border: 0 none;
+                background-color: royalblue;
+                width: 100%;
+                background: linear-gradient(145deg, #ffffff, #dadcdd);
+                box-shadow:  8px 8px 31px #c2c3c4, -8px -8px 31px #ffffff;
+                color: inherit;
+                transition: color .5s;
+
+                &:hover{
+                  color: purple;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+
+      width: 100%;
+
+      &.contact-form{
+
+        .form-hol{
+          width: 70%;
+        }
       }
     }
   }

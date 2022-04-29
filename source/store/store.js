@@ -4,6 +4,8 @@ import messagesSlice from "./slice/messagesSlice";
 
 import displaySlice from "./slice/displaySlice";
 
+import emailSlice from "./slice/emailSlice";
+
 
 const store = configureStore({
 
@@ -11,7 +13,9 @@ const store = configureStore({
 
     messages: messagesSlice,
 
-    display: displaySlice
+    display: displaySlice,
+
+    email: emailSlice,
 
   }
 
