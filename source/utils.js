@@ -45,7 +45,7 @@ export const roles = [
   },
 
   {
-    name: "Node JS Developer", altName: "Back End Developer", hook: "aed", description: "I use Express to create rest API and databases for the frontend.",
+    name: "Node JS Developer", altName: "Back End Developer", hook: "aed", description: "I use Express to create REST API and databases for the frontend.",
 
     projectDescription: "This includes all major projects designed with Express js, Mongodb and HBS. These are primarily used to provide API endpoints for the frontend, but ocassionally they serve web pages."
 
@@ -76,11 +76,11 @@ export const skills = [
 
     title: "HTML",
 
-    description: <div>
+    description: <>
 
       HTML (HyperText Markup Language) is the code that is used to structure a web page and its content. For example, content could be structured within a set of paragraphs, a list of bulleted points, or using images and data tables.
 
-    </div>,
+    </>,
 
   },
 
@@ -90,11 +90,11 @@ export const skills = [
 
     title: "CSS",
 
-    description: <div>
+    description: <>
 
       Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML (including XML dialects such as SVG, MathML or XHTML). CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.
 
-    </div>,
+    </>,
 
   },
 
@@ -104,11 +104,11 @@ export const skills = [
 
     title: "Javascript",
 
-    description: <div>
+    description: <>
 
       JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc. — you can bet that JavaScript is probably involved.
 
-    </div>,
+    </>,
 
   },
 
@@ -118,11 +118,11 @@ export const skills = [
 
     title: "React",
 
-    description: <div>
+    description: <>
 
       A JavaScript library for building user interfaces, React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
 
-    </div>,
+    </>,
 
   },
 
@@ -132,11 +132,11 @@ export const skills = [
 
     title: "Nextjs",
 
-    description: <div>
+    description: <>
 
       Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed.
 
-    </div>,
+    </>,
 
   },
 
@@ -146,11 +146,11 @@ export const skills = [
 
     title: "Express",
 
-    description: <div>
+    description: <>
 
       Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. Express provides a thin layer of fundamental web application features, without obscuring Node.js features that you know and love.
 
-    </div>,
+    </>,
 
   },
 
@@ -160,11 +160,11 @@ export const skills = [
 
     title: "Node",
 
-    description: <div>
+    description: <>
 
       Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js is designed to build scalable network applications.
 
-    </div>,
+    </>,
 
   },
 
@@ -174,11 +174,11 @@ export const skills = [
 
     title: "Mongodb",
 
-    description: <div>
+    description: <>
 
       MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License.
 
-    </div>,
+    </>,
 
   },
 
@@ -188,11 +188,11 @@ export const skills = [
 
     title: "Nodemailer",
 
-    description: <div>
+    description: <>
 
       Nodemailer is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.
 
-    </div>,
+    </>,
 
   },
 
@@ -202,7 +202,7 @@ export const skills = [
 
     title: "English",
 
-    description: <div>
+    description: <>
 
       English is a West Germanic language first spoken in early Medival England which eventually became the leading language of interna.... What am I even writing.
 
@@ -210,7 +210,7 @@ export const skills = [
 
       Anyways, thanks for taking your time to read this, pls proceed
 
-    </div>,
+    </>,
 
   },
 
@@ -220,11 +220,11 @@ export const skills = [
 
     title: "Tip Tap",
 
-    description: <div>
+    description: <>
 
       Tiptap gives you full control about every single aspect of your text editor experience. It’s customizable, comes with a ton of extensions, is open source and has an extensive documentation. Join our welcoming community and start building cool things!
 
-    </div>,
+    </>,
 
   },
 
@@ -234,11 +234,143 @@ export const skills = [
 
     title: "Socket.IO",
 
-    description: <div>
+    description: <>
 
       Socket.IO is a event-driven JavaScript library for real-time web applications. It enables real-time, bi-directional communication between web clients and servers. It has two parts: a client-side library that runs in the browser, and a server-side library for Node.js. Both components have a nearly identical API.
 
-    </div>,
+    </>,
+
+  },
+
+]
+
+export const services = [
+
+  {
+
+    _sid: v4(),
+
+    title: "Building Next.js Applications",
+
+    description: <>
+
+      I build optimized websites using the nextjs framework. The main advantage of using nextjs over react to me
+
+      is Search Engine Optimization (SEO) and faster load times (preloading). So if your websites require SEO, this is the way to go.
+
+    </>,
+
+  },
+
+  {
+
+    _sid: v4(),
+
+    title: "Building React Applications",
+
+    description: <>
+
+      I build interactive websites using the reactjs framework. Using react, I'm able to design beautiful webpages with
+
+      rich user interface. React websites are significantly faster than websites built with vanilla javascript.
+
+    </>,
+
+  },
+
+  {
+
+    _sid: v4(),
+
+    title: "Building REST API with Express",
+
+    description: <>
+
+      I build high perfomance REST API using the Express framework. The Express Framework is installed on Nodejs and is used
+
+      to provide API endpoints. Ocassionally, I use the framework to also serve webpages for mail verification, complaint submission and more.
+
+    </>,
+
+  },
+
+  {
+
+    _sid: v4(),
+
+    title: "Integration of Mongodb Database",
+
+    description: <>
+
+      I implement database functionality into websites that require a means to store data. Through Mongodb, Atlas and Express
+
+      I'm able to integrate functional databases into an Express application.
+
+    </>,
+
+  },
+
+  {
+
+    _sid: v4(),
+
+    title: "Building Dynamic Websites",
+
+    description: <>
+
+      I failed too provide an accurate description in the heading to prevent it from being too long. This service features the building
+
+      of dynamic websites or web applications through just HTML, CSS and Vanilla Javascript.
+
+    </>,
+
+  },
+
+  {
+
+    _sid: v4(),
+
+    title: "Building Static Websites",
+
+    description: <>
+
+      I build responsive static websites with just HTML and CSS. Static websites are a series of webpages whose content are static
+
+      (non-changing), it does not require javascript as it just renders the same content at all times unless changed by the developer.
+
+    </>,
+
+  },
+
+  {
+
+    _sid: v4(),
+
+    title: "Building Landing Pages",
+
+    description: <>
+
+      I build beautiful and responsive landing pages with HTML and CSS. If you're thinking: <em>"Why Landing Page?"</em> or
+
+      <em> "Aren't they just static websites?"</em>. Well, Landing pages are used to guide clients to a particular action while the later just simply renders information.
+
+    </>,
+
+  },
+
+  {
+
+    _sid: v4(),
+
+    title: "Building of Portfolios",
+
+    description: <>
+
+      I build beautiful, SEO friendly, optimized and attractive portfolios using Nextjs or React. Porfolios are quite important as they showcase
+
+      your works, skills and services to potential clients. If you're looking for one like this or even better, you're at the right place.
+
+    </>,
 
   },
 

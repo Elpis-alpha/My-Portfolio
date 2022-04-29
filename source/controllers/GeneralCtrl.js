@@ -1,5 +1,1 @@
-export const processCookies = () => {
-
-  console.log("log")
-
-}
+export const processCookies = () => { }
