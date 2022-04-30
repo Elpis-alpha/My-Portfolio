@@ -2,8 +2,107 @@ import styled from "styled-components"
 
 import { skills, services } from "../../utils"
 
+import { sendMiniMessage, sendXMessage } from "../../controllers/MessageCtrl"
+
+import { useDispatch, useSelector } from "react-redux"
+
+import { setServiceMessage } from "../../store/slice/emailSlice"
+
+import { postApiJson } from "../../controllers/APICtrl"
+
+import { sendMail } from "../../api"
+import { hostEmail, mailToken } from "../../__env"
+
 
 const ServicesPage = () => {
+
+  const dispatch = useDispatch()
+
+  const { serviceMessage } = useSelector(store => store.email)
+
+  const requestServiceHandler = async service => {
+
+    const xRequest = await sendXMessage({
+
+      heading: { text: "Service Request for " + service.title, style: {} },
+
+      content: { text: "part" },
+
+      buttons: [
+
+        { text: 'Back', waitFor: 'reject-mail', style: { backgroundColor: 'teal' } },
+
+        { text: 'Send', waitFor: 'send-mail', style: { backgroundColor: 'green' } },
+
+      ],
+
+      style: {}
+
+    })
+
+    if (xRequest === 'reject-mail') return dispatch(setServiceMessage(""))
+
+    sendMiniMessage({
+
+      icon: { name: "loading", style: {} },
+
+      content: { text: "Sending Message", style: {} },
+
+    })
+
+    dispatch(setServiceMessage(""))
+
+    try {
+
+      const msgRes = await postApiJson(sendMail(), {
+
+        title: "A Mail from Your Portfolio",
+
+        address: hostEmail,
+
+        content: `
+
+          <h1>Service Request Boss</h1>
+
+          <h3>Request Info:</h3>
+
+          <h4>${service.title}</h4>
+
+          <p>${service.description.props.children}</p>
+
+          <h3>Client Info:</h3>
+
+          <p>${serviceMessage}</p>
+
+          <small>Congrats Boss 🥰</small>
+
+        `
+
+      }, mailToken)
+
+      if (msgRes.error) throw new Error()
+
+      sendMiniMessage({
+
+        icon: { name: "ok", style: {} },
+
+        content: { text: "Message Sent", style: {} },
+
+      }, 2000)
+
+    } catch (error) {
+
+      return sendMiniMessage({
+
+        icon: { name: "times", style: {} },
+
+        content: { text: "An Error Occured", style: {} },
+
+      }, 2000)
+
+    }
+
+  }
 
   return (
 
@@ -29,7 +128,7 @@ const ServicesPage = () => {
 
               <p>{service.description}</p>
 
-              <button>Request Service</button>
+              <button onClick={() => requestServiceHandler(service)}>Request Service</button>
 
             </div>
 

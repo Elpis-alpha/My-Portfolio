@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 
-const displaySlice = createSlice({
+const emailSlice = createSlice({
 
   name: "email",
 
@@ -11,7 +11,9 @@ const displaySlice = createSlice({
 
     email: "",
 
-    message: ""
+    message: "",
+
+    serviceMessage: ""
 
   },
 
@@ -45,10 +47,16 @@ const displaySlice = createSlice({
 
     },
 
+    setServiceMessage: (state, { payload }) => {
+
+      state.serviceMessage = payload
+
+    },
+
   }
 
 })
 
-export default displaySlice.reducer;
+export default emailSlice.reducer;
 
-export const { setEmail, clearAll, setMessage, setName } = displaySlice.actions
+export const { setEmail, clearAll, setMessage, setName, setServiceMessage } = emailSlice.actions
