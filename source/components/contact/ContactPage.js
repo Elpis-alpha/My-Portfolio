@@ -18,14 +18,16 @@ import { sendMiniMessage } from "../../controllers/MessageCtrl"
 
 import { sendMail } from "../../api"
 
-import { hostEmail } from "../../__env"
+import { hostEmail, mailToken } from "../../__env"
 
 
-const ContactPage = ({ token }) => {
+const ContactPage = () => {
 
   const dispatch = useDispatch()
 
   const { name, email, message } = useSelector(store => store.email)
+
+  console.log(mailToken);
 
   const sendContactMail = async e => {
 
@@ -75,7 +77,7 @@ const ContactPage = ({ token }) => {
 
         `
 
-      }, token)
+      }, mailToken)
 
       if (msgRes.error) throw new Error()
 

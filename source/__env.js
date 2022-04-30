@@ -13,3 +13,5 @@ export const hostEmail = "elpis409@gmail.com"
 export const backendLocation = "https://elpis-portfolio.herokuapp.com"
 
 export const isProduction = false
+
+export const mailToken = process.env.MAIL_TOKEN
