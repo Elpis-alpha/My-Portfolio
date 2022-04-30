@@ -25,7 +25,7 @@ const IndexPage = () => {
 
         <p>{dev.description}</p>
 
-        <button>Hire Me</button>
+        <Link href="/contact"><a className="hir">Hire Me</a></Link>
 
       </div>
 
@@ -142,7 +142,10 @@ const IndexPageStyle = styled.div`
       font-size: .8rem;
     }
 
-    button{
+    a.hir{
+      text-decoration: none;
+      color: inherit;
+      display: inline-block;
       margin-top: .5rem;
       border: 0 none;
       padding: 0 1rem;

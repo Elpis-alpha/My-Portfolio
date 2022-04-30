@@ -45,7 +45,7 @@ const NavBar = () => {
 
           <div className="head-image">
 
-            <img src="/images/logo_small.png" alt="" />
+            <img src="/images/logo_small.png" alt="Elpis Logo" title="My Logo" />
 
           </div>
 
