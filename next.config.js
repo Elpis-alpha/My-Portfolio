@@ -21,11 +21,7 @@ module.exports = (phase) => {
 
       if (isDev) return 'http://localhost:4000/speakers'
 
-      if (isProd) {
-
-        return 'https://www.siliconvalley-codecamp.com/rest/speakers/ps'
-
-      }
+      if (isProd) return 'https://www.siliconvalley-codecamp.com/rest/speakers/ps'
 
       if (isStaging) return 'http://localhost:11639'
 
