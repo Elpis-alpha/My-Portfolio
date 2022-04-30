@@ -1,3 +1,4 @@
+// Static Variables
 export const creator = "Elpis"
 
 export const siteName = "Elpis Portfolio"
@@ -6,12 +7,14 @@ export const siteDescription = "My name is Gbolade Festus, but I also go by Elpi
 
 export const keywordx = ["elpis", "next", "nextjs", "portfolio", "elpis portfolio", "web", "developer", "full stack", "Gbolade", "Festus"]
 
-export const host = "http://localhost:3000"
-
 export const hostEmail = "elpis409@gmail.com"
 
-export const backendLocation = "https://elpis-portfolio.herokuapp.com"
 
-export const isProduction = false
+// Dynamic Variables
+export const host = process.env.NEXT_PUBLIC_HOST
 
-export const mailToken = process.env.MAIL_TOKEN
+export const backendLocation = process.env.NEXT_PUBLIC_BACK_END
+
+export const isProduction = process.env.NEXT_PUBLIC_BACK_END === "true"
+
+export const mailToken = process.env.NEXT_PUBLIC_MAIL_TOKEN

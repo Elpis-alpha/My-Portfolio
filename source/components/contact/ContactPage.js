@@ -27,8 +27,6 @@ const ContactPage = () => {
 
   const { name, email, message } = useSelector(store => store.email)
 
-  console.log(mailToken);
-
   const sendContactMail = async e => {
 
     e.preventDefault()
@@ -63,7 +61,7 @@ const ContactPage = () => {
 
         title: "A Mail from Your Portfolio",
 
-        address: hostEmail, 
+        address: hostEmail,
 
         content: `
 
@@ -438,8 +436,12 @@ const ContactPageStyle = styled.div`
         }
       }
     }
+  }
 
-    @media screen and (max-width: 800px) {
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+
+    section{
 
       width: 100%;
 
@@ -451,7 +453,7 @@ const ContactPageStyle = styled.div`
       }
     }
   }
-
+  
 `
 
 

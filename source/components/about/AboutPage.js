@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import { host, mailToken } from "../../__env"
+
 
 
 const AboutPage = () => {
@@ -8,6 +10,8 @@ const AboutPage = () => {
     <AboutPageStyle>
 
       About Page
+
+      {JSON.stringify({ host, mailToken })}
 
     </AboutPageStyle>
 
