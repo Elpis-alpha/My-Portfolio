@@ -13,7 +13,7 @@ export const dev = {
 
   description: <>
 
-    I am a Full Stack Web Developer which means I use both front end (React/Next) and backend (Express & Mongodb)
+    I am a Full Stack Web Developer who uses React, Next.js, Nodejs, Mongodb and more
 
     to build amazing websites. I'm <strong>Elpis</strong> by the way.
 
@@ -27,9 +27,7 @@ export const elpis = {
 
   description: <>
 
-    I build beautiful, optimized and responsive websites that attracts people to them.
-
-    <strong>Let's build your dream together</strong>
+    A young man with a passion for web development who is proficient at his work. 
 
   </>
 
@@ -80,8 +78,8 @@ export const skills = [
 
       HTML (HyperText Markup Language) is the code that is used to structure a web page and its content.
 
-      For example, content could be structured within a set of paragraphs, a list of bulleted points, 
-      
+      For example, content could be structured within a set of paragraphs, a list of bulleted points,
+
       or using images and data tables.
 
     </>,
@@ -236,9 +234,9 @@ export const skills = [
 
     description: <>
 
-      Honestly to list all my skills is a hassle so I listed only the most relevant however there are much 
+      Honestly to list all my skills is a hassle so I listed only the most relevant however there are much
 
-      more skills I have. For instance I actually know Django, Python, Redis, Channels as that was what I first learnt 
+      more skills I have. For instance I actually know Django, Python, Redis, Channels as that was what I first learnt
 
       before I moved to what I am <a href="https://chatty409.herokuapp.com" target="_blank" rel="noopener noreferrer">(a website I made with Django)</a>.
 
