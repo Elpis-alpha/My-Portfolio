@@ -3,6 +3,8 @@ import { v4 } from 'uuid'
 
 export const dev = {
 
+  intro: "Hi, I'm",
+
   firstName: "Festus",
 
   lastName: "Gbolade",
@@ -27,7 +29,7 @@ export const elpis = {
 
   description: <>
 
-    A young man with a passion for web development who is proficient at his work. 
+    A young man with a passion for web development who is proficient at his work.
 
   </>
 
@@ -74,15 +76,11 @@ export const skills = [
 
     title: "HTML",
 
-    description: <>
+    shortDesc: "Markup",
 
-      HTML (HyperText Markup Language) is the code that is used to structure a web page and its content.
+    description: "HyperText Markup Language is the code that is used to structure a web page and its content. For example, content could be structured within a set of paragraphs, a list of bulleted points, or using images and data tables.",
 
-      For example, content could be structured within a set of paragraphs, a list of bulleted points,
-
-      or using images and data tables.
-
-    </>,
+    logo: "html.png"
 
   },
 
@@ -92,11 +90,11 @@ export const skills = [
 
     title: "CSS",
 
-    description: <>
+    shortDesc: "Styling",
 
-      Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML (including XML dialects such as SVG, MathML or XHTML). CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.
+    description: "Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML (including XML dialects such as SVG, MathML or XHTML). CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.",
 
-    </>,
+    logo: "css.png"
 
   },
 
@@ -106,11 +104,11 @@ export const skills = [
 
     title: "Javascript",
 
-    description: <>
+    shortDesc: "Interactive",
 
-      JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc.
+    description: "JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc.",
 
-    </>,
+    logo: "javascript.png"
 
   },
 
@@ -120,11 +118,11 @@ export const skills = [
 
     title: "React",
 
-    description: <>
+    shortDesc: "Dynamic",
 
-      A JavaScript library for building user interfaces, React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
+    description: "JavaScript library for building user interfaces, React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.",
 
-    </>,
+    logo: "react.png"
 
   },
 
@@ -134,11 +132,11 @@ export const skills = [
 
     title: "Nextjs",
 
-    description: <>
+    shortDesc: "Pre-rendering",
 
-      Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed.
+    description: "Next.js gives you the best developer experience with all the features you need for production: hybrid static & server rendering, TypeScript support, smart bundling, route pre-fetching, and more. No config needed.",
 
-    </>,
+    logo: "next.png"
 
   },
 
@@ -148,11 +146,11 @@ export const skills = [
 
     title: "Express",
 
-    description: <>
+    shortDesc: "Backend",
 
-      Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. Express provides a thin layer of fundamental web application features, without obscuring Node.js features that you know and love.
+    description: "Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. Express provides a thin layer of fundamental web application features, without obscuring Node.js features that you know and love.",
 
-    </>,
+    logo: "express.png"
 
   },
 
@@ -162,11 +160,11 @@ export const skills = [
 
     title: "Node",
 
-    description: <>
+    shortDesc: "Javascript",
 
-      Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js is designed to build scalable network applications.
+    description: "Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine. Node.js is designed to build scalable network applications.",
 
-    </>,
+    logo: "node.png"
 
   },
 
@@ -176,11 +174,11 @@ export const skills = [
 
     title: "Mongodb",
 
-    description: <>
+    shortDesc: "Database",
 
-      MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License.
+    description: "MongoDB is a source-available cross-platform document-oriented database program. Classified as a NoSQL database program, MongoDB uses JSON-like documents with optional schemas. MongoDB is developed by MongoDB Inc. and licensed under the Server Side Public License.",
 
-    </>,
+    logo: "mongodb.png"
 
   },
 
@@ -190,25 +188,11 @@ export const skills = [
 
     title: "Nodemailer",
 
-    description: <>
+    shortDesc: "Sending Mails",
 
-      Nodemailer is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.
+    description: "Nodemailer is a module for Node.js applications to allow easy as cake email sending. The project got started back in 2010 when there was no sane option to send email messages, today it is the solution most Node.js users turn to by default.",
 
-    </>,
-
-  },
-
-  {
-
-    _kid: v4(),
-
-    title: "Tip Tap",
-
-    description: <>
-
-      Tiptap gives you full control about every single aspect of your text editor experience. It’s customizable, comes with a ton of extensions, is open source and has an extensive documentation. Join our welcoming community and start building cool things!
-
-    </>,
+    logo: "nodemailer.png"
 
   },
 
@@ -218,11 +202,11 @@ export const skills = [
 
     title: "Socket.IO",
 
-    description: <>
+    shortDesc: "Websockets",
 
-      Socket.IO is a event-driven JavaScript library for real-time web applications. It enables real-time, bi-directional communication between web clients and servers. It has two parts: a client-side library that runs in the browser, and a server-side library for Node.js. Both components have a nearly identical API.
+    description: "Socket.IO is a event-driven JavaScript library for real-time web applications. It enables real-time, bi-directional communication between web clients and servers. It has two parts: a client-side library that runs in the browser, and a server-side library for Node.js. Both components have a nearly identical API.",
 
-    </>,
+    logo: "socket-io.png"
 
   },
 
@@ -232,17 +216,11 @@ export const skills = [
 
     title: "Others",
 
-    description: <>
+    shortDesc: "Small Stuff",
 
-      Honestly to list all my skills is a hassle so I listed only the most relevant however there are much
+    description: "Honestly to list all my skills is a hassle so I listed only the most relevant however there are much more skills I have. For instance I actually know Django, Python, Redis, Channels as that was what I first learnt before I moved to what I am. There's also Git and much more so let me just stop here 😁.",
 
-      more skills I have. For instance I actually know Django, Python, Redis, Channels as that was what I first learnt
-
-      before I moved to what I am <a href="https://chatty409.herokuapp.com" target="_blank" rel="noopener noreferrer">(a website I made with Django)</a>.
-
-      There's also Git and much more so let me just stop here 😁.
-
-    </>,
+    logo: "others.png"
 
   },
 

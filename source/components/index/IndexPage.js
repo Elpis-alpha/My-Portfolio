@@ -17,7 +17,7 @@ const IndexPage = () => {
 
       <div className="cute-text">
 
-        <p className="hello">Hi, I'm</p>
+        <p className="hello">{dev.intro}</p>
 
         <h1>{dev.firstName + " " + dev.lastName}</h1>
 
@@ -53,15 +53,23 @@ const IndexPage = () => {
 
         <div className="title-skills">
 
-          <strong className="hext">I occupy these roles</strong>
+          <strong className="hext">Other Things</strong>
 
-          {roles.map(role => <Link key={role.hook} href="/works"><a><div className="role-hol">
+          <Link href="/pdf/current-resume.pdf"><a><div className="role-hol">
 
-            <h2>{role.name}</h2>
+            <h2>My Resume</h2>
 
-            <p>{role.description}</p>
+            <p>Click to download my resume</p>
 
-          </div></a></Link>)}
+          </div></a></Link>
+
+          <Link href="/about"><a><div className="role-hol">
+
+            <h2>About me</h2>
+
+            <p>Click to learn more about me</p>
+
+          </div></a></Link>
 
         </div>
 

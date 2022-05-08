@@ -2,7 +2,7 @@ import styled from "styled-components"
 
 import { skills, services } from "../../utils"
 
-import { sendMiniMessage, sendXMessage } from "../../controllers/MessageCtrl"
+import { sendMiniMessage, sendNormalMessage, sendSmallMessage, sendXMessage } from "../../controllers/MessageCtrl"
 
 import { useDispatch, useSelector } from "react-redux"
 
@@ -104,6 +104,19 @@ const ServicesPage = () => {
 
   }
 
+  const skillsClick = skill => {
+
+    sendSmallMessage({
+
+      heading: { text: skill.title, style: { padding: '.5rem' } },
+    
+      content: { text: skill.description, style: {} },
+    
+      style: {}
+    
+    }, 5000)
+  }
+
   return (
 
     <ServicesPageStyle>
@@ -150,13 +163,23 @@ const ServicesPage = () => {
 
         <div className="all-skills">
 
-          {skills.map(skill => <div key={skill._kid} className="skill-hol">
+          {skills.map(skill => <div key={skill._kid} className="skill-hol" title={skill.description}>
 
-            <div className="skill-asp">
+            <div className="skill-asp" onClick={() => skillsClick(skill)}>
 
-              <h2>{skill.title}</h2>
+              <div className="img-prt">
 
-              <p>{skill.description}</p>
+                <img src={`/images/ext-logo/${skill.logo}`} alt={skill.title + " logo"} />
+
+              </div>
+
+              <div className="txt-prt">
+
+                <h3>{skill.title}</h3>
+
+                <small>{skill.shortDesc}</small>
+
+              </div>
 
             </div>
 
@@ -200,7 +223,7 @@ const ServicesPageStyle = styled.div`
       flex-wrap: wrap;
 
       .service-hol{
-        width: 25%;
+        width: 50%;
         padding: 1rem;
         display: flex;
         
@@ -243,13 +266,6 @@ const ServicesPageStyle = styled.div`
       @media screen and (max-width: 1000px) {
         
         .service-hol{
-          width: 50%;
-        }
-      }
-
-      @media screen and (max-width: 500px) {
-        
-        .service-hol{
           width: 100%;
         }
       }
@@ -279,7 +295,6 @@ const ServicesPageStyle = styled.div`
       flex-wrap: wrap;
 
       .skill-hol{
-        width: 25%;
         padding: 1rem;
         display: flex;
         
@@ -289,47 +304,41 @@ const ServicesPageStyle = styled.div`
           background: linear-gradient(145deg, #ffffff, #dadcdd);
           box-shadow:  18px 18px 36px #919293,-18px -18px 36px #ffffff;
           display: flex;
-          align-items: flex-start;
-          justify-content: space-between;
-          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transform: scale(1);
+          transition: transform .5s;
 
-          h2{
-            font-size: 1.2rem;
-            padding: 0.3rem 0;
+          &:hover{
+            transform: scale(1.1);
           }
 
-          p{
-            font-size: .8rem;
-            flex: 1;
-          }
+          .img-prt{
+            height: 4rem;
 
-          button{
-            margin: .3rem 0;
-            background: #f2f4f5;
-            border: 0 none;
-            border-radius: 0.3rem;
-            padding: 0 .5rem;
-            box-shadow: inset 8px 8px 30px #c2c3c4, inset -8px -8px 30px #ffffff;
-            transition: box-shadow .5s;
-
-            &:hover{
-              box-shadow: inset 8px 8px 60px #b2b3b4, inset -8px -8px 60px #d4d5d6;
+            img{
+              height: 100%;
             }
           }
-        }
-      }
 
-      @media screen and (max-width: 1000px) {
-        
-        .skill-hol{
-          width: 50%;
-        }
-      }
+          .txt-prt{
+            padding-left: 0.5rem;
+            display: flex;
+            flex-direction: column;
 
-      @media screen and (max-width: 500px) {
-        
-        .skill-hol{
-          width: 100%;
+            h3{
+              font-size: 1.2rem;
+              line-height: 2rem;
+            }
+  
+            small{
+              font-size: .8rem;
+              line-height: 1.5rem;
+              display: inline-block;
+            }
+          }
+
         }
       }
     }
