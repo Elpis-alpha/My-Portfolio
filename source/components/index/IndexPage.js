@@ -134,8 +134,8 @@ const IndexPageStyle = styled.div`
     }
 
     h1{
-      font-size: 2.5rem;
-      line-height: 4rem;
+      font-size: 3rem;
+      line-height: 4.5rem;
       white-space: nowrap;
     }
 
@@ -147,7 +147,7 @@ const IndexPageStyle = styled.div`
     }
 
     p{
-      font-size: .8rem;
+      font-size: 1rem;
     }
 
     a.hir{
@@ -211,8 +211,13 @@ const IndexPageStyle = styled.div`
       background-color: #f2f4f5;
 
       h1.hext, strong.hext{
-        font-size: 1.5rem;
+        font-size: 2rem;
+        line-height: 2.5rem;
         display: flex;
+      }
+
+      p{
+        font-size: 1rem;
       }
     }
 
@@ -237,12 +242,13 @@ const IndexPageStyle = styled.div`
 
 
       h1.hext, strong.hext{
-        font-size: 1.5rem;
+        font-size: 2rem;
+        line-height: 2.5rem;
         display: flex;
       }
 
       h2{
-        font-size: .8rem;
+        font-size: 1rem;
         line-height: 1.5rem;
         white-space: nowrap;
         overflow: hidden;
@@ -250,6 +256,7 @@ const IndexPageStyle = styled.div`
       }
 
       p{
+        font-size: .9rem;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
