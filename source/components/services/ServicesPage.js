@@ -1,5 +1,7 @@
 import styled from "styled-components"
 
+import { useState, useEffect } from "react"
+
 import { skills, services } from "../../utils"
 
 import { sendMiniMessage, sendNormalMessage, sendSmallMessage, sendXMessage } from "../../controllers/MessageCtrl"
@@ -11,6 +13,7 @@ import { setServiceMessage } from "../../store/slice/emailSlice"
 import { postApiJson } from "../../controllers/APICtrl"
 
 import { sendMail } from "../../api"
+
 import { hostEmail, mailToken } from "../../__env"
 
 
@@ -19,6 +22,75 @@ const ServicesPage = () => {
   const dispatch = useDispatch()
 
   const { serviceMessage } = useSelector(store => store.email)
+
+  const [sendMessage, setSendMessage] = useState(false)
+
+  useEffect(async () => {
+
+    if (typeof sendMessage === "number") {
+
+      const serve = serviceMessage
+
+      setSendMessage(false)
+
+      dispatch(setServiceMessage(""))
+
+      try {
+
+        const service = services[sendMessage]
+
+        const msgRes = await postApiJson(sendMail(), {
+
+          title: "A Mail from Your Portfolio",
+
+          address: hostEmail,
+
+          content: `
+
+          <h1>Service Request Boss</h1>
+
+          <h3>Request Info:</h3>
+
+          <h4>Title: ${service.title}</h4> <br />
+
+          <p>Description: ${service.description.props.children}</p> <br />
+
+          <h3>Client Info:</h3>
+
+          <p>${serve}</p> <br />
+
+          <small>Congrats Boss 🥰</small>
+
+        `
+
+        }, mailToken)
+
+        if (msgRes.error) throw new Error()
+
+        sendMiniMessage({
+
+          icon: { name: "ok", style: {} },
+
+          content: { text: "Message Sent", style: {} },
+
+        }, 2000)
+
+      } catch (error) {
+
+        return sendMiniMessage({
+
+          icon: { name: "times", style: {} },
+
+          content: { text: "An Error Occured", style: {} },
+
+        }, 2000)
+
+      }
+
+    }
+
+  }, [sendMessage, serviceMessage])
+
 
   const requestServiceHandler = async service => {
 
@@ -50,57 +122,7 @@ const ServicesPage = () => {
 
     })
 
-    dispatch(setServiceMessage(""))
-
-    try {
-
-      const msgRes = await postApiJson(sendMail(), {
-
-        title: "A Mail from Your Portfolio",
-
-        address: hostEmail,
-
-        content: `
-
-          <h1>Service Request Boss</h1>
-
-          <h3>Request Info:</h3>
-
-          <h4>${service.title}</h4>
-
-          <p>${service.description.props.children}</p>
-
-          <h3>Client Info:</h3>
-
-          <p>${serviceMessage}</p>
-
-          <small>Congrats Boss 🥰</small>
-
-        `
-
-      }, mailToken)
-
-      if (msgRes.error) throw new Error()
-
-      sendMiniMessage({
-
-        icon: { name: "ok", style: {} },
-
-        content: { text: "Message Sent", style: {} },
-
-      }, 2000)
-
-    } catch (error) {
-
-      return sendMiniMessage({
-
-        icon: { name: "times", style: {} },
-
-        content: { text: "An Error Occured", style: {} },
-
-      }, 2000)
-
-    }
+    setSendMessage(services.findIndex(se => se._sid === service._sid))
 
   }
 
@@ -109,11 +131,11 @@ const ServicesPage = () => {
     sendSmallMessage({
 
       heading: { text: skill.title, style: { padding: '.5rem' } },
-    
+
       content: { text: skill.description, style: {} },
-    
+
       style: {}
-    
+
     }, 5000)
   }
 
