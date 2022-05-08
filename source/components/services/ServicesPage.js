@@ -243,7 +243,7 @@ const ServicesPageStyle = styled.div`
           }
 
           p{
-            font-size: .8rem;
+            font-size: .9rem;
             flex: 1;
           }
 

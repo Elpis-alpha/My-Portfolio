@@ -47,19 +47,29 @@ const WorksPage = () => {
 
       <div className="all-mi-rols">
 
+        {getWorkLevel(works) === 1 && <div className="heading">
+
+          <h1>Choose which projects you wish to see</h1>
+
+        </div>}
+
         {[allRoles].concat(roles).map(role => <div key={role.hook} className={"role-hol " + (getWork(2, works) === role.hook ? "active" : "")}>
 
-          <div className="role-asp" onClick={e => rolesClick(role)}>
+          <div className="role-asp" onClick={e => rolesClick(role)} title={role.projectDescription}>
 
             <h1>{role.name}</h1>
 
             <h2>{role.altName}</h2>
 
-            <p>{role.projectDescription}</p>
-
           </div>
 
         </div>)}
+
+        {getWorkLevel(works) === 1 && <div className="footing">
+
+          <p>Click them to view their projects and again to return to this state</p>
+
+        </div>}
 
       </div>
 
@@ -142,8 +152,30 @@ const WorksPageStyle = styled.div`
     transition: width .5s;
     width: 100%;
 
+    @keyframes opac-im {
+      from{ opacity: 0 }
+      to{ opacity: 1 }
+    }
+
+    .heading{
+      width: 100%;
+      font-size: 1.5rem;
+      text-align: center;
+      padding: 1rem;
+      animation: opac-im .5s 1;
+    }
+
+    .footing{
+      width: 100%;
+      font-size: 1rem;
+      text-align: center;
+      padding: 1rem;
+      animation: opac-im .5s 1;
+    }
+
     .role-hol{
       width: 50%;
+      text-align: center;
       padding: 1rem;
       display: flex;
       align-items: stretch;
@@ -158,6 +190,7 @@ const WorksPageStyle = styled.div`
         overflow: hidden;
         cursor: pointer;
         border: 1px solid transparent;
+        width: 100%;
         transition: border .5s;
 
         h1{
@@ -166,7 +199,7 @@ const WorksPageStyle = styled.div`
           text-overflow: ellipsis;
           overflow: hidden;
         }
-        
+
         h2{
           white-space: nowrap;
           font-size: .8rem;
@@ -175,7 +208,7 @@ const WorksPageStyle = styled.div`
           max-height: 2rem;
           transition: max-height .5s;
         }
-        
+
         p{
           max-height: 10rem;
           overflow: hidden;
