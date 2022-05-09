@@ -143,7 +143,7 @@ const ServicesPage = () => {
 
     <ServicesPageStyle>
 
-      <section className="service-segmment">
+      <section className="service-segmment" id="service-segmment">
 
         <div className="intro">
 
@@ -173,7 +173,7 @@ const ServicesPage = () => {
 
       </section>
 
-      <section className="skills-segmment">
+      <section className="skills-segmment" id="skills-segmment">
 
         <div className="intro">
 
