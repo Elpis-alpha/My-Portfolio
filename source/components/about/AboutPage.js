@@ -1,6 +1,8 @@
 import Link from "next/link"
+
 import styled from "styled-components"
-import { dev, elpis } from "../../utils"
+
+import { dev } from "../../utils"
 
 
 const AboutPage = () => {
@@ -279,6 +281,14 @@ const AboutPage = () => {
 
       </section>
 
+      <section className="exit">
+
+        <p>Now that you know a little about me, why not reach out and let's build your dream together.</p>
+
+        <Link href="/contact"><a>Hire Me</a></Link>
+
+      </section>
+
     </AboutPageStyle >
 
   )
@@ -437,7 +447,7 @@ const AboutPageStyle = styled.div`
   }
 
   section.facts{
-    padding: 5rem 3rem;
+    padding: 3rem;
 
     .container{
       display: flex;
@@ -474,6 +484,36 @@ const AboutPageStyle = styled.div`
         box-shadow:  9px 9px 18px #9b9c9d, -9px -9px 18px #ffffff;
         text-align: center;
       }
+    }
+  }
+
+  section.exit{
+    padding: 3rem;
+    padding-top: 0;
+    text-align: center;
+
+    p{
+      font-size: 1.2rem;
+      line-height: 2.5rem;
+      padding-bottom: 1rem;
+    }
+
+    a{
+      display: inline-flex;
+      padding: 0.3rem 2rem;
+      text-decoration: none;
+      margin: 0 auto;
+      color: inherit;
+      border: 0 none;
+      padding: 0 1rem;
+      border-radius: 0.2rem;
+      box-shadow: 10px 10px 20px #d2d3d4, -10px -10px 20px #ffffff;
+      transform: scale(1);
+      transition: transform .5s;
+    }
+
+    a:hover{
+      transform: scale(1.1);
     }
   }
 
