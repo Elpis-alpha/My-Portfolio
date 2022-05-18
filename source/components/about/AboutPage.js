@@ -95,7 +95,7 @@ const AboutPage = () => {
 
               an internship at Chemical & Allied Products PLC.
 
-              I'm actively talking jobs from anyone who needs my services.
+              I'm actively taking jobs from anyone who needs my services.
 
             </p>
 
@@ -257,7 +257,7 @@ const AboutPage = () => {
 
             <div className="a-fact">I wish I can fly (who doesn't)</div>
 
-            <div className="a-fact">I'm close two meters (1.96m)</div>
+            <div className="a-fact">I'm almost two meters tall (1.96m)</div>
 
             <div className="a-fact">I love video games</div>
 
@@ -404,7 +404,7 @@ const AboutPageStyle = styled.div`
       position: absolute;
       bottom: 0; left: 0;
       right: 0; top: 0;
-      opacity: .4;
+      opacity: .3;
 
       img{
         width: 100%;

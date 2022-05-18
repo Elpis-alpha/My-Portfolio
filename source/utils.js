@@ -15,9 +15,9 @@ export const dev = {
 
   description: <>
 
-    I am a Full Stack Web Developer who uses React, Next.js, Nodejs, Mongodb and more
+    I am a Full Stack (MERN Stack) Web Developer who build amazing websites.
 
-    to build amazing websites. I'm <strong>Elpis</strong> by the way.
+    I'm also called <strong>Elpis</strong>.
 
   </>
 
@@ -501,6 +501,30 @@ export const works = [
     type: ["aed", "---"],
 
     imageurl: "/images/projects/node-pic.png"
+
+  },
+
+  {
+
+    _wid: v4(),
+
+    title: "Landing Pages",
+
+    description: <>
+
+      A compilation of some of the landing pages created by me, I got most of their
+
+      designs from google but the actual code is all mine. Check them out here
+
+    </>,
+
+    liveURL: "https://elpis-landing-pages.netlify.app/",
+
+    sourceCode: "https://github.com/Elpis-alpha/Landing-Pages",
+
+    type: ["wbd", "---"],
+
+    imageurl: "/images/projects/ludo.png"
 
   },
 

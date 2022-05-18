@@ -53,21 +53,17 @@ const IndexPage = () => {
 
         <div className="title-skills">
 
-          <strong className="hext">Other Things</strong>
+          <strong className="hext">Information</strong>
 
-          <Link href="/pdf/current-resume.pdf"><a><div className="role-hol">
+          <Link href="/docs/current-resume.pdf"><a target="_blank"><div className="role-hol">
 
-            <h2>My Resume</h2>
-
-            <p>Click to download my resume</p>
+            <p>Check out my resume here</p>
 
           </div></a></Link>
 
           <Link href="/about"><a><div className="role-hol">
 
-            <h2>About me</h2>
-
-            <p>Click to learn more about me</p>
+            <p>Know a little more about me here</p>
 
           </div></a></Link>
 
@@ -222,6 +218,8 @@ const IndexPageStyle = styled.div`
     }
 
     .title-skills{
+      position: fixed;
+      bottom: 1.5rem; right: 1.5rem;
       border-radius: 1rem;
       padding: 1.3rem 1.5rem;
       box-shadow:  30px 30px 60px #a7a8a9, -30px -30px 60px #ffffff;
@@ -231,12 +229,13 @@ const IndexPageStyle = styled.div`
       a{
         padding: .3rem 0;
         cursor: pointer;
-        text-decoration: none;
+        text-decoration: underline;
         color: inherit;
         display: block;
+        transition: color .5s;
   
         &:hover{
-          text-decoration: underline;
+          color: green;
         }
       }
 
