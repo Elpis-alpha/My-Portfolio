@@ -57,13 +57,13 @@ const IndexPage = () => {
 
           <Link href="/docs/current-resume.pdf"><a target="_blank"><div className="role-hol">
 
-            <p>Check out my resume here</p>
+            <p>Download a copy of my resume here</p>
 
           </div></a></Link>
 
-          <Link href="/about"><a><div className="role-hol">
+          <Link href="/payment"><a><div className="role-hol">
 
-            <p>Know a little more about me here</p>
+            <p>Make payments or donations here</p>
 
           </div></a></Link>
 

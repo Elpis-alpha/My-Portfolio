@@ -18,3 +18,7 @@ export const backendLocation = process.env.NEXT_PUBLIC_BACK_END
 export const isProduction = process.env.NEXT_PUBLIC_BACK_END === "true"
 
 export const mailToken = process.env.NEXT_PUBLIC_MAIL_TOKEN
+
+export const clientID = process.env.NEXT_PUBLIC_CLIENT_ID
+
+export const paymentPassword = process.env.NEXT_PUBLIC_PAYMENT_PASSWORD
