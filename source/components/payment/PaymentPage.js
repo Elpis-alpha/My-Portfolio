@@ -2,7 +2,7 @@ import { useState } from "react"
 
 import styled from "styled-components"
 
-import { PayPalButton } from "react-paypal-button-v2"
+// import { PayPalButton } from "react-paypal-button-v2"
 
 import { sendMiniMessage } from "../../controllers/MessageCtrl"
 
@@ -12,6 +12,11 @@ import { savePayment } from "../../api"
 
 import { clientID, paymentPassword } from "../../__env"
 
+import React, { useEffect, useRef } from "react";
+
+import ReactDOM from "react-dom"
+
+import Script from "next/script"
 
 const PaymentPage = () => {
 
@@ -21,21 +26,87 @@ const PaymentPage = () => {
 
   const [paymentStage, setPaymentStage] = useState("elpis")
 
+  const paypalRef = useRef(null)
+
+  useEffect(() => {
+
+    console.log(window.paypal);
+    
+    if (paymentStage === "paypal") {
+
+      window.paypal.Buttons({
+
+        createOrder: (data, actions) => {
+
+          console.log("Creating Order...");
+
+          console.log({ data, actions });
+
+          return actions.order.create({
+
+            intent: "CAPTURE",
+
+            purchase_units: [
+
+              {
+
+                description, amount: {
+
+                  value: parseFloat(amountValue).toFixed(2),
+
+                  currency_code: "USD"
+
+                },
+
+              },
+
+            ],
+
+          });
+
+        },
+
+        onApprove: async (data, actions) => {
+
+          console.log("On Approve...");
+
+          console.log({ data, actions });
+
+          return actions.order.capture();
+
+        },
+
+        onError: (error) => {
+
+          console.log("On Error...");
+
+          console.log(error);
+
+        }
+
+      }).render(paypalRef.current)
+
+    }
+
+  }, [paymentStage])
+
+
   const submitPayment = e => {
 
     e.preventDefault()
 
-    if (description.trim().split(' ').filter(x => x !== '').length < 5) {
+    // if (description.trim().split(' ').filter(x => x !== '').length < 5) {
 
-      return sendMiniMessage({
+    //   return sendMiniMessage({
 
-        icon: { name: "times", style: {} },
+    //     icon: { name: "times", style: {} },
 
-        content: { text: `Description is too short: ${description.trim().split(' ').filter(x => x !== '').length} word(s)!`, style: {} },
+    //     content: { text: `Description is too short: ${description.trim().split(' ').filter(x => x !== '').length} word(s)!`, style: {} },
 
-      }, 2000)
+    //   }, 2000)
 
-    } else if (isNaN(amountValue)) {
+    // } else 
+    if (isNaN(amountValue)) {
 
       return sendMiniMessage({
 
@@ -66,6 +137,8 @@ const PaymentPage = () => {
   return (
 
     <PaymentPageStyle>
+
+      <Script src={`https://www.paypal.com/sdk/js?client-id=${clientID}`}></Script>
 
       {paymentStage === "elpis" ?
 
@@ -105,7 +178,9 @@ const PaymentPage = () => {
 
           <h1>Making payment of ${parseFloat(amountValue).toFixed(2)} to Elpis</h1>
 
-          <PayPalButton
+          <div ref={paypalRef}></div>
+
+          {/* <PayPalButton
 
             amount={parseFloat(amountValue).toFixed(2)}
 
@@ -173,7 +248,7 @@ const PaymentPage = () => {
 
             }}
 
-          />
+          /> */}
 
         </div>}
 

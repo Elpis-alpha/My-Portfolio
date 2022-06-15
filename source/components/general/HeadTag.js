@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { siteName, siteDescription, creator } from '../../__env'
+import { siteName, siteDescription, creator, clientID } from '../../__env'
 
 
 const HeadTag = ({ title, description }) => {
