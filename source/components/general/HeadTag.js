@@ -1,6 +1,6 @@
 import Head from 'next/head'
 
-import { siteName, siteDescription, creator, clientID } from '../../__env'
+import { siteName, siteDescription, creator, clientID, host } from '../../__env'
 
 
 const HeadTag = ({ title, description }) => {
@@ -41,7 +41,7 @@ const HeadTag = ({ title, description }) => {
 
       <meta property="og:title" content={siteName} />
 
-      <meta property="og:url" content="https://elpis-portfolio.vercel.app/" />
+      <meta property="og:url" content={host} />
 
       <meta property="og:description" content={description ? description : siteDescription} />
 
@@ -49,13 +49,25 @@ const HeadTag = ({ title, description }) => {
 
       <meta property="og:locale" content="en_US" />
 
-      <meta property="og:image" content="https://elpis-portfolio.vercel.app/images/open-graph.png" />
+      <meta property="og:image" content={`${host}/images/open-graph.png`} />
 
       <meta property="og:image:width" content="1200" />
 
       <meta property="og:image:height" content="630" />
 
       <meta property="og:image:type" content="image/png" />
+
+      <meta name="twitter:card" content="summary_large_image" />
+
+      <meta name="twitter:site" content="@elpis_alpha" />
+
+      <meta name="twitter:creator" content="@elpis_alpha" />
+
+      <meta name="twitter:title" content={siteName} />
+
+      <meta name="twitter:description" content={description ? description : siteDescription} />
+
+      <meta name="twitter:image" content={`${host}/images/open-graph.png`} />
 
     </Head>
 

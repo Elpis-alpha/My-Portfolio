@@ -57,13 +57,13 @@ const IndexPage = () => {
 
           <Link href="/docs/current-resume.pdf"><a target="_blank"><div className="role-hol">
 
-            <p>Download a copy of my resume here</p>
+            <p>A copy of my resume here</p>
 
           </div></a></Link>
 
-          <Link href="/payment"><a><div className="role-hol">
+          <Link href="/about"><a><div className="role-hol">
 
-            <p>Make payments or donations here</p>
+            <p>More about me here</p>
 
           </div></a></Link>
 
@@ -225,6 +225,7 @@ const IndexPageStyle = styled.div`
       box-shadow:  30px 30px 60px #a7a8a9, -30px -30px 60px #ffffff;
       background-color: #f2f4f5;
       margin-top: 1rem;
+      width: calc(40vw - 2rem);
 
       a{
         padding: .3rem 0;
