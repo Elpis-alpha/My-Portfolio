@@ -15,7 +15,7 @@ const PageNotFound = () => {
 
         <h1>404</h1>
 
-        <p>Unfortunately, it seemes the page you requested for does not currently exist. </p>
+        <p>Unfortunately, it seemes the page you requested for does not currently exist.  </p>
 
         {/* <small>If you have any doubts regarding why this does not exist, kindly <a href={complain} target="_blank" rel="noopener noreferrer">lodge a complaint here</a></small> */}
 
