@@ -6,7 +6,7 @@ import styled from "styled-components"
 
 import { useEffect, useRef, useState } from "react"
 
-import { useSelector } from "react-redux"
+import { Sling as Hamburger } from "hamburger-react"
 
 import { creator } from "../../__env"
 
@@ -16,6 +16,8 @@ const NavBar = () => {
   const router = useRouter()
 
   const navChildrenRef = useRef(null)
+
+  const [isNavOpened, setIsNavOpened] = useState(false)
 
   const [currentURL, setCurrentURL] = useState("")
 
@@ -61,11 +63,23 @@ const NavBar = () => {
 
       <div className="children" ref={navChildrenRef}>
 
-        <ul>
+        <div className="nav-ham">
+
+          <Hamburger color="black" size="35" toggled={isNavOpened} toggle={setIsNavOpened} duration={1} distance="sm" rounded />
+
+        </div>
+
+        <ul className={isNavOpened ? "show-nev" : ""}>
+
+          <div className="nav-ham innie">
+
+            <Hamburger color="black" size="35" toggled={isNavOpened} toggle={setIsNavOpened} duration={1} distance="sm" rounded />
+
+          </div>
 
           <div className="one-nav">
 
-            <li><Link href="/"><a className={currentURL === "/" ? "active" : ""}>
+            <li className="reveal-1"><Link href="/"><a className={currentURL === "/" ? "active" : ""} onClick={() => setIsNavOpened(false)}>
 
               Home
 
@@ -75,13 +89,13 @@ const NavBar = () => {
 
           <div className="two-nav">
 
-            <li><Link href="/works"><a className={currentURL === "/works" ? "active" : ""}>
+            <li className="reveal-2"><Link href="/works"><a className={currentURL === "/works" ? "active" : ""} onClick={() => setIsNavOpened(false)}>
 
               Works
 
             </a></Link></li>
 
-            <li><Link href="/services"><a className={currentURL === "/services" ? "active" : ""}>
+            <li className="reveal-3"><Link href="/services"><a className={currentURL === "/services" ? "active" : ""} onClick={() => setIsNavOpened(false)}>
 
               Services
 
@@ -91,13 +105,13 @@ const NavBar = () => {
 
           <div className="two-nav">
 
-            <li><Link href="/contact"><a className={currentURL === "/contact" ? "active" : ""}>
+            <li className="reveal-4"><Link href="/contact"><a className={currentURL === "/contact" ? "active" : ""} onClick={() => setIsNavOpened(false)}>
 
               Contact me
 
             </a></Link></li>
 
-            <li><Link href="/about"><a className={currentURL === "/about" ? "active" : ""}>
+            <li className="reveal-5"><Link href="/about"><a className={currentURL === "/about" ? "active" : ""} onClick={() => setIsNavOpened(false)}>
 
               About me
 
@@ -124,6 +138,17 @@ const NavStyle = styled.nav`
   animation: opacity 1s 1;
   width: 100%;
 
+  @keyframes slide-opacity {
+    from {
+      transform: translateX(-10pc);
+      opacity: 0;
+    }
+    to {
+      transform: translateX(0pc);
+      opacity: 1;
+    }
+  }
+
   &.hide-nav{
     /* display: none; */
     height: 0;
@@ -139,8 +164,8 @@ const NavStyle = styled.nav`
   .heading {
 
     a{
-      padding: 1.5rem 0;
-      line-height: 2rem;
+      padding: 1.5pc 0;
+      line-height: 2pc;
       display: block;
       color: black;
       text-decoration: none;
@@ -149,7 +174,7 @@ const NavStyle = styled.nav`
       align-items: baseline;
 
       .head-image{
-        width: 15rem;
+        width: 15pc;
 
         img{
           width: 100%;
@@ -158,9 +183,9 @@ const NavStyle = styled.nav`
       
       .head-text{
         min-height: 50%;
-        font-size: 2rem;
-        left: -2rem;
-        top: -0.5rem;
+        font-size: 2pc;
+        left: -2pc;
+        top: -0.5pc;
       }
     }
     
@@ -168,6 +193,10 @@ const NavStyle = styled.nav`
 
   .children{
     display: flex;
+
+    .nav-ham {
+      display: none;
+    }
 
     ul{
       display: flex;
@@ -177,13 +206,13 @@ const NavStyle = styled.nav`
       .two-nav{
         display: flex;
         flex-direction: column;
-        font-size: .8rem;
+        font-size: .8pc;
         align-items: stretch;
       }
 
       .one-nav{
         display: flex;
-        font-size: .8rem;
+        font-size: .8pc;
         align-items: center;
         justify-content: center;
       }
@@ -191,7 +220,7 @@ const NavStyle = styled.nav`
       @media screen and (min-width: 1000px) {
 
         &{
-          padding-right: 5rem;
+          padding-right: 5pc;
         }
 
         .two-nav{
@@ -201,14 +230,14 @@ const NavStyle = styled.nav`
       }
 
       li{
-        margin: .3rem .3rem;
+        margin: .3pc .3pc;
         
         a{
-          padding: .3rem 1rem; 
-          border-radius: 1rem;
+          padding: .3pc 1pc; 
+          border-radius: 1pc;
           color: black;
           text-decoration: none;
-          line-height: .9rem;
+          line-height: .9pc;
           display: flex;
           align-items: center;
           justify-content: center;
@@ -230,16 +259,104 @@ const NavStyle = styled.nav`
       @media screen and (max-width: 400px) {
 
         li{
-          margin: .3rem .1rem;
+          margin: .3pc .1pc;
   
           a{
-            padding: .3rem .8rem; 
+            padding: .3pc .8pc; 
           }
         }
       }
     }
   }
 
+  @media screen and (max-width: 600px) {
+
+    .heading {
+
+      a{
+
+        .head-image{
+          width: 13pc;
+        }
+        
+        .head-text{
+          font-size: 1.7pc;
+          left: -1.7pc;
+          top: -0.5pc;
+        }
+      }
+    }
+
+    .children {
+
+      .nav-ham {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 1pc;
+        z-index: 50;
+
+        &.innie {
+          position: absolute;
+          top: 2pc; right: 1.3pc;
+          margin-right: 0;
+          display: none;
+        }
+      }
+
+      ul {
+        display: none;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        position: fixed;
+        top: 0; bottom: 0;
+        left: 0; right: 0;
+        background-color: #e7e7e7;
+        animation: slide-opacity .5s 0s 1;
+        
+        &.show-nev {
+          display: flex;
+        }
+
+        .one-nav, .two-nav {
+          display: contents;
+        }
+
+        li {
+
+          &.reveal-1 { animation: slide-opacity 0.5s 0s ease-in-out 1 }
+          &.reveal-2 { animation: slide-opacity 1.0s 0s ease-in-out 1 }
+          &.reveal-3 { animation: slide-opacity 1.5s 0s ease-in-out 1 }
+          &.reveal-4 { animation: slide-opacity 2.0s 0s ease-in-out 1 }
+          &.reveal-5 { animation: slide-opacity 2.5s 0s ease-in-out 1 }
+           
+          a {
+            padding: 0.5pc 2pc;
+          }
+        }
+      }
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+
+    .heading {
+
+      a{
+
+        .head-image{
+          width: 10pc;
+        }
+        
+        .head-text{
+          font-size: 1.5pc;
+          left: -1.5pc;
+          top: -0.5pc;
+        }
+      }
+    }
+  }
 `
 
 export default NavBar

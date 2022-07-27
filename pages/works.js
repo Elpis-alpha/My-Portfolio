@@ -9,7 +9,7 @@ const WorksPage = () => {
 
     <>
 
-      <HeadTag />
+      <HeadTag title="Works" description="A magnificent display of works and projects that I Elpis (Festus Gbolade) has undertaken as a web developer" ogImage='-works' />
 
       <WorksPageX />
 

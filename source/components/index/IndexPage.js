@@ -77,25 +77,25 @@ const IndexPage = () => {
 
           <div className="icon-hol" title="My Mail">
 
-            <a href={"mailto:" + social.email} target="_blank" rel="noopener noreferrer"> <FaEnvelope size="1.1rem" /> </a>
+            <a href={"mailto:" + social.email} target="_blank" rel="noopener noreferrer"> <FaEnvelope size="1.1pc" /> </a>
 
           </div>
 
           <div className="icon-hol" title="My Telegram Link">
 
-            <a href={social.telegram} target="_blank" rel="noopener noreferrer"> <FaTelegramPlane size="1.1rem" /> </a>
+            <a href={social.telegram} target="_blank" rel="noopener noreferrer"> <FaTelegramPlane size="1.1pc" /> </a>
 
           </div>
 
           <div className="icon-hol" title="My Phone Line">
 
-            <a href={"tel:" + social.phoneLine} target="_blank" rel="noopener noreferrer"> <FaPhone size="1.1rem" /> </a>
+            <a href={"tel:" + social.phoneLine} target="_blank" rel="noopener noreferrer"> <FaPhone size="1.1pc" /> </a>
 
           </div>
 
           <div className="icon-hol" title="My Upwork Link">
 
-            <a href={social.upwork} target="_blank" rel="noopener noreferrer"> <SiUpwork size="1.1rem" /> </a>
+            <a href={social.upwork} target="_blank" rel="noopener noreferrer"> <SiUpwork size="1.1pc" /> </a>
 
           </div>
 
@@ -114,24 +114,24 @@ const IndexPageStyle = styled.div`
   flex: 1;
   height: 100%;
   width: 100%;
-  padding: 0 0.5rem;
+  padding: 0 0.5pc;
   animation: opacity 1s 1;
   display: flex;
 
   .cute-text{
     width: 40vw;
-    padding: 1rem;
+    padding: 3pc 1pc;
     margin: auto 0;
     z-index: 10;
 
     .hello{
-      font-size: 1.5rem;
+      font-size: 1.5pc;
       font-weight: bold;
     }
 
     h1{
-      font-size: 3rem;
-      line-height: 4.5rem;
+      font-size: 3pc;
+      line-height: 4.5pc;
       white-space: nowrap;
     }
 
@@ -139,21 +139,22 @@ const IndexPageStyle = styled.div`
       width: 100%;
       height: 2px;
       background-color: #a5a5a5;
-      margin: .5rem auto;
+      margin: .5pc auto;
     }
 
     p{
-      font-size: 1rem;
+      font-size: 1pc;
+      line-height: 2.2pc;
     }
 
     a.hir{
       text-decoration: none;
       color: inherit;
       display: inline-block;
-      margin-top: .5rem;
+      margin-top: .5pc;
       border: 0 none;
-      padding: 0 1rem;
-      border-radius: 0.2rem;
+      padding: 0 1pc;
+      border-radius: 0.2pc;
       margin-bottom: 10vh;
       box-shadow:  10px 10px 20px #d2d3d4, -10px -10px 20px #ffffff;
       transform: scale(1);
@@ -175,7 +176,7 @@ const IndexPageStyle = styled.div`
     height: 90vh;
     top: 15vh; bottom: 5vh;
     left: 35vw; right: 35vw;
-    padding: 1rem;
+    padding: 1pc;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -194,41 +195,42 @@ const IndexPageStyle = styled.div`
 
   .cute-bats{
     width: 40vw;
-    padding: 1rem;
+    padding: 1pc;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     z-index: 10;
 
     .title-elpis{
-      border-radius: 1rem;
-      padding: 1.3rem 1.5rem;
+      border-radius: 1pc;
+      padding: 1.3pc 1.5pc;
       box-shadow:  30px 30px 60px #a7a8a9, -30px -30px 60px #ffffff;
       background-color: #f2f4f5;
 
       h1.hext, strong.hext{
-        font-size: 2rem;
-        line-height: 2.5rem;
+        font-size: 2pc;
+        line-height: 2.5pc;
+        padding: 0.5pc 0;
         display: flex;
       }
 
       p{
-        font-size: 1rem;
+        font-size: 1pc;
       }
     }
 
     .title-skills{
       position: fixed;
-      bottom: 1.5rem; right: 1.5rem;
-      border-radius: 1rem;
-      padding: 1.3rem 1.5rem;
+      bottom: 1.5pc; right: 1.5pc;
+      border-radius: 1pc;
+      padding: 1.3pc 1.5pc;
       box-shadow:  30px 30px 60px #a7a8a9, -30px -30px 60px #ffffff;
       background-color: #f2f4f5;
-      margin-top: 1rem;
-      width: calc(40vw - 2rem);
+      margin-top: 1pc;
+      width: calc(40vw - 2pc);
 
       a{
-        padding: .3rem 0;
+        padding: .3pc 0;
         cursor: pointer;
         text-decoration: underline;
         color: inherit;
@@ -242,25 +244,25 @@ const IndexPageStyle = styled.div`
 
 
       h1.hext, strong.hext{
-        font-size: 2rem;
-        line-height: 2.5rem;
+        font-size: 2pc;
+        line-height: 2.5pc;
         display: flex;
       }
 
       h2{
-        font-size: 1rem;
-        line-height: 1.5rem;
+        font-size: 1pc;
+        line-height: 1.5pc;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
       }
 
       p{
-        font-size: .9rem;
+        font-size: .9pc;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        line-height: 1.5rem;
+        line-height: 1.5pc;
       }
     }
   }
@@ -271,17 +273,18 @@ const IndexPageStyle = styled.div`
 
   .cute-icons{
     position: fixed;
-    left: 1.5rem; bottom: 2rem;
+    left: 1.5pc; bottom: 2pc;
+    z-index: 50;
 
     .four-iholder{
       display: flex;
 
       .icon-hol{
-        margin: 0 .5rem;
+        margin: 0 .5pc;
         
         a{
           display: inline-block;
-          width: 3rem; height: 3rem;
+          width: 3pc; height: 3pc;
           border-radius: 50%;
           display: flex;
           align-items: center;
@@ -291,10 +294,6 @@ const IndexPageStyle = styled.div`
           box-shadow:  30px 30px 60px #a7a8a9, -30px -30px 60px #ffffff;
           transform: scale(1);
           transition: transform .5s;
-          
-          @media screen and (max-width: 500px) {
-            width: 4rem; height: 4rem;
-          }
 
           &:hover{
             transform: scale(1.2);
@@ -304,6 +303,61 @@ const IndexPageStyle = styled.div`
     }
   }
 
+  @media screen and (max-width: 900px) {
+    .cute-image, .cute-mid-space {
+      display: none;
+    }    
+
+    .cute-text {
+      width: 50vw;
+    }
+
+    .cute-bats {
+      width: 40vw;
+      margin-left: auto;
+    }
+
+    @media screen and (max-width: 750px) {
+      .cute-bats {
+        width: 45vw;
+        margin-left: auto;
+
+        .title-skills{
+          width: calc(45vw - 2pc);
+        }
+      }
+    }
+
+    @media screen and (max-width: 650px) {
+      .cute-text {
+        width: 80%;
+      }
+
+      .cute-bats {
+        display: none;
+      }
+
+      @media screen and (max-width: 550px) {
+        .cute-text {
+          width: 100%;
+        }
+      }
+
+      @media screen and (max-width: 380px) {
+        .cute-text{ 
+        
+          h1 {
+            font-size: 2.5pc;
+            line-height: 3.5pc;
+          }
+
+          p {
+            font-size: .9pc;
+          }
+        }
+      }
+    }
+  }
 `
 
 

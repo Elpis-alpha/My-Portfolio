@@ -25,69 +25,75 @@ const ServicesPage = () => {
 
   const [sendMessage, setSendMessage] = useState(false)
 
-  useEffect(async () => {
+  useEffect(() => {
 
-    if (typeof sendMessage === "number") {
+    const workout = async () => {
 
-      const serve = serviceMessage
-
-      setSendMessage(false)
-
-      dispatch(setServiceMessage(""))
-
-      try {
-
-        const service = services[sendMessage]
-
-        const msgRes = await postApiJson(sendMail(), {
-
-          title: "A Mail from Your Portfolio",
-
-          address: hostEmail,
-
-          content: `
-
-          <h1>Service Request Boss</h1>
-
-          <h3>Request Info:</h3>
-
-          <h4>Title: ${service.title}</h4> <br />
-
-          <p>Description: ${service.description.props.children}</p> <br />
-
-          <h3>Client Info:</h3>
-
-          <p>${serve}</p> <br />
-
-          <small>Congrats Boss 🥰</small>
-
-        `
-
-        }, mailToken)
-
-        if (msgRes.error) throw new Error()
-
-        sendMiniMessage({
-
-          icon: { name: "ok", style: {} },
-
-          content: { text: "Message Sent", style: {} },
-
-        }, 2000)
-
-      } catch (error) {
-
-        return sendMiniMessage({
-
-          icon: { name: "times", style: {} },
-
-          content: { text: "An Error Occured", style: {} },
-
-        }, 2000)
-
+      if (typeof sendMessage === "number") {
+  
+        const serve = serviceMessage
+  
+        setSendMessage(false)
+  
+        dispatch(setServiceMessage(""))
+  
+        try {
+  
+          const service = services[sendMessage]
+  
+          const msgRes = await postApiJson(sendMail(), {
+  
+            title: "A Mail from Your Portfolio",
+  
+            address: hostEmail,
+  
+            content: `
+  
+            <h1>Service Request Boss</h1>
+  
+            <h3>Request Info:</h3>
+  
+            <h4>Title: ${service.title}</h4> <br />
+  
+            <p>Description: ${service.description.props.children}</p> <br />
+  
+            <h3>Client Info:</h3>
+  
+            <p>${serve}</p> <br />
+  
+            <small>Congrats Boss 🥰</small>
+  
+          `
+  
+          }, mailToken)
+  
+          if (msgRes.error) throw new Error()
+  
+          sendMiniMessage({
+  
+            icon: { name: "ok", style: {} },
+  
+            content: { text: "Message Sent", style: {} },
+  
+          }, 2000)
+  
+        } catch (error) {
+  
+          return sendMiniMessage({
+  
+            icon: { name: "times", style: {} },
+  
+            content: { text: "An Error Occured", style: {} },
+  
+          }, 2000)
+  
+        }
+  
       }
-
+  
     }
+
+    workout()
 
   }, [sendMessage, serviceMessage])
 
@@ -130,7 +136,7 @@ const ServicesPage = () => {
 
     sendSmallMessage({
 
-      heading: { text: skill.title, style: { padding: '.5rem' } },
+      heading: { text: skill.title, style: { padding: '.5pc' } },
 
       content: { text: skill.description, style: {} },
 
@@ -220,20 +226,20 @@ const ServicesPage = () => {
 const ServicesPageStyle = styled.div`
 
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.5pc;
   animation: opacity 1s 1;
 
   section.service-segmment{
 
     .intro{
-      font-size: 1.5rem;
-      line-height: 3rem;
-      padding: 0 1rem;
+      font-size: 1.5pc;
+      line-height: 3pc;
+      padding: 0 1pc;
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      @media screen and (max-width: 250px) {
+      @media screen and (max-width: 600px) {
         .dis{
           display: none;
         }
@@ -246,12 +252,12 @@ const ServicesPageStyle = styled.div`
 
       .service-hol{
         width: 50%;
-        padding: 1rem;
+        padding: 1pc;
         display: flex;
         
         .service-asp{
-          padding: 1rem;
-          border-radius: 1rem;
+          padding: 1pc;
+          border-radius: 1pc;
           background: linear-gradient(145deg, #ffffff, #dadcdd);
           box-shadow:  18px 18px 36px #919293,-18px -18px 36px #ffffff;
           display: flex;
@@ -260,21 +266,21 @@ const ServicesPageStyle = styled.div`
           flex-direction: column;
 
           h2{
-            font-size: 1.2rem;
-            padding: 0.3rem 0;
+            font-size: 1.2pc;
+            padding: 0.3pc 0;
           }
 
           p{
-            font-size: .9rem;
+            font-size: .9pc;
             flex: 1;
           }
 
           button{
-            margin: .3rem 0;
+            margin: .3pc 0;
             background: #f2f4f5;
             border: 0 none;
-            border-radius: 0.3rem;
-            padding: 0 .5rem;
+            border-radius: 0.3pc;
+            padding: 0 .5pc;
             box-shadow: inset 8px 8px 30px #c2c3c4, inset -8px -8px 30px #ffffff;
             transition: box-shadow .5s;
 
@@ -295,17 +301,17 @@ const ServicesPageStyle = styled.div`
   }
 
   section.skills-segmment{
-    padding-top: 2rem;
+    padding-top: 2pc;
 
     .intro{
-      font-size: 1.5rem;
-      line-height: 3rem;
-      padding: 0 1rem;
+      font-size: 1.5pc;
+      line-height: 3pc;
+      padding: 0 1pc;
       display: flex;
       align-items: center;
       justify-content: space-between;
 
-      @media screen and (max-width: 250px) {
+      @media screen and (max-width: 600px) {
         .dis{
           display: none;
         }
@@ -317,12 +323,12 @@ const ServicesPageStyle = styled.div`
       flex-wrap: wrap;
 
       .skill-hol{
-        padding: 1rem;
+        padding: 1pc;
         display: flex;
         
         .skill-asp{
-          padding: 1rem;
-          border-radius: 1rem;
+          padding: 1pc;
+          border-radius: 1pc;
           background: linear-gradient(145deg, #ffffff, #dadcdd);
           box-shadow:  18px 18px 36px #919293,-18px -18px 36px #ffffff;
           display: flex;
@@ -337,7 +343,7 @@ const ServicesPageStyle = styled.div`
           }
 
           .img-prt{
-            height: 4rem;
+            height: 4pc;
 
             img{
               height: 100%;
@@ -345,18 +351,18 @@ const ServicesPageStyle = styled.div`
           }
 
           .txt-prt{
-            padding-left: 0.5rem;
+            padding-left: 0.5pc;
             display: flex;
             flex-direction: column;
 
             h3{
-              font-size: 1.2rem;
-              line-height: 2rem;
+              font-size: 1.2pc;
+              line-height: 2pc;
             }
   
             small{
-              font-size: .8rem;
-              line-height: 1.5rem;
+              font-size: .8pc;
+              line-height: 1.5pc;
               display: inline-block;
             }
           }

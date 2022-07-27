@@ -160,8 +160,8 @@ html{
 
 body{
   min-height: 100vh;
-  font-size: .8rem;
-  line-height: 2rem;
+  font-size: 1pc;
+  line-height: 2pc;
   font-family: Main;
   background-color: #f2f4f5;
   color: #323232;

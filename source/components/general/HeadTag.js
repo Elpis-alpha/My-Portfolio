@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { siteName, siteDescription, creator, clientID, host } from '../../__env'
 
 
-const HeadTag = ({ title, description }) => {
+const HeadTag = ({ title, description, ogImage = "" }) => {
 
   return (
 
@@ -49,7 +49,7 @@ const HeadTag = ({ title, description }) => {
 
       <meta property="og:locale" content="en_US" />
 
-      <meta property="og:image" content={`${host}/images/open-graph.png`} />
+      <meta property="og:image" content={`${host}/images/open-graph${ogImage}.png`} />
 
       <meta property="og:image:width" content="1200" />
 
@@ -67,7 +67,7 @@ const HeadTag = ({ title, description }) => {
 
       <meta name="twitter:description" content={description ? description : siteDescription} />
 
-      <meta name="twitter:image" content={`${host}/images/open-graph.png`} />
+      <meta name="twitter:image" content={`${host}/images/open-graph${ogImage}.png`} />
 
     </Head>
 

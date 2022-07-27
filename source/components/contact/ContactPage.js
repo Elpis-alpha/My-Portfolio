@@ -115,7 +115,7 @@ const ContactPage = () => {
 
             <a href={"tel:" + social.phoneLine} title="Phone Line" target="_blank" rel="noopener noreferrer">
 
-              <div className="icon"><FaPhone size="1rem" /></div>
+              <div className="icon"><FaPhone size="1pc" /></div>
 
               <div className="text">Call</div>
 
@@ -127,7 +127,7 @@ const ContactPage = () => {
 
             <a href={social.whatsapp} title="Whatsapp Link" target="_blank" rel="noopener noreferrer">
 
-              <div className="icon"><SiWhatsapp size="1rem" /></div>
+              <div className="icon"><SiWhatsapp size="1pc" /></div>
 
               <div className="text">Whatsapp</div>
 
@@ -139,7 +139,7 @@ const ContactPage = () => {
 
             <a href={"mailto:" + social.email} title="Email Link" target="_blank" rel="noopener noreferrer">
 
-              <div className="icon"><FaEnvelope size="1rem" /></div>
+              <div className="icon"><FaEnvelope size="1pc" /></div>
 
               <div className="text">Mail</div>
 
@@ -151,7 +151,7 @@ const ContactPage = () => {
 
             <a href={social.telegram} title="Telegram Link" target="_blank" rel="noopener noreferrer">
 
-              <div className="icon"><FaTelegramPlane size="1rem" /></div>
+              <div className="icon"><FaTelegramPlane size="1pc" /></div>
 
               <div className="text">Telegram</div>
 
@@ -163,7 +163,7 @@ const ContactPage = () => {
 
             <a href={social.stackOverflow} title="Stack Overflow Link" target="_blank" rel="noopener noreferrer">
 
-              <div className="icon"><FaStackOverflow size="1rem" /></div>
+              <div className="icon"><FaStackOverflow size="1pc" /></div>
 
               <div className="text">Stack Overflow</div>
 
@@ -175,7 +175,7 @@ const ContactPage = () => {
 
             <a href={social.fiverr} title="Fiverr Link" target="_blank" rel="noopener noreferrer">
 
-              <div className="icon"><SiFiverr size="2rem" /></div>
+              <div className="icon"><SiFiverr size="2pc" /></div>
 
               {/* <div className="text">Fiverr</div> */}
 
@@ -187,7 +187,7 @@ const ContactPage = () => {
 
             <a href={social.upwork} title="Upwork Link" target="_blank" rel="noopener noreferrer">
 
-              <div className="icon"><SiUpwork size="1rem" /></div>
+              <div className="icon"><SiUpwork size="1pc" /></div>
 
               <div className="text">Upwork</div>
 
@@ -199,7 +199,7 @@ const ContactPage = () => {
 
             <a href={social.linkedin} title="Linkedin Link" target="_blank" rel="noopener noreferrer">
 
-              <div className="icon"><FaLinkedin size="1rem" /></div>
+              <div className="icon"><FaLinkedin size="1pc" /></div>
 
               <div className="text">Linkedin</div>
 
@@ -211,7 +211,7 @@ const ContactPage = () => {
 
             <a href={social.instagram} title="Instagram Link" target="_blank" rel="noopener noreferrer">
 
-              <div className="icon"><FaInstagram size="1rem" /></div>
+              <div className="icon"><FaInstagram size="1pc" /></div>
 
               <div className="text">Instagram</div>
 
@@ -223,7 +223,7 @@ const ContactPage = () => {
 
             <a href={social.twitter} title="Twitter Link" target="_blank" rel="noopener noreferrer">
 
-              <div className="icon"><SiTwitter size="1rem" /></div>
+              <div className="icon"><SiTwitter size="1pc" /></div>
 
               <div className="text">Twitter</div>
 
@@ -235,7 +235,7 @@ const ContactPage = () => {
 
             <a href={social.github} title="Github Link" target="_blank" rel="noopener noreferrer">
 
-              <div className="icon"><SiGithub size="1rem" /></div>
+              <div className="icon"><SiGithub size="1pc" /></div>
 
               <div className="text">Github</div>
 
@@ -247,7 +247,7 @@ const ContactPage = () => {
 
             <a href={social.reddit} title="Reddit Link" target="_blank" rel="noopener noreferrer">
 
-              <div className="icon"><SiReddit size="1rem" /></div>
+              <div className="icon"><SiReddit size="1pc" /></div>
 
               <div className="text">Reddit</div>
 
@@ -312,7 +312,7 @@ const ContactPage = () => {
 const ContactPageStyle = styled.div`
 
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.5pc;
   animation: opacity 1s 1;
   display: flex;
   align-items: center;
@@ -321,7 +321,7 @@ const ContactPageStyle = styled.div`
 
   section{
     width: 50%;
-    padding: 1rem;
+    padding: 1pc;
 
     &.contact-items{
       display: flex;
@@ -331,12 +331,12 @@ const ContactPageStyle = styled.div`
       flex-direction: column;
 
       h2{
-        font-size: 1.2rem;
-        padding-bottom: 0.5rem;
+        font-size: 1.2pc;
+        padding-bottom: 0.5pc;
       }
 
       & > p{
-        padding-top: .5rem;
+        padding-top: .5pc;
       }
 
       .all-plat{
@@ -348,14 +348,14 @@ const ContactPageStyle = styled.div`
         max-width: 100%;
 
         .plat-item{
-          padding: 0.5rem;
+          padding: 0.5pc;
           
           a{
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0.5rem 1rem;
-            border-radius: 1rem;
+            padding: 0.5pc 1pc;
+            border-radius: 1pc;
             color: inherit;
             text-decoration: none;
             background: linear-gradient(145deg, #dadcdd, #ffffff);
@@ -368,7 +368,7 @@ const ContactPageStyle = styled.div`
             }
 
             .text{
-              padding-left: 0.5rem;
+              padding-left: 0.5pc;
             }
 
             &:hover{
@@ -388,32 +388,32 @@ const ContactPageStyle = styled.div`
       .form-hol{
         background: linear-gradient(145deg, #ffffff, #dadcdd);
         box-shadow:  16px 16px 33px #c2c3c4, -16px -16px 33px #ffffff;
-        padding: 1.5rem;
-        border-radius: 2rem;
+        padding: 1.5pc;
+        border-radius: 2pc;
         width: 100%;
 
         .intro{
-          font-size: 1.2rem;
+          font-size: 1.2pc;
         }
 
         form{
 
           .form-pack{
-            padding: 0.5rem 0;
+            padding: 0.5pc 0;
 
             input, textarea{
               width: 100%;
               border: 0 none;
               outline: 0 none;
-              padding: 0 .5rem;
+              padding: 0 .5pc;
               background: #f2f4f5;
               box-shadow: inset 8px 8px 31px #c2c3c4, inset -8px -8px 31px #ffffff;
-              border-radius: 0.2rem;
+              border-radius: 0.2pc;
               display: block;
             }
 
             textarea{
-              height: 6rem;
+              height: 6pc;
             }
 
             &.end{
@@ -448,7 +448,7 @@ const ContactPageStyle = styled.div`
       &.contact-form{
 
         .form-hol{
-          width: 70%;
+          width: 100%;
         }
       }
     }

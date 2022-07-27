@@ -1,5 +1,7 @@
 import { v4 } from 'uuid'
 
+import Link from "next/link"
+
 
 export const dev = {
 
@@ -15,9 +17,15 @@ export const dev = {
 
   description: <>
 
-    I am a Full Stack (MERN Stack) Web Developer who build amazing websites.
+    I am a Full Stack (MERN Stack) Web Developer who build high quality websites.
 
-    I'm also called <strong>Elpis</strong>.
+    I&apos;m also called <strong>Elpis</strong>.
+
+    <br />
+    
+    A copy of my resume is available {" "}
+
+    <Link href="/docs/current-resume.pdf"><a target="_blank">here</a></Link>
 
   </>
 
@@ -252,7 +260,7 @@ export const services = [
 
     description: <>
 
-      I build interactive websites using the reactjs framework. Using react, I'm able to design beautiful webpages with
+      I build interactive websites using the reactjs framework. Using react, I&apos;m able to design beautiful webpages with
 
       rich user interface. React websites are significantly faster than websites built with vanilla javascript.
 
@@ -286,7 +294,7 @@ export const services = [
 
       I implement database functionality into websites that require a means to store data. Through Mongodb, Atlas and Express
 
-      I'm able to integrate functional databases into an Express application.
+      I&apos;m able to integrate functional databases into an Express application.
 
     </>,
 
@@ -332,9 +340,9 @@ export const services = [
 
     description: <>
 
-      I build beautiful and responsive landing pages with HTML and CSS. If you're thinking: <em>"Why Landing Page?"</em> or
+      I build beautiful and responsive landing pages with HTML and CSS. If you&apos;re thinking: <em>&quot;Why Landing Page?&quot;</em> or
 
-      <em> "Aren't they just static websites?"</em>. Well, Landing pages are used to guide clients to a particular action while the later just simply renders information.
+      <em> &quot;Aren&apos;t they just static websites?&quot;</em>. Well, Landing pages are used to guide clients to a particular action while the later just simply renders information.
 
     </>,
 
@@ -350,7 +358,7 @@ export const services = [
 
       I build beautiful, SEO friendly, optimized and attractive portfolios using Nextjs or React. Porfolios are quite important as they showcase
 
-      your works, skills and services to potential clients. If you're looking for one like this or even better, you're at the right place.
+      your works, skills and services to potential clients. If you&apos;re looking for one like this or even better, you&apos;re at the right place.
 
     </>,
 
@@ -584,7 +592,7 @@ export const works = [
 
     description: <>
 
-      It's not actually an A.I, it's just a simple application that registers a user,
+      It&apos;s not actually an A.I, it&apos;s just a simple application that registers a user,
 
       collects data from the user and process it into useful information.
 

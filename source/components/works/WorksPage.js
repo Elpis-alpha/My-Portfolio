@@ -97,7 +97,7 @@ const WorksPage = () => {
 
                   <a href={project.liveURL} target="_blank" rel="noopener noreferrer">
 
-                    <span className="icon"><FaEye size="1rem" /></span>
+                    <span className="icon"><FaEye size="1pc" /></span>
 
                     <span className="text">Live Link</span>
 
@@ -109,7 +109,7 @@ const WorksPage = () => {
 
                   <a href={project.sourceCode} target="_blank" rel="noopener noreferrer">
 
-                    <span className="icon"><FaGitAlt size="1rem" /></span>
+                    <span className="icon"><FaGitAlt size="1pc" /></span>
 
                     <span className="text">Source Code</span>
 
@@ -136,7 +136,7 @@ const WorksPage = () => {
 const WorksPageStyle = styled.div`
 
   width: 100%;
-  padding: 0.5rem;
+  padding: 0.5pc;
   animation: opacity 1s 1;
   flex: 1;
   display: flex;
@@ -159,34 +159,34 @@ const WorksPageStyle = styled.div`
 
     .heading{
       width: 100%;
-      font-size: 1.5rem;
+      font-size: 1.5pc;
       text-align: center;
-      padding: 1rem;
+      padding: 1pc;
       animation: opac-im .5s 1;
     }
 
     .footing{
       width: 100%;
-      font-size: 1rem;
+      font-size: 1pc;
       text-align: center;
-      padding: 1rem;
+      padding: 1pc;
       animation: opac-im .5s 1;
     }
 
     .role-hol{
       width: 50%;
       text-align: center;
-      padding: 1rem;
+      padding: 1pc;
       display: flex;
       align-items: stretch;
       justify-content: center;
       align-self: stretch;
       
       .role-asp{
-        padding: 1rem;
+        padding: 1pc;
         background: #f2f4f5;
         box-shadow:  20px 20px 60px #cecfd0, -20px -20px 60px #ffffff;
-        border-radius: 1rem;
+        border-radius: 1pc;
         overflow: hidden;
         cursor: pointer;
         border: 1px solid transparent;
@@ -195,22 +195,22 @@ const WorksPageStyle = styled.div`
 
         h1{
           white-space: nowrap;
-          font-size: 1rem;
+          font-size: 1pc;
           text-overflow: ellipsis;
           overflow: hidden;
         }
 
         h2{
           white-space: nowrap;
-          font-size: .8rem;
+          font-size: .8pc;
           text-overflow: ellipsis;
           overflow: hidden;
-          max-height: 2rem;
+          max-height: 2pc;
           transition: max-height .5s;
         }
 
         p{
-          max-height: 10rem;
+          max-height: 10pc;
           overflow: hidden;
           transition: max-height .5s;
         }
@@ -242,24 +242,24 @@ const WorksPageStyle = styled.div`
       height: 100%;
       width: 100%;
       overflow: auto;
-      padding-top: 1rem;
+      padding-top: 1pc;
 
       .work-hol{
         display: none;
-        padding: 0 1rem;
-        padding-bottom: 1.5rem;
+        padding: 0 1pc;
+        padding-bottom: 1.5pc;
         
         &.show{
           display: block;
         }
 
         .work-asp{
-          padding: 1rem; border-radius: 1rem;
+          padding: 1pc; border-radius: 1pc;
           background: linear-gradient(145deg, #ffffff, #dadcdd);
           box-shadow:  5px 5px 9px #e8eaeb, -5px -5px 9px #fcfeff;
 
           h1{
-            font-size: 1rem;
+            font-size: 1pc;
           }
 
           .p-img{
@@ -292,7 +292,7 @@ const WorksPageStyle = styled.div`
           .icon{
             display: flex;
             align-items: center;
-            padding-right: 0.3rem;
+            padding-right: 0.3pc;
           }
         }
       }

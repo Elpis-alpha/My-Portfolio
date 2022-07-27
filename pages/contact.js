@@ -10,7 +10,7 @@ const ContactPage = () => {
 
     <>
 
-      <HeadTag />
+      <HeadTag title="Contact" description="You can contact me (Festus Gbolade) here through any of the provided platforms" ogImage='-contact' />
 
       <ContactPageX />
 
