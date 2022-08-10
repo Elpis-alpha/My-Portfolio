@@ -15,31 +15,58 @@ export const dev = {
 
   experienceYears: new Date().getFullYear() - new Date('2021-01-01').getFullYear(),
 
+  dateOfBirth: new Date('2001-09-18'),
+
+  age: new Date().getFullYear() - new Date('2001-09-18').getFullYear(),
+
   description: <>
 
-    I am a Full Stack (MERN Stack) Web Developer who build high quality websites.
+    I am a Full Stack <strong>(MERN Stack)</strong> Web Developer who build high quality websites.
 
     I&apos;m also called <strong>Elpis</strong>.
 
-    <br />
-    
-    A copy of my resume is available {" "}
+  </>,
 
-    <Link href="/docs/current-resume.pdf"><a target="_blank">here</a></Link>
+}
 
-  </>
+export const otherLinks = {
+
+  title: <strong className="hext">Other Links</strong>,
+
+  description: <p>
+
+    <Link href="/works"><a title='Works & Projects - Various works and projects completed by me'>
+
+      Works & Projects - Various works and projects completed by me
+
+    </a></Link>
+
+    <Link href="/services#skills-segmment"><a title='My Tech Stack - Languages and Frameworks that I use'>
+
+      My Tech Stack - Languages and Frameworks that I work with
+
+    </a></Link>
+
+    <Link href="/about"><a title='About Me - A little biography on my life so far as a web developer'>
+
+      About Me - A little biography on my life so far as a web developer
+
+    </a></Link>
+
+  </p>,
+
 
 }
 
 export const elpis = {
 
-  title: "I'm also Elpis",
+  title: <h1 className="hext">{"I'm also Elpis"}</h1>,
 
-  description: <>
+  description: <p>
 
     A young man with a passion for web development who is proficient at his work.
 
-  </>
+  </p>
 
 }
 
@@ -117,6 +144,34 @@ export const skills = [
     description: "JavaScript is a scripting or programming language that allows you to implement complex features on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc.",
 
     logo: "javascript.png"
+
+  },
+
+  {
+
+    _kid: v4(),
+
+    title: "Typescript",
+
+    shortDesc: "Type Checking",
+
+    description: "TypeScript is a programming language developed and maintained by Microsoft. It is a strict syntactical superset of JavaScript and adds optional static typing to the language. It is designed for the development of large applications and transpiles to JavaScript.",
+
+    logo: "typescript.png"
+
+  },
+
+  {
+
+    _kid: v4(),
+
+    title: "GraphQL",
+
+    shortDesc: "Client Query",
+
+    description: "GraphQL is an open-source data query and manipulation language for APIs, and a runtime for fulfilling queries with existing data. GraphQL was developed internally by Facebook in 2012 before being publicly released in 2015.",
+
+    logo: "graphql.png"
 
   },
 
@@ -215,6 +270,20 @@ export const skills = [
     description: "Socket.IO is a event-driven JavaScript library for real-time web applications. It enables real-time, bi-directional communication between web clients and servers. It has two parts: a client-side library that runs in the browser, and a server-side library for Node.js. Both components have a nearly identical API.",
 
     logo: "socket-io.png"
+
+  },
+
+  {
+
+    _kid: v4(),
+
+    title: "E-Commerce",
+
+    shortDesc: "Market and Stores",
+
+    description: "Ecommerce developers are responsible for creating the online shopping experiences that consumers have come to expect. They build ecommerce websites and applications from scratch, often working with a variety of different technologies and platforms.",
+
+    logo: "e-commerce.png"
 
   },
 
