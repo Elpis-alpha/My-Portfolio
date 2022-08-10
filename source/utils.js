@@ -73,21 +73,21 @@ export const elpis = {
 export const roles = [
 
   {
-    name: "React JS Developer", altName: "Front End Developer", hook: "rjd", description: "I use react to build responsive and interactive UI designs.",
+    name: "React JS Projects", altName: "Front End Developer", hook: "rjd", description: "I use react to build responsive and interactive UI designs.",
 
     projectDescription: "This includes all major projects designed with react or nextjs. Using these frameworks, I am able to design the responsive, optimized and interactive websites displayed in this section."
 
   },
 
   {
-    name: "Node JS Developer", altName: "Back End Developer", hook: "aed", description: "I use Express to create REST API and databases for the frontend.",
+    name: "Node JS Projects", altName: "Back End Developer", hook: "aed", description: "I use Express to create REST API and databases for the frontend.",
 
     projectDescription: "This includes all major projects designed with Express js, Mongodb and HBS. These are primarily used to provide API endpoints for the frontend, but ocassionally they serve web pages."
 
   },
 
   {
-    name: "Web Developer", altName: "Web Developer", hook: "wbd", description: "I use plain HTML, CSS and Javascript to build web applications.",
+    name: "Vanilla Web Projects", altName: "Web Developer", hook: "wbd", description: "I use plain HTML, CSS and Javascript to build web applications.",
 
     projectDescription: "This includes all major projects or minor projects containers designed with HTML, CSS and vanilla Javascript. It also features some web games as well as some small projects containers."
 
@@ -97,7 +97,7 @@ export const roles = [
 
 export const allRoles = {
 
-  name: "Full Stack Developer", altName: "Elpis 😀😀😀", hook: "---", description: "I use many useful technologies to create amazing websites",
+  name: "All Projects", altName: "Elpis 😀😀😀", hook: "---", description: "I use many useful technologies to create amazing websites",
 
   projectDescription: "This includes all the major projects I have participated in. Through the help React, Nextjs, Express, Node, Mongodb and other useful technologies have I been able to create these wonders."
 
@@ -441,6 +441,30 @@ export const works = [
 
     _wid: v4(),
 
+    title: "Adaptable Stores",
+
+    description: <>
+
+      An e-commerce store where you can buy goods by adding it 
+
+      to your cart and then proceeding to checkout using paypal or stripe.
+
+    </>,
+
+    liveURL: "https://adaptable-stores.vercel.app/?view=query",
+
+    sourceCode: "https://github.com/Elpis-alpha/Adaptable-Stores-Frontend",
+
+    type: ["rjd", "---"],
+
+    imageurl: "/images/projects/adaptable-stores.png"
+
+  },
+
+  {
+
+    _wid: v4(),
+
     title: "Aide-mémoire",
 
     description: <>
@@ -530,6 +554,30 @@ export const works = [
     type: ["aed", "---"],
 
     imageurl: "/images/projects/aide-memoire-back.png"
+
+  },
+
+  {
+
+    _wid: v4(),
+
+    title: "Adaptable Stores (Backend)",
+
+    description: <>
+
+      The backend side of Adaptable Stores which features the REST API, email verification,
+
+      an express server, database, complaints and a nice UI.
+
+    </>,
+
+    liveURL: "https://elpis-adaptable-stores.herokuapp.com/",
+
+    sourceCode: "https://github.com/Elpis-alpha/Adaptable-Stores-Backend",
+
+    type: ["aed", "---"],
+
+    imageurl: "/images/projects/adaptable-stores-back.png"
 
   },
 
@@ -733,3 +781,48 @@ export const social = {
 
 }
 
+export const facts = [
+
+  <div className="a-fact" key={v4()}>I love cats but don&apos;t have one</div>,
+
+  <div className="a-fact" key={v4()}>My favourite color is white</div>,
+
+  <div className="a-fact" key={v4()}>I&apos;m so into latest tech</div>,
+
+  <div className="a-fact" key={v4()}>I love anime</div>,
+
+  <div className="a-fact" key={v4()}>I&apos;m an INTJ-T</div>,
+
+  <div className="a-fact" key={v4()}>I&apos;m my role model (yeah! yeah!!)</div>,
+
+  <div className="a-fact" key={v4()}>I&apos;m {dev.age} years old ({"it's automatic"})</div>,
+
+  <div className="a-fact" key={v4()}>I&apos;m still in school (kinda sucks)</div>,
+
+  <div className="a-fact" key={v4()}>I love sweets (hope I don&apos;t get diabetes)</div>,
+
+  <div className="a-fact" key={v4()}>I love designing (both web and structural)</div>,
+
+  <div className="a-fact" key={v4()}>I don&apos;t have a girlfriend (yet!)</div>,
+
+  <div className="a-fact" key={v4()}>I wish I can fly (who doesn&apos;t)</div>,
+
+  <div className="a-fact" key={v4()}>I&apos;m almost two meters tall (1.96m)</div>,
+
+  <div className="a-fact" key={v4()}>I love video games</div>,
+
+  <div className="a-fact" key={v4()}>I workout everyday</div>,
+
+  <div className="a-fact" key={v4()}>I love country music</div>,
+
+  <div className="a-fact" key={v4()}>I love pizza (who doesn&apos;t, except the healthy ones)</div>,
+
+  <div className="a-fact" key={v4()}>Star wars is awesome (like seriously)</div>,
+
+  <div className="a-fact" key={v4()}>I&apos;m a bit wierd (like who isn&apos;t)</div>,
+
+  <div className="a-fact" key={v4()}>I really love cats (really really)</div>,
+
+  <div className="a-fact" key={v4()}>I&apos;ve been to the Moon (now that&apos;s a lie)</div>
+
+]

@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from "react-redux"
 
 import { FaEye, FaGitAlt } from "react-icons/fa"
 
+import Select from "react-select"
+
 
 const WorksPage = () => {
 
@@ -19,27 +21,29 @@ const WorksPage = () => {
 
   const { works } = useSelector(store => store.display)
 
-  const rolesClick = role => {
+  const rolesClick = hook => {
 
     if (getWorkLevel(works) === 1) { // if its on roles preview
 
-      dispatch(frontWorks(role.hook))
+      dispatch(frontWorks(hook))
 
     } else { // not on roles preview
 
-      if (getWork(2, works) === role.hook) { // if clicked on the same role
+      if (getWork(2, works) === hook || hook === "rapsy dooog") { // if clicked on the same role
 
         dispatch(backWorks())
 
       } else { // not clicked on the same role
 
-        dispatch(sideWorks(role.hook))
+        dispatch(sideWorks(hook))
 
       }
 
     }
 
   }
+
+  const options = [allRoles].concat(roles).map(role => { return { value: role.hook, label: role.name } }).concat({ value: "rapsy dooog", label: "Go Back" })
 
   return (
 
@@ -53,17 +57,27 @@ const WorksPage = () => {
 
         </div>}
 
-        {[allRoles].concat(roles).map(role => <div key={role.hook} className={"role-hol " + (getWork(2, works) === role.hook ? "active" : "")}>
+        <div className="all-rols-cont">
 
-          <div className="role-asp" onClick={e => rolesClick(role)} title={role.projectDescription}>
+          {[allRoles].concat(roles).map(role => <div key={role.hook} className={"role-hol " + (getWork(2, works) === role.hook ? "active" : "")}>
 
-            <h1>{role.name}</h1>
+            <div className="role-asp" onClick={() => rolesClick(role.hook)} title={role.projectDescription}>
 
-            <h2>{role.altName}</h2>
+              <h1>{role.name}</h1>
+
+              <h2>{role.altName}</h2>
+
+            </div>
+
+          </div>)}
+
+          <div className="role-select">
+
+            <Select options={options} value={options.find(opt => opt.value === getWork(2, works))} onChange={({ value }) => rolesClick(value)} />
 
           </div>
 
-        </div>)}
+        </div>
 
         {getWorkLevel(works) === 1 && <div className="footing">
 
@@ -173,6 +187,16 @@ const WorksPageStyle = styled.div`
       animation: opac-im .5s 1;
     }
 
+    .all-rols-cont {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+
+      .role-select {
+        display: none;
+      }
+    }
+
     .role-hol{
       width: 50%;
       text-align: center;
@@ -181,7 +205,11 @@ const WorksPageStyle = styled.div`
       align-items: stretch;
       justify-content: center;
       align-self: stretch;
-      
+
+      @media screen and (orientation: portrait) {
+        width: 100%;
+      }
+
       .role-asp{
         padding: 1pc;
         background: #f2f4f5;
@@ -251,6 +279,7 @@ const WorksPageStyle = styled.div`
         
         &.show{
           display: block;
+          animation: scale-in 1s 1;
         }
 
         .work-asp{
@@ -308,6 +337,7 @@ const WorksPageStyle = styled.div`
     .all-mi-rols{
 
       flex-wrap: nowrap;
+      
 
       .role-hol{
         width: 25%;
@@ -321,6 +351,19 @@ const WorksPageStyle = styled.div`
           p{
             max-height: 0;
           }
+        }
+      }
+
+      @media screen and (orientation: portrait) {
+        .role-hol {
+          display: none;
+        }
+
+        .role-select {
+          display: block;
+          width: 100%;
+          padding: .5pc 1pc;
+          padding-top: 0;
         }
       }
 

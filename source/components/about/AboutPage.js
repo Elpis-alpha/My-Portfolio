@@ -2,7 +2,7 @@ import Link from "next/link"
 
 import styled from "styled-components"
 
-import { dev } from "../../utils"
+import { dev, facts } from "../../utils"
 
 
 const AboutPage = () => {
@@ -233,47 +233,7 @@ const AboutPage = () => {
 
           <div className="all-facts">
 
-            <div className="a-fact">I love cats but don&apos;t have one</div>
-
-            <div className="a-fact">My favourite color is white</div>
-
-            <div className="a-fact">I&apos;m so into latest tech</div>
-
-            <div className="a-fact">I love anime</div>
-
-            <div className="a-fact">I&apos;m an INTJ-T</div>
-
-            <div className="a-fact">I&apos;m my role model (yeah! yeah!!)</div>
-
-            <div className="a-fact">I&apos;m 19 years old</div>
-
-            <div className="a-fact">I&apos;m still in school</div>
-
-            <div className="a-fact">I love sweets (hope I don&apos;t get diabetes)</div>
-
-            <div className="a-fact">I love designing (both web and structural)</div>
-
-            <div className="a-fact">I don&apos;t have a girlfriend (yet!)</div>
-
-            <div className="a-fact">I wish I can fly (who doesn&apos;t)</div>
-
-            <div className="a-fact">I&apos;m almost two meters tall (1.96m)</div>
-
-            <div className="a-fact">I love video games</div>
-
-            <div className="a-fact">I workout everyday</div>
-
-            <div className="a-fact">I love country music</div>
-
-            <div className="a-fact">I love pizza (who doesn&apos;t, except the healthy ones)</div>
-
-            <div className="a-fact">Star wars is awesome (like seriously)</div>
-
-            <div className="a-fact">I&apos;m a bit wierd (like who isn&apos;t)</div>
-
-            <div className="a-fact">I really love cats (really really)</div>
-
-            <div className="a-fact">I&apos;ve been to the Moon (now that&apos;s a lie)</div>
+            {facts.map(fact => fact)}
 
           </div>
 

@@ -304,7 +304,12 @@ input:-webkit-autofill:active {
 
 @keyframes opacity {
   from{opacity: 0}
-  t0{opacity: 1}
+  to{opacity: 1}
+}
+
+@keyframes scale-in {
+  from{transform: scale(0)}
+  to{transform: scale(1)}
 }
 
 /* ------------------------------------------------------------------ */

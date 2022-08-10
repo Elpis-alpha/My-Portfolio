@@ -161,6 +161,7 @@ const IndexPageStyle = styled.div`
     z-index: 10;
 
     .inner {
+      animation: scale-in 1s 1;
       padding: 1.5pc 1pc;
       margin: auto 0;
 
@@ -266,12 +267,13 @@ const IndexPageStyle = styled.div`
     }
 
     @media screen and (max-width: 650px) {
-      width: 100%;
+      width: 80%;
 
       .reveal-all {
         display: block;
         padding: 1.5pc 1pc;
         margin: auto 0;
+        animation: scale-in 2s 1;
         
         h1.hext, strong.hext{
           font-size: 2pc;
@@ -306,13 +308,16 @@ const IndexPageStyle = styled.div`
     }
 
     @media screen and (max-width: 380px) {
-      h1 {
-        font-size: 2.5pc;
-        line-height: 3.5pc;
-      }
+      .inner {
 
-      p {
-        font-size: .9pc;
+        h1 {
+          font-size: 2.5pc;
+          line-height: 3.5pc;
+        }
+
+        p {
+          font-size: .9pc;
+        }
       }
     }
   }
@@ -386,6 +391,7 @@ const IndexPageStyle = styled.div`
       box-shadow:  30px 30px 60px #a7a8a9, -30px -30px 60px #ffffff;
       background-color: #f2f4f5;
       margin-top: 1pc;
+      animation: scale-in 3s 1;
 
       .reveal-small {
         display: none;
@@ -403,6 +409,7 @@ const IndexPageStyle = styled.div`
       }
 
       &:first-of-type {
+        animation: scale-in 2s 1;
         margin-top: 0;
       }
 
