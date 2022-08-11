@@ -605,3 +605,33 @@ export const togglePassword = (passwordInput, toggler, state) => {
   }
 
 }
+
+export const reformImage = (element, removeNext = true) => {
+
+  const smallSize = element
+
+  const fullSize = new Image()
+
+  fullSize.src = smallSize.src.split('/').filter((value) => value !== 'blur').join('/')
+
+  fullSize.onload = () => {
+
+    try {
+
+      fullSize.alt = smallSize.alt
+
+      fullSize.title = smallSize.title
+
+      if (smallSize.nextElementSibling && removeNext) smallSize.nextElementSibling.remove()
+
+      smallSize.replaceWith(fullSize)
+
+    } catch (error) {
+
+      console.log(error);
+
+    }
+
+  }
+
+}

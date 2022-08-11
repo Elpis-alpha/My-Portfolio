@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react"
 import { Sling as Hamburger } from "hamburger-react"
 
 import { creator } from "../../__env"
+import ElpisImage from "./ElpisImage"
 
 
 const NavBar = () => {
@@ -47,7 +48,7 @@ const NavBar = () => {
 
           <div className="head-image">
 
-            <img src="/images/logo_small.png" alt="Elpis Logo" title="My Logo" />
+            <ElpisImage src="/images/blur/logo_small.png" alt="Elpis Logo" title="My Logo" />
 
           </div>
 

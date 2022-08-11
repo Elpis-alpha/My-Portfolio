@@ -4,6 +4,8 @@ import styled from "styled-components"
 
 import { dev, facts } from "../../utils"
 
+import ElpisImage from "../general/ElpisImage"
+
 
 const AboutPage = () => {
 
@@ -19,7 +21,7 @@ const AboutPage = () => {
 
             <div className="black-overflow"></div>
 
-            <img src="/images/me.jpg" alt="Elpis" title="Elpis" />
+            <ElpisImage src="/images/blur/me.jpg" alt="Elpis" title="Elpis" />
 
           </div>
 
@@ -73,7 +75,7 @@ const AboutPage = () => {
 
             <div className="black-overflow"></div>
 
-            <img src="/images/universe.png" alt="Universe" title="The beautiful universe" />
+            <ElpisImage src="/images/blur/universe.png" alt="Universe" title="The beautiful universe" />
 
           </div>
 
@@ -105,7 +107,7 @@ const AboutPage = () => {
 
             <div className="black-overflow"></div>
 
-            <img src="/images/student.jpg" alt="Gbolade Festus" title="Gbolade Festus" />
+            <ElpisImage src="/images/blur/student.jpg" alt="Gbolade Festus" title="Gbolade Festus" />
 
           </div>
 
@@ -121,7 +123,7 @@ const AboutPage = () => {
 
             <div className="black-overflow"></div>
 
-            <img src="/images/interest.png" alt="Elpis" title="Elpis" />
+            <ElpisImage src="/images/blur/interest.png" alt="Elpis" title="Elpis" />
 
           </div>
 
@@ -155,9 +157,7 @@ const AboutPage = () => {
 
             <div className="black-overflow"></div>
 
-            <img src="/images/career.png" className="side-by-side" alt="Gbolade Festus" title="Gbolade Festus" />
-
-            <img src="/images/career.jpg" className="absolute-position" alt="Gbolade Festus" title="Gbolade Festus" />
+            <ElpisImage src="/images/blur/career.png" className="side-by-side" alt="Gbolade Festus" title="Gbolade Festus" />
 
           </div>
 
@@ -187,7 +187,7 @@ const AboutPage = () => {
 
             <div className="black-overflow"></div>
 
-            <img src="/images/story.png" alt="Elpis" title="Elpis" />
+            <ElpisImage src="/images/blur/story.png" alt="Elpis" title="Elpis" />
 
           </div>
 
@@ -245,7 +245,7 @@ const AboutPage = () => {
 
         <p>Now that you know a little about me, why not reach out and let&apos;s build your dream together.</p>
 
-        <Link href="/contact"><a>Hire Me</a></Link>
+        <Link href="/contact"><a>Contact Me</a></Link>
 
       </section>
 

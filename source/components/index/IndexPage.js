@@ -4,9 +4,13 @@ import { FaEnvelope, FaTelegramPlane, FaPhone, FaDownload } from "react-icons/fa
 
 import { SiUpwork } from "react-icons/si"
 
-import { dev, social, roles, elpis, otherLinks } from "../../utils"
+import { Oval } from "react-loader-spinner"
+
+import { dev, social, elpis, otherLinks } from "../../utils"
 
 import Link from "next/link"
+
+import ElpisImage from "../general/ElpisImage"
 
 
 const IndexPage = () => {
@@ -96,7 +100,7 @@ const IndexPage = () => {
 
         <div className="img-hol">
 
-          <img src="/images/elpis-s-t.png" alt="Picture of Elpis (Festus Gbolade)" />
+          <ElpisImage src="/images/blur/elpis-t.png" alt="Picture of Elpis (Festus Gbolade)" />
 
         </div>
 
@@ -351,6 +355,16 @@ const IndexPageStyle = styled.div`
 
     .img-hol {
       height: 100%;
+
+      .dis-spinner {
+        position: absolute;
+        top: 0; left: 0;
+        bottom: 0; right: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 6pc;
+      }
     }
     
     img{
