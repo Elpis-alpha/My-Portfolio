@@ -441,11 +441,35 @@ export const works = [
 
     _wid: v4(),
 
+    title: "Aptos Land",
+
+    description: <>
+
+      Aptos Land is the first ever Metaverse on $Aptos.
+
+      A Landing page I built for their co-operation.
+
+    </>,
+
+    liveURL: "https://aptos-land.vercel.app/",
+
+    sourceCode: "https://github.com/Elpis-alpha/Aptos-Land",
+
+    type: ["rjd", "---"],
+
+    imageurl: "/images/projects/adaptable-stores.png"
+
+  },
+
+  {
+
+    _wid: v4(),
+
     title: "Adaptable Stores",
 
     description: <>
 
-      An e-commerce store where you can buy goods by adding it 
+      An e-commerce store where you can buy goods by adding it
 
       to your cart and then proceeding to checkout using paypal or stripe.
 
