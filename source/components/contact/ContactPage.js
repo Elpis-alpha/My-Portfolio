@@ -6,7 +6,7 @@ import { social } from "../../utils"
 
 import { FaPhone, FaEnvelope, FaTelegramPlane, FaStackOverflow, FaLinkedin, FaInstagram } from "react-icons/fa"
 
-import { SiFiverr, SiUpwork, SiTwitter, SiGithub, SiWhatsapp, SiReddit } from "react-icons/si"
+import { SiFiverr, SiUpwork, SiTwitter, SiGithub, SiWhatsapp, SiReddit, SiBinance } from "react-icons/si"
 
 import { useDispatch, useSelector } from "react-redux"
 
@@ -65,13 +65,12 @@ const ContactPage = () => {
 
         content: `
 
-          Name: ${name}
+          <h2>Name:<br> ${name}</h2>
 
-          Email: ${email}
+          <h4>Email:<br> ${email}</h4>
 
-          Message:
+          <p>Message:<br> ${message}</p>
 
-          ${message}
 
         `
 
@@ -219,7 +218,7 @@ const ContactPage = () => {
 
           </div>
 
-          {/* <div className="plat-item" datainfo="Twitter Link">
+          <div className="plat-item" datainfo="Twitter Link">
 
             <a href={social.twitter} title="Twitter Link" target="_blank" rel="noopener noreferrer">
 
@@ -229,7 +228,7 @@ const ContactPage = () => {
 
             </a>
 
-          </div> */}
+          </div>
 
           <div className="plat-item" datainfo="Github Link">
 
@@ -250,6 +249,18 @@ const ContactPage = () => {
               <div className="icon"><SiReddit size="1pc" /></div>
 
               <div className="text">Reddit</div>
+
+            </a>
+
+          </div>
+
+          <div className="plat-item" datainfo="Binance Link">
+
+            <a href={social.binance} title="Binance Image" target="_blank" rel="noopener noreferrer">
+
+              <div className="icon"><SiBinance size="1pc" /></div>
+
+              <div className="text">Binance</div>
 
             </a>
 

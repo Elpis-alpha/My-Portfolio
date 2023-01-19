@@ -99,7 +99,7 @@ const WorksPage = () => {
 
               <div className="p-img">
 
-                <img src={project.imageurl} alt={project.title} />
+                {/* <img src={project.imageurl} alt={project.title} /> */}
 
               </div>
 

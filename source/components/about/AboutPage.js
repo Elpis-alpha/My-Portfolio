@@ -37,7 +37,7 @@ const AboutPage = () => {
 
               Feel free to <Link href="/contact" title="Contact Page"><a>contact me</a></Link> if
 
-              my <Link href="/services" title="My Services"><a>services</a></Link> are required.
+              my <Link href="/stack" title="My Stack"><a>services</a></Link> are required.
 
             </p>
 

@@ -41,7 +41,7 @@ export const otherLinks = {
 
     </a></Link>
 
-    <Link href="/services#skills-segmment"><a title='My Tech Stack - Languages and Frameworks that I use'>
+    <Link href="/stack"><a title='My Tech Stack - Languages and Frameworks that I use'>
 
       My Tech Stack - Languages and Frameworks that I work with
 
@@ -436,6 +436,7 @@ export const services = [
 ]
 
 export const works = [
+
   {
 
     _wid: v4(),
@@ -450,7 +451,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://adaptable-stores.vercel.app/?view=query",
+    liveURL: "https://adaptable-stores.elpis.cc/?view=query",
 
     sourceCode: "https://github.com/Elpis-alpha/Adaptable-Stores-Frontend",
 
@@ -474,7 +475,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://aide-memoire.vercel.app/verify",
+    liveURL: "https://aide-memoire.elpis.cc/",
 
     sourceCode: "https://github.com/Elpis-alpha/Aide-Memoire-Frontend",
 
@@ -498,7 +499,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://little-gathering.vercel.app",
+    liveURL: "https://little-gathering.elpis.cc/",
 
     sourceCode: "https://github.com/Elpis-alpha/little-gathering-frontend",
 
@@ -522,7 +523,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-weather.netlify.app",
+    liveURL: "https://weather.elpis.cc/",
 
     sourceCode: "https://github.com/Elpis-alpha/weather-frontend",
 
@@ -546,7 +547,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-aide-memoire.herokuapp.com",
+    liveURL: "https://api.aide-memoire.elpis.cc/",
 
     sourceCode: "https://github.com/Elpis-alpha/Aide-Memoire-Backend",
 
@@ -570,7 +571,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-adaptable-stores.herokuapp.com/",
+    liveURL: "https://api.as.elpis.cc/",
 
     sourceCode: "https://github.com/Elpis-alpha/Adaptable-Stores-Backend",
 
@@ -594,7 +595,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-little-gathering.herokuapp.com/api/posts",
+    liveURL: "https://api.lg.elpis.cc/api/posts",
 
     sourceCode: "https://github.com/Elpis-alpha/little-gathering-backend",
 
@@ -642,7 +643,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-landing-pages.netlify.app/",
+    liveURL: "https://landing-pages.elpis.cc/",
 
     sourceCode: "https://github.com/Elpis-alpha/Landing-Pages",
 
@@ -666,7 +667,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-ludo.netlify.app",
+    liveURL: "https://ludo.elpis.cc/",
 
     sourceCode: "https://github.com/Elpis-alpha/Ludo",
 
@@ -690,7 +691,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-alpha.github.io/Tic-Tac-Toe",
+    liveURL: "https://tic-tac-toe.elpis.cc/",
 
     sourceCode: "https://github.com/Elpis-alpha/Tic-Tac-Toe",
 
@@ -714,7 +715,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-alpha.github.io/My-A.I",
+    liveURL: "https://ai.elpis.cc/",
 
     sourceCode: "https://github.com/Elpis-alpha/My-A.I",
 
@@ -738,7 +739,7 @@ export const works = [
 
     </>,
 
-    liveURL: "https://elpis-alpha.github.io/Elpis-Works",
+    liveURL: "https://little-works.elpis.cc/",
 
     sourceCode: "https://github.com/Elpis-alpha/Elpis-Works",
 
@@ -756,13 +757,13 @@ export const social = {
 
   phoneLine: "+2349163704134",
 
-  telegram: "https://t.me/Elpis407",
+  telegram: "https://t.me/elpis_alpha",
 
-  whatsapp: "https://wa.me/%2B2349163704134?text=Your%20services%20as%20a%20web%20developer%20are%20required.%20Reply%20if%20interested",
+  whatsapp: "https://wa.me/%2B2349163704134?text=Hello%20Elpis",
 
   paypal: "",
 
-  twitter: "",
+  twitter: "https://twitter.com/elpis_alpha",
 
   stackOverflow: "https://stackoverflow.com/users/13952926/elpis",
 
@@ -777,6 +778,8 @@ export const social = {
   github: "https://github.com/Elpis-alpha",
 
   reddit: "https://www.reddit.com/user/Elpis409",
+
+  binance: "/images/BinancePayQR.png"
 
 }
 

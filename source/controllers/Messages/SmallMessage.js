@@ -23,7 +23,7 @@ const SmallMessage = () => {
 
         <div className="content" style={content.style}>{content.text}</div>
 
-        <div className="close-x" onClick={e => removeSmallMessage()}><FaTimes size="1rem" color="darkred" /></div>
+        <div className="close-x" onClick={e => removeSmallMessage()}><FaTimes size="1pc" color="darkred" /></div>
 
       </div>
 
@@ -60,12 +60,12 @@ const SmallMessageStyle = styled.div`
     text-align: center;
     /* background: #e0e0e0; */
     box-shadow: 10px 10px 20px #797979, -10px -10px 20px #fff;
-    font-size: 1rem;
-    line-height: 2rem;
+    font-size: 1pc;
+    line-height: 2pc;
     flex-direction: column;
 
     .heading{
-      font-size: 1.5rem;
+      font-size: 1.5pc;
       font-weight: bold;
     }
 

@@ -9,6 +9,7 @@ import { useEffect, useRef, useState } from "react"
 import { Sling as Hamburger } from "hamburger-react"
 
 import { creator } from "../../__env"
+
 import ElpisImage from "./ElpisImage"
 
 
@@ -36,7 +37,7 @@ const NavBar = () => {
 
     }
 
-  }, [])
+  }, [router])
 
   return (
 
@@ -96,9 +97,9 @@ const NavBar = () => {
 
             </a></Link></li>
 
-            <li className="reveal-3"><Link href="/services"><a className={currentURL === "/services" ? "active" : ""} onClick={() => setIsNavOpened(false)}>
+            <li className="reveal-3"><Link href="/stack"><a className={currentURL === "/stack" ? "active" : ""} onClick={() => setIsNavOpened(false)}>
 
-              Services
+              Stack
 
             </a></Link></li>
 
@@ -326,11 +327,11 @@ const NavStyle = styled.nav`
 
         li {
 
-          &.reveal-1 { animation: slide-opacity 0.5s 0s ease-in-out 1 }
-          &.reveal-2 { animation: slide-opacity 1.0s 0s ease-in-out 1 }
-          &.reveal-3 { animation: slide-opacity 1.5s 0s ease-in-out 1 }
-          &.reveal-4 { animation: slide-opacity 2.0s 0s ease-in-out 1 }
-          &.reveal-5 { animation: slide-opacity 2.5s 0s ease-in-out 1 }
+          &.reveal-1 { animation: slide-opacity 0.3s 0s ease-in-out 1 }
+          &.reveal-2 { animation: slide-opacity 0.5s 0s ease-in-out 1 }
+          &.reveal-3 { animation: slide-opacity 0.7s 0s ease-in-out 1 }
+          &.reveal-4 { animation: slide-opacity 0.8s 0s ease-in-out 1 }
+          &.reveal-5 { animation: slide-opacity 0.9s 0s ease-in-out 1 }
            
           a {
             padding: 0.5pc 2pc;
