@@ -441,6 +441,54 @@ export const works = [
 
     _wid: v4(),
 
+    title: "The Sapphire Plaza",
+
+    description: <>
+
+      Welcome to The Sapphire Plaza, an exquisite hotel nestled in the heart of the city.
+      Our luxurious accommodations, unparalleled service, and state-of-the-art amenities
+      make us the perfect choice for discerning travelers.
+
+    </>,
+
+    liveURL: "https://sapphire-plaza.elpis.cc/",
+
+    sourceCode: "https://github.com/Elpis-alpha/The-Sapphire-Plaza",
+
+    type: ["rjd", "---"],
+
+    imageurl: "/images/projects/adaptable-stores.png"
+
+  },
+
+  {
+
+    _wid: v4(),
+
+    title: "Fresh Bites Grill",
+
+    description: <>
+
+      Fresh Bites Grill offers a delicious and nutritious menu with something for everyone.
+      Our skilled chefs prepare fresh, flavorful dishes using only the finest ingredients.
+      Join us for a warm and welcoming dining experience.
+
+    </>,
+
+    liveURL: "https://fresh-bites.elpis.cc/",
+
+    sourceCode: "https://github.com/Elpis-alpha/Small-Resturant",
+
+    type: ["rjd", "---"],
+
+    imageurl: "/images/projects/adaptable-stores.png"
+
+  },
+
+  {
+
+    _wid: v4(),
+
     title: "Adaptable Stores",
 
     description: <>
@@ -506,6 +554,29 @@ export const works = [
     type: ["rjd", "---"],
 
     imageurl: "/images/projects/little-gathering.png"
+
+  },
+
+  {
+
+    _wid: v4(),
+
+    title: "Master Your Mortgage",
+
+    description: <>
+
+      When it comes to first-time mortgages, remortgages, customized rates, and their brand, award-winning,
+      professional mortgage and insurance services provider MASTER YOUR MORTGAGE tells you exactly what to anticipate.
+
+    </>,
+
+    liveURL: "https://simple-mortgage.vercel.app/",
+
+    sourceCode: "",
+
+    type: ["rjd", "---"],
+
+    imageurl: "/images/projects/elpis-weather.png"
 
   },
 

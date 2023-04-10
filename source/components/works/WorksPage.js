@@ -8,7 +8,7 @@ import { useRef } from "react"
 
 import { useDispatch, useSelector } from "react-redux"
 
-import { FaEye, FaGitAlt } from "react-icons/fa"
+import { FaEye, FaEyeSlash, FaGitAlt } from "react-icons/fa"
 
 import Select from "react-select"
 
@@ -121,13 +121,21 @@ const WorksPage = () => {
 
                 <div className="asp-src">
 
-                  <a href={project.sourceCode} target="_blank" rel="noopener noreferrer">
+                  {project.sourceCode !== "" && <a href={project.sourceCode} target="_blank" rel="noopener noreferrer">
 
                     <span className="icon"><FaGitAlt size="1pc" /></span>
 
                     <span className="text">Source Code</span>
 
-                  </a>
+                  </a>}
+
+                  {project.sourceCode === "" && <a style={{ opacity: ".5", color: "blue", cursor: "not-allowed" }}>
+
+                    <span className="icon"><FaEyeSlash size="1pc" /></span>
+
+                    <span className="text">Proprietary</span>
+
+                  </a>}
 
                 </div>
 
