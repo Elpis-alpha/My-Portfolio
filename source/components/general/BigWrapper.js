@@ -1,22 +1,7 @@
-import styled from "styled-components"
-
-import { useSelector } from "react-redux"
-
-
+import styled from "styled-components";
 const BigWrapper = ({ ...props }) => {
-
-  return (
-
-    <BigWrapperStyle>
-      
-      {props.children}
-      
-    </BigWrapperStyle>
-
-  )
-
-}
-
+  return <BigWrapperStyle>{props.children}</BigWrapperStyle>;
+};
 const BigWrapperStyle = styled.div`
   z-index: 10;
   width: 100%;
@@ -25,8 +10,5 @@ const BigWrapperStyle = styled.div`
   align-items: flex-start;
   justify-content: flex-start;
   flex-direction: column;
-`
-
-export default BigWrapper
-
-
+`;
+export default BigWrapper;
