@@ -27,6 +27,19 @@ export const PROJECTS: Project[] = [
     link: "https://ricefi.dev.elpis.cc/",
   },
 
+  // DeDash
+  {
+    id: randomString(),
+    title: "DeDash",
+    description:
+      "DeDash, built with Next.js and express, is a decentralized dashboard that tracks degens and their activities across multiple chains.",
+    tags: ["Next.js", "Express"],
+    category: "Full Stack",
+    image:
+      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773669380/private/projects/dedash_jga6lo.png",
+    link: "https://dedash.fun/",
+  },
+
   // Teacat Books
   {
     id: randomString(),
