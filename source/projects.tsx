@@ -14,6 +14,19 @@ export interface Project {
 }
 // ! Coming back to this
 export const PROJECTS: Project[] = [
+  // Coin15
+  {
+    id: randomString(),
+    title: "Coin15",
+    description:
+      "Coin15, built with Next.js, Express and Privy, is a Crypto Fantasy Contest Platform that users earn rewards for predicting cryptocurrency trends.",
+    tags: ["Next.js", "Privy", "PWA"],
+    category: "Full Stack",
+    image:
+      "https://res.cloudinary.com/elpis-cloud/image/upload/v1774089775/private/projects/coin15_rfikg4.png",
+    link: "https://coin15.duckdns.org/",
+  },
+
   // Ricefi
   {
     id: randomString(),
