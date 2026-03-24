@@ -53,6 +53,19 @@ export const PROJECTS: Project[] = [
     link: "https://dedash.fun/",
   },
 
+  // Dot PvP
+  {
+    id: randomString(),
+    title: "Dot PvP",
+    description:
+      "Dot PvP, a Colyseus MERN stack game, offers real-time multiplayer battles with multiple rooms offering solana rewards.",
+    tags: ["Colyseus", "Express.js", "Next.js"],
+    category: "Full Stack",
+    image:
+      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773661266/private/projects/dotpvp_h7vzs9.png",
+    link: "https://agar-test.dev.elpis.cc/",
+  },
+
   // Teacat Books
   {
     id: randomString(),
@@ -255,19 +268,6 @@ export const PROJECTS: Project[] = [
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773661265/private/projects/iagent_q80b1t.png",
     link: "https://staking.iagentpro.com/",
-  },
-
-  // Dot PvP
-  {
-    id: randomString(),
-    title: "Dot PvP",
-    description:
-      "Dot PvP, a Colyseus MERN stack game, offers real-time multiplayer battles with multiple rooms offering solana rewards.",
-    tags: ["Colyseus", "Node.js", "MongoDB"],
-    category: "Backend",
-    image:
-      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773661266/private/projects/dotpvp_h7vzs9.png",
-    link: "https://dotpvp.fun/",
   },
 
   // Ordiz Swap
