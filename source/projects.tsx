@@ -15,17 +15,17 @@ export interface Project {
 // ! Coming back to this
 export const PROJECTS: Project[] = [
   // Coin15
-  {
-    id: randomString(),
-    title: "Coin15",
-    description:
-      "Coin15, built with Next.js, Express and Privy, is a Crypto Fantasy Contest Platform that users earn rewards for predicting cryptocurrency trends.",
-    tags: ["Next.js", "Privy", "PWA"],
-    category: "Full Stack",
-    image:
-      "https://res.cloudinary.com/elpis-cloud/image/upload/v1774089775/private/projects/coin15_rfikg4.png",
-    link: "https://coin15.duckdns.org/",
-  },
+  // {
+  //   id: randomString(),
+  //   title: "Coin15",
+  //   description:
+  //     "Coin15, built with Next.js, Express and Privy, is a Crypto Fantasy Contest Platform that users earn rewards for predicting cryptocurrency trends.",
+  //   tags: ["Next.js", "Privy", "PWA"],
+  //   category: "Full Stack",
+  //   image:
+  //     "https://res.cloudinary.com/elpis-cloud/image/upload/v1774089775/private/projects/coin15_rfikg4.png",
+  //   // link: "https://coin15.duckdns.org/",
+  // },
 
   // Ricefi
   {
@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660586/private/projects/ricefi_dkhj5m.png",
-    link: "https://ricefi.dev.elpis.cc/",
+    // link: "https://ricefi.dev.elpis.cc/",
   },
 
   // DeDash
@@ -63,7 +63,7 @@ export const PROJECTS: Project[] = [
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773661266/private/projects/dotpvp_h7vzs9.png",
-    link: "https://agar-test.dev.elpis.cc/",
+    // link: "https://agar-test.dev.elpis.cc/",
   },
 
   // Teacat Books
@@ -76,7 +76,7 @@ export const PROJECTS: Project[] = [
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660585/private/projects/teacat_rk2y27.png",
-    link: "https://teacat.vercel.app/",
+    // link: "https://teacat.vercel.app/",
   },
 
   // Beat the clock
@@ -89,7 +89,7 @@ export const PROJECTS: Project[] = [
     category: "Frontend",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660588/private/projects/beattheclock_fbvtpr.png",
-    link: "https://www.beattheclock.fun/",
+    // link: "https://www.beattheclock.fun/",
   },
 
   // 2x Solutions Portfolio
@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
     category: "Frontend",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660589/private/projects/2xsols_ku9ihx.png",
-    link: "https://2x-solutions.netlify.app/",
+    // link: "https://2x-solutions.netlify.app/",
   },
 
   // The Sapphire Plaza
@@ -143,7 +143,7 @@ export const PROJECTS: Project[] = [
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660588/private/projects/rekt_qb689w.png",
-    link: "https://rekt2rich.vercel.app/",
+    // link: "https://rekt2rich.vercel.app/",
   },
 
   // Core Mine
@@ -156,7 +156,7 @@ export const PROJECTS: Project[] = [
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660585/private/projects/coin-mine_ak9rop.png",
-    link: "https://core-mine.vercel.app/",
+    // link: "https://core-mine.vercel.app/",
   },
 
   // c288
@@ -169,7 +169,7 @@ export const PROJECTS: Project[] = [
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660587/private/projects/c2888_x1nm8y.png",
-    link: "https://c288.vercel.app/",
+    // link: "https://c288.vercel.app/",
   },
 
   // Poopfun
@@ -182,7 +182,7 @@ export const PROJECTS: Project[] = [
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660585/private/projects/poopfun_dnujjd.png",
-    link: "https://www.poopfun.app/",
+    // link: "https://www.poopfun.app/",
   },
 
   // Adaptable Stores
@@ -240,7 +240,7 @@ export const PROJECTS: Project[] = [
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660588/private/projects/degennews_q2nkzo.png",
-    link: "https://degen-news.vercel.app/",
+    // link: "https://degen-news.vercel.app/",
   },
 
   // Master Your Mortgage
@@ -280,7 +280,7 @@ export const PROJECTS: Project[] = [
     category: "Frontend",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660585/private/projects/ordiz_sknfzk.png",
-    link: "https://ordiz.elpis.cc/",
+    // link: "https://ordiz.elpis.cc/",
   },
 
   // Soldao
@@ -293,7 +293,7 @@ export const PROJECTS: Project[] = [
     category: "Frontend",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660585/private/projects/soldao_cyv9ed.png",
-    link: "https://soldao.elpis.cc/",
+    // link: "https://soldao.elpis.cc/",
   },
 
   // Aptos Land - landing page
@@ -306,7 +306,7 @@ export const PROJECTS: Project[] = [
     category: "Frontend",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660587/private/projects/aptosland_zhyg4x.png",
-    link: "https://aptos-land.elpis.cc/",
+    // link: "https://aptos-land.elpis.cc/",
   },
 
   // Cloutz
@@ -319,7 +319,7 @@ export const PROJECTS: Project[] = [
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660586/private/projects/cloutz_fzuyu7.png",
-    link: "https://cloutz.vercel.app/",
+    // link: "https://cloutz.vercel.app/",
   },
 
   // Elpis Weather
