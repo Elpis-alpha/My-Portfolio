@@ -24,15 +24,15 @@ export const SOCIAL = {
 export const RESUMES = [
   {
     label: "Full Stack Resume",
-    link: "https://drive.google.com/file/d/1AtuaxkYQ-3bD0CE9KLIvHGIc4J5DrvGI/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1epo1MRhzLvO5u7gDaOSRH0Ppm8FSUPsV/view?usp=sharing",
   },
   {
     label: "Frontend Resume",
-    link: "https://drive.google.com/file/d/1Wz7nyz4AtOo4aYr_jGxIQtQFWJz5pOPi/view?usp=sharing",
+    link: "https://drive.google.com/file/d/16vQEazygxCaO3bnAoXv9h9_GUErs4gDw/view?usp=sharing",
   },
   {
     label: "Backend Resume",
-    link: "https://drive.google.com/file/d/1nQRKBP6e_mWmDvvqcPKuDlRqWIU2B61B/view?usp=sharing",
+    link: "https://drive.google.com/file/d/127RxKJi5uK3BXk3Q_ccdLGD1OdD7KWXy/view?usp=sharing",
   },
 ];
 
@@ -111,6 +111,11 @@ export const CERTIFICATIONS = [
     title: "React - The Complete Guide (2024, incl. Next.js, Redux)",
     certLink:
       "https://www.udemy.com/certificate/UC-d7e879e1-dd78-425d-9df8-92ee3de1abc5/",
+  },
+  {
+    title: "SQL and PostgreSQL: The Complete Developer's Guide",
+    certLink:
+      "https://www.udemy.com/certificate/UC-de698c48-0830-4819-b429-1e1d7d4c6ed1/",
   },
   {
     title: "Data Structures + Algorithms",
