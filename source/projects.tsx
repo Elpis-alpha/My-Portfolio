@@ -9,6 +9,7 @@ export interface Project {
   category: "Full Stack" | "Frontend" | "Backend";
   image: string;
   link?: string;
+  twitter?: string;
   github?: string;
   backendGithub?: string;
 }
@@ -27,6 +28,21 @@ export const PROJECTS: Project[] = [
   //   // link: "https://coin15.duckdns.org/",
   // },
 
+  // Teacat Books
+  {
+    id: randomString(),
+    title: "Teacat Books (btctales)",
+    description:
+      "Teacat Books, built with Next.js and Tailwind CSS, is a platform for discovering, borrowing and purchasing books.",
+    tags: ["Next.js", "Tailwind CSS"],
+    category: "Full Stack",
+    image:
+      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660585/private/projects/teacat_rk2y27.png",
+    // link: "https://teacat.vercel.app/",
+    github: "https://github.com/Elpis-alpha/Teacat-Books-FE",
+    backendGithub: "https://github.com/Elpis-alpha/Teacat-Books-BE",
+  },
+
   // Ricefi
   {
     id: randomString(),
@@ -38,6 +54,7 @@ export const PROJECTS: Project[] = [
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660586/private/projects/ricefi_dkhj5m.png",
     // link: "https://ricefi.dev.elpis.cc/",
+    twitter: "https://x.com/ricefinancefun",
   },
 
   // DeDash
@@ -51,6 +68,7 @@ export const PROJECTS: Project[] = [
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773669380/private/projects/dedash_jga6lo.png",
     link: "https://dedash.fun/",
+    twitter: "https://x.com/dedashdotfun",
   },
 
   // Dot PvP
@@ -64,19 +82,7 @@ export const PROJECTS: Project[] = [
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773661266/private/projects/dotpvp_h7vzs9.png",
     // link: "https://agar-test.dev.elpis.cc/",
-  },
-
-  // Teacat Books
-  {
-    id: randomString(),
-    title: "Teacat Books (btctales)",
-    description:
-      "Teacat Books, built with Next.js and Tailwind CSS, is a platform for discovering, borrowing and purchasing books.",
-    tags: ["Next.js", "Tailwind CSS"],
-    category: "Full Stack",
-    image:
-      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660585/private/projects/teacat_rk2y27.png",
-    // link: "https://teacat.vercel.app/",
+    twitter: "https://x.com/dotpvpfun",
   },
 
   // Beat the clock
@@ -103,6 +109,7 @@ export const PROJECTS: Project[] = [
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660589/private/projects/2xsols_ku9ihx.png",
     // link: "https://2x-solutions.netlify.app/",
+    twitter: "https://x.com/2xsolution",
   },
 
   // The Sapphire Plaza
@@ -241,6 +248,7 @@ export const PROJECTS: Project[] = [
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660588/private/projects/degennews_q2nkzo.png",
     // link: "https://degen-news.vercel.app/",
+    twitter: "https://x.com/DegenerateNews",
   },
 
   // Master Your Mortgage
@@ -267,7 +275,8 @@ export const PROJECTS: Project[] = [
     category: "Frontend",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773661265/private/projects/iagent_q80b1t.png",
-    link: "https://staking.iagentpro.com/",
+    link: "https://iagentpro.com/",
+    twitter: "https://x.com/iagentprotocol",
   },
 
   // Ordiz Swap

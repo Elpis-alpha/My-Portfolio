@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/source/utils";
 import { ExternalLink, Github } from "lucide-react";
 import LazyCDImage from "@/source/components/reusables/image/LazyCDImage";
+import { BsTwitterX } from "react-icons/bs";
 
 type FilterType = "All" | "Full Stack" | "Frontend" | "Backend";
 
@@ -15,11 +16,25 @@ export default function Home() {
     if (filter === "All") return PROJECTS;
 
     if (filter === "Backend") {
-      return PROJECTS.filter((p) => p.category === "Backend");
+      return PROJECTS.filter(
+        (p) => p.category === "Backend" || p.category === "Full Stack",
+      ).sort((a, b) => {
+        // Prioritize projects that are strictly Backend over Full Stack when the filter is "Backend"
+        if (a.category === "Backend" && b.category === "Full Stack") return -1;
+        if (a.category === "Full Stack" && b.category === "Backend") return 1;
+        return 0; // Keep the original order for projects of the same category
+      });
     }
 
     if (filter === "Frontend") {
-      return PROJECTS.filter((p) => p.category === "Frontend");
+      return PROJECTS.filter(
+        (p) => p.category === "Frontend" || p.category === "Full Stack",
+      ).sort((a, b) => {
+        // Prioritize projects that are strictly Frontend over Full Stack when the filter is "Frontend"
+        if (a.category === "Frontend" && b.category === "Full Stack") return -1;
+        if (a.category === "Full Stack" && b.category === "Frontend") return 1;
+        return 0; // Keep the original order for projects of the same category
+      });
     }
 
     return PROJECTS.filter((p) => p.category === filter);
@@ -40,6 +55,10 @@ export default function Home() {
             <p className="text-white/60 max-w-2xl mx-auto">
               A collection of production-ready applications, from microservices
               to complex frontend architectures.
+            </p>
+            <p className="mt-2 -mb-4 text-xs text-amber-300/80 max-w-2xl mx-auto">
+              Due to 2X SOLUTIONS closing down, most projects have been
+              taken down.
             </p>
           </motion.div>
 
@@ -181,6 +200,16 @@ export default function Home() {
                           className="p-3 bg-white text-bg-dark rounded-xl hover:scale-110 transition-transform shadow-xl"
                         >
                           <Github size={20} />
+                        </a>
+                      )}
+                      {project.twitter && (
+                        <a
+                          href={project.twitter}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="p-3 bg-white text-bg-dark rounded-xl hover:scale-110 transition-transform shadow-xl"
+                        >
+                          <BsTwitterX size={20} />
                         </a>
                       )}
                     </div>

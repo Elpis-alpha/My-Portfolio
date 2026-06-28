@@ -24,15 +24,15 @@ export const SOCIAL = {
 export const RESUMES = [
   {
     label: "Full Stack Resume",
-    link: "https://drive.google.com/file/d/1bxG67ck1mAJuiNJmMugauaIXOjxLnDsq/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1vtkCR1CsT4s-2LMOvWIeIRIXd2CVIbUw/view?usp=drive_link",
   },
   {
     label: "Frontend Resume",
-    link: "https://drive.google.com/file/d/1dVv-cd_1KnySrwvqRl2iMLp9qNavZ1Uq/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1Ch9lMjBbe0Xbaw_UFwpEQ9gMUA6Qp90k/view?usp=drive_link",
   },
   {
     label: "Backend Resume",
-    link: "https://drive.google.com/file/d/1pYLN3xp6MULrD_VzZ4dOa5LNNvwSH5sv/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1jzhGXhC8u8c6qkvMrKkJmwCQ2JQVAmml/view?usp=drive_link",
   },
 ];
 
