@@ -1,10 +1,18 @@
 "use client";
 import PageTransition from "@/source/components/reusables/PageTransition";
-import { PROJECTS } from "@/source/projects";
+import { featuredProjects, PROJECTS } from "@/source/projects";
 import { useMemo, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { cn } from "@/source/utils";
-import { ExternalLink, Github } from "lucide-react";
+import {
+  ChevronLeft,
+  ChevronRight,
+  ExternalLink,
+  Github,
+  Maximize2,
+  Sparkles,
+  X,
+} from "lucide-react";
 import LazyCDImage from "@/source/components/reusables/image/LazyCDImage";
 import { BsTwitterX } from "react-icons/bs";
 
@@ -56,11 +64,21 @@ export default function Home() {
               A collection of production-ready applications, from microservices
               to complex frontend architectures.
             </p>
-            <p className="mt-2 -mb-4 text-xs text-amber-300/80 max-w-2xl mx-auto">
-              Due to 2X SOLUTIONS closing down, most projects have been
-              taken down.
-            </p>
           </motion.div>
+        </div>
+
+        {/* Featured Projects Carousel Section */}
+        <FeaturedProjectsSection />
+
+        {/* Main Projects Filter & Grid */}
+        <div className="text-center mb-12 pt-12 border-t border-white/10">
+          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+            All <span className="text-brand-primary">Projects</span>
+          </h3>
+          <p className="text-white/50 text-sm max-w-xl mx-auto">
+            Filter by category to explore targeted solutions and technical
+            implementations.
+          </p>
 
           <div className="flex flex-wrap justify-center gap-2 mt-10 p-2 bg-card-dark/50 rounded-full border border-white/10 w-fit mx-auto relative backdrop-blur-xl shadow-2xl">
             {(["All", "Full Stack", "Frontend", "Backend"] as const).map(
@@ -243,3 +261,287 @@ export default function Home() {
     </PageTransition>
   );
 }
+
+const FeaturedProjectsSection = () => {
+  const [activeProjectIdx, setActiveProjectIdx] = useState(0);
+  const [activeImageIdx, setActiveImageIdx] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+
+  const handleSelectProject = (idx: number) => {
+    setActiveProjectIdx(idx);
+    setActiveImageIdx(0);
+  };
+
+  if (featuredProjects.length === 0) return null;
+
+  const currentProject = featuredProjects[activeProjectIdx];
+  const images = currentProject.featured?.images || [currentProject.image];
+
+  const handleNextImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setActiveImageIdx((prev) => (prev + 1) % images.length);
+  };
+
+  const handlePrevImage = (e?: React.MouseEvent) => {
+    e?.stopPropagation();
+    setActiveImageIdx((prev) => (prev - 1 + images.length) % images.length);
+  };
+
+  return (
+    <div className="mb-24">
+      {/* Header */}
+      <div className="flex flex-col lg:flex-row items-center lg:items-end justify-between mb-10 gap-6 max-lg:text-center max-lg:-mt-8">
+        <div className="max-lg:hidden">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-xs font-mono font-bold uppercase tracking-widest mb-4">
+            <Sparkles size={14} className="animate-pulse" />
+            <span>Featured Showcase</span>
+          </div>
+          <h3 className="text-3xl md:text-5xl font-bold">
+            Flagship <span className="text-brand-primary">Projects</span>
+          </h3>
+        </div>
+
+        {/* Navigation Controls for Featured Projects */}
+        <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none">
+          <div className="flex flex-wrap justify-center items-center gap-2 bg-card-dark/60 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
+            {featuredProjects.map((proj, idx) => (
+              <button
+                key={proj.id}
+                onClick={() => handleSelectProject(idx)}
+                className={cn(
+                  "px-4 py-2 rounded-full text-xs font-mono font-bold transition-all duration-300 whitespace-nowrap",
+                  activeProjectIdx === idx
+                    ? "bg-brand-primary text-bg-dark shadow-md shadow-brand-primary/30 scale-105"
+                    : "text-white/50 hover:text-white hover:bg-white/5",
+                )}
+              >
+                {proj.title}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Featured Big Showcase Card */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={currentProject.id}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5, ease: [0.23, 1, 0.32, 1] }}
+          className="bg-card-dark rounded-[36px] border border-white/10 p-6 md:p-10 relative overflow-hidden backdrop-blur-2xl shadow-[0_30px_70px_rgba(0,0,0,0.6)]"
+        >
+          {/* Ambient Glow */}
+          <div className="absolute top-0 right-0 w-96 h-96 bg-brand-primary/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+          <div className="absolute bottom-0 left-0 w-96 h-96 bg-brand-primary/5 rounded-full blur-3xl pointer-events-none -ml-20 -mb-20" />
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10">
+            {/* Left Column: Image Carousel Viewport */}
+            <div className="lg:col-span-7 flex flex-col gap-4">
+              <div className="relative aspect-16/10 rounded-2xl border border-white/10 overflow-hidden bg-bg-dark/80 group shadow-2xl">
+                {/* Main Active Image */}
+                <AnimatePresence mode="wait">
+                  <LazyCDImage
+                    initialWidth={50}
+                    finalWidth={1200}
+                    key={images[activeImageIdx]}
+                    src={images[activeImageIdx]}
+                    alt={`${currentProject.title} screenshot ${activeImageIdx + 1}`}
+                    initial={{ opacity: 0, scale: 1.03 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.98 }}
+                    transition={{ duration: 0.4 }}
+                    className="w-full h-full object-cover object-top"
+                    // onClick={() => setIsFullscreen(true)}
+                    referrerPolicy="no-referrer"
+                  />
+                </AnimatePresence>
+
+                {/* Overlaid Badge */}
+                <div className="absolute top-4 left-4 z-20 flex items-center gap-2">
+                  <span className="px-3 py-1.5 rounded-full bg-bg-dark/80 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-brand-primary uppercase tracking-widest shadow-xl">
+                    {currentProject.category}
+                  </span>
+                  <span className="px-3 py-1.5 rounded-full bg-bg-dark/80 backdrop-blur-md border border-white/15 text-[10px] font-mono font-medium text-white/70 shadow-xl">
+                    Image {activeImageIdx + 1} of {images.length}
+                  </span>
+                </div>
+
+                {/* Fullscreen Expand Button */}
+                <button
+                  onClick={() => setIsFullscreen(true)}
+                  className="absolute top-4 right-4 z-20 p-2.5 rounded-full bg-bg-dark/80 backdrop-blur-md border border-white/15 text-white/70 hover:text-brand-primary hover:border-brand-primary/40 transition-all shadow-xl"
+                  title="View Fullscreen Lightbox"
+                >
+                  <Maximize2 size={16} />
+                </button>
+
+                {/* Navigation Arrows */}
+                <button
+                  onClick={handlePrevImage}
+                  className="absolute left-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-bg-dark/70 backdrop-blur-md border border-white/15 text-white/80 hover:text-white hover:bg-brand-primary transition-all opacity-0 group-hover:opacity-100 shadow-xl"
+                  aria-label="Previous Screenshot"
+                >
+                  <ChevronLeft size={20} />
+                </button>
+                <button
+                  onClick={handleNextImage}
+                  className="absolute right-4 top-1/2 -translate-y-1/2 z-20 p-3 rounded-full bg-bg-dark/70 backdrop-blur-md border border-white/15 text-white/80 hover:bg-brand-primary hover:text-bg-dark transition-all opacity-0 group-hover:opacity-100 shadow-xl"
+                  aria-label="Next Screenshot"
+                >
+                  <ChevronRight size={20} />
+                </button>
+              </div>
+
+              {/* Thumbnails Strip */}
+              <div className="flex items-center gap-3 overflow-x-auto py-2 scrollbar-thin scrollbar-thumb-white/10">
+                {images.map((imgUrl, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => setActiveImageIdx(idx)}
+                    className={cn(
+                      "relative aspect-16/10 w-20 md:w-24 rounded-lg overflow-hidden border transition-all duration-300 shrink-0",
+                      activeImageIdx === idx
+                        ? "border-brand-primary ring-2 ring-brand-primary/40 scale-105 opacity-100"
+                        : "border-white/10 opacity-50 hover:opacity-100",
+                    )}
+                  >
+                    <LazyCDImage
+                      src={imgUrl}
+                      initialWidth={50}
+                      finalWidth={150}
+                      alt={`Thumbnail ${idx + 1}`}
+                      className="w-full h-full object-cover object-top"
+                      referrerPolicy="no-referrer"
+                    />
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            {/* Right Column: Project Info & Meta */}
+            <div className="lg:col-span-5 flex flex-col justify-between h-full space-y-6">
+              <div>
+                <div className="flex items-center gap-2 mb-3">
+                  <span className="text-xs font-mono text-brand-primary tracking-widest uppercase font-bold">
+                    Featured Project
+                  </span>
+                  <span className="w-8 h-px bg-brand-primary/30" />
+                </div>
+                <h3 className="text-3xl md:text-4xl font-extrabold text-white mb-4 leading-tight">
+                  {currentProject.title}
+                </h3>
+                <p className="text-white/70 text-base leading-relaxed mb-6">
+                  {currentProject.description}
+                </p>
+
+                {/* Tech Stack */}
+                <div className="mb-6">
+                  <h4 className="text-[11px] font-mono uppercase tracking-widest text-white/40 mb-3">
+                    Key Technologies
+                  </h4>
+                  <div className="flex flex-wrap gap-2">
+                    {currentProject.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-white/80 hover:border-brand-primary/30 hover:text-brand-primary transition-colors"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Action Links & Counter */}
+              <div className="pt-6 border-t border-white/10 flex flex-wrap items-center justify-between gap-4">
+                <div className="flex items-center gap-3">
+                  {currentProject.link && (
+                    <a
+                      href={currentProject.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-3 rounded-full bg-brand-primary text-bg-dark font-bold text-sm hover:scale-105 transition-all flex items-center gap-2 shadow-lg shadow-brand-primary/25"
+                    >
+                      <span>Live Demo</span>
+                      <ExternalLink size={16} />
+                    </a>
+                  )}
+                  {currentProject.github && (
+                    <a
+                      href={currentProject.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-6 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white font-bold text-sm border border-white/15 hover:border-white/30 transition-all flex items-center gap-2 shadow-lg"
+                    >
+                      <span>Repository</span>
+                      <Github size={16} />
+                    </a>
+                  )}
+                </div>
+
+                <div className="text-xs font-mono text-white/40">
+                  {activeProjectIdx + 1} of {featuredProjects.length} Featured
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </AnimatePresence>
+
+      {/* Lightbox Modal */}
+      <AnimatePresence>
+        {isFullscreen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsFullscreen(false)}
+            className="fixed inset-0 z-50 bg-bg-dark/95 backdrop-blur-2xl flex items-center justify-center p-4 md:p-10"
+          >
+            <button
+              onClick={() => setIsFullscreen(false)}
+              className="absolute top-6 right-6 p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all z-50"
+            >
+              <X size={24} />
+            </button>
+
+            <div
+              className="relative max-w-6xl max-h-[85vh] w-full h-full flex items-center justify-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <LazyCDImage
+                src={images[activeImageIdx]}
+                initialWidth={50}
+                finalWidth={1200}
+                alt={`${currentProject.title} screenshot full`}
+                className="w-full max-h-full object-contain rounded-2xl border border-white/10 shadow-2xl"
+                referrerPolicy="no-referrer"
+              />
+
+              {/* Modal controls */}
+              <button
+                onClick={handlePrevImage}
+                className="absolute left-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-bg-dark/80 border border-white/20 text-white hover:bg-brand-primary hover:text-bg-dark transition-all"
+              >
+                <ChevronLeft size={24} />
+              </button>
+              <button
+                onClick={handleNextImage}
+                className="absolute right-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-bg-dark/80 border border-white/20 text-white hover:bg-brand-primary hover:text-bg-dark transition-all"
+              >
+                <ChevronRight size={24} />
+              </button>
+
+              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-bg-dark/80 border border-white/20 text-xs font-mono text-white/80">
+                {currentProject.title} — Image {activeImageIdx + 1} of{" "}
+                {images.length}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};

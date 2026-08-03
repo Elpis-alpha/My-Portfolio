@@ -52,6 +52,10 @@
       box-shadow 0.4s;
   }
 
+  button {
+    cursor: pointer;
+  }
+
   *:disabled {
     opacity: 0.5 !important;
     cursor: not-allowed;
@@ -84,7 +88,7 @@
     width: 8px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-bg-dark;
+    @apply bg-bg-dark rounded-2xl;
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-brand-primary/20 rounded-full hover:bg-brand-primary/40 transition-colors;

@@ -1,6 +1,7 @@
 "use client";
 import { HTMLAttributeReferrerPolicy, useEffect, useMemo, useRef, useState } from "react";
 import SafeImage from "./SafeImage";
+import { LegacyAnimationControls, TargetAndTransition, Transition, VariantLabels } from "motion/react";
 
 type LazyCDImageProps = {
   src: string;
@@ -10,6 +11,12 @@ type LazyCDImageProps = {
   className: string;
   useBlank?: boolean;
   referrerPolicy?: HTMLAttributeReferrerPolicy | undefined
+
+  // for motion animations
+  initial?: boolean | TargetAndTransition | VariantLabels | undefined;
+  animate?: boolean | TargetAndTransition | VariantLabels | LegacyAnimationControls | undefined
+  exit?: TargetAndTransition | VariantLabels | undefined
+  transition?: Transition | undefined
 };
 
 const LazyCDImage = (props: LazyCDImageProps) => {
@@ -58,6 +65,12 @@ const LazyCDImage = (props: LazyCDImageProps) => {
       _ref={imageRef}
       useBlank={useBlank}
       referrerPolicy={referrerPolicy}
+
+      // motion props
+      initial={props.initial}
+      animate={props.animate}
+      exit={props.exit}
+      transition={props.transition}
     />
   );
 };
