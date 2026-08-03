@@ -11,10 +11,10 @@ import {
   Github,
   Maximize2,
   Sparkles,
-  X,
 } from "lucide-react";
 import LazyCDImage from "@/source/components/reusables/image/LazyCDImage";
 import { BsTwitterX } from "react-icons/bs";
+import ProjectLightbox from "@/source/components/general/ProjectLightbox";
 
 type FilterType = "All" | "Full Stack" | "Frontend" | "Backend";
 
@@ -363,7 +363,7 @@ const FeaturedProjectsSection = () => {
                   <span className="px-3 py-1.5 rounded-full bg-bg-dark/80 backdrop-blur-md border border-white/15 text-[10px] font-mono font-bold text-brand-primary uppercase tracking-widest shadow-xl">
                     {currentProject.category}
                   </span>
-                  <span className="px-3 py-1.5 rounded-full bg-bg-dark/80 backdrop-blur-md border border-white/15 text-[10px] font-mono font-medium text-white/70 shadow-xl">
+                  <span className="max-ssm:hidden px-3 py-1.5 rounded-full bg-bg-dark/80 backdrop-blur-md border border-white/15 text-[10px] font-mono font-medium text-white/70 shadow-xl">
                     Image {activeImageIdx + 1} of {images.length}
                   </span>
                 </div>
@@ -491,57 +491,16 @@ const FeaturedProjectsSection = () => {
       </AnimatePresence>
 
       {/* Lightbox Modal */}
-      <AnimatePresence>
-        {isFullscreen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setIsFullscreen(false)}
-            className="fixed inset-0 z-50 bg-bg-dark/95 backdrop-blur-2xl flex items-center justify-center p-4 md:p-10"
-          >
-            <button
-              onClick={() => setIsFullscreen(false)}
-              className="absolute top-6 right-6 p-3 rounded-full bg-white/10 border border-white/20 text-white hover:bg-white/20 transition-all z-50"
-            >
-              <X size={24} />
-            </button>
-
-            <div
-              className="relative max-w-6xl max-h-[85vh] w-full h-full flex items-center justify-center"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <LazyCDImage
-                src={images[activeImageIdx]}
-                initialWidth={50}
-                finalWidth={1200}
-                alt={`${currentProject.title} screenshot full`}
-                className="w-full max-h-full object-contain rounded-2xl border border-white/10 shadow-2xl"
-                referrerPolicy="no-referrer"
-              />
-
-              {/* Modal controls */}
-              <button
-                onClick={handlePrevImage}
-                className="absolute left-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-bg-dark/80 border border-white/20 text-white hover:bg-brand-primary hover:text-bg-dark transition-all"
-              >
-                <ChevronLeft size={24} />
-              </button>
-              <button
-                onClick={handleNextImage}
-                className="absolute right-4 top-1/2 -translate-y-1/2 p-4 rounded-full bg-bg-dark/80 border border-white/20 text-white hover:bg-brand-primary hover:text-bg-dark transition-all"
-              >
-                <ChevronRight size={24} />
-              </button>
-
-              <div className="absolute bottom-4 left-1/2 -translate-x-1/2 px-4 py-2 rounded-full bg-bg-dark/80 border border-white/20 text-xs font-mono text-white/80">
-                {currentProject.title} — Image {activeImageIdx + 1} of{" "}
-                {images.length}
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <ProjectLightbox
+        open={isFullscreen}
+        image={images[activeImageIdx]}
+        title={currentProject.title}
+        currentIndex={activeImageIdx}
+        totalImages={images.length}
+        onClose={() => setIsFullscreen(false)}
+        onNext={handleNextImage}
+        onPrev={handlePrevImage}
+      />
     </div>
   );
 };
