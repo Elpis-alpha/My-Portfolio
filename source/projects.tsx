@@ -41,7 +41,7 @@ export const PROJECTS: Project[] = [
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660585/private/projects/teacat_rk2y27.png",
-    // link: "https://teacat.vercel.app/",
+    link: "https://teacat.elpis.cc/",
     github: "https://github.com/Elpis-alpha/Teacat-Books-FE",
     backendGithub: "https://github.com/Elpis-alpha/Teacat-Books-BE",
     featured: {
