@@ -16,8 +16,42 @@ export interface Project {
     images: string[];
   };
 }
-// ! Coming back to this
+
+// use https://shots.so/ to get pad poster images
 export const PROJECTS: Project[] = [
+  {
+    id: "skrivle",
+    title: "Skrivle",
+    description:
+      "A real-time collaborative whiteboard (built with Yjs (CRDT) sync server), open a link, no sign-up, and start drawing with anyone else on it.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Express",
+      "Socket.IO",
+      "Yjs (CRDT)",
+      "PostgreSQL",
+      "Prisma",
+      "Redis",
+    ],
+    category: "Full Stack",
+    image: "https://res.cloudinary.com/lbsvdx2r/image/upload/v1788984532/skrivel-poster_wxa4fe.png",
+    link: "https://skrivle.elpis.cc",
+    github: "https://github.com/Elpis-alpha/Skrivle/tree/main/front-end",
+    backendGithub: "https://github.com/Elpis-alpha/Skrivle/tree/main/back-end",
+    featured: {
+      images: [
+        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1788982915/skrivel-1_yhwc7u.png",
+        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1788982915/skrivel-6_nbooxh.png",
+        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1788982915/skrivel-4_zxmlc6.png",
+        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1788982915/skrivel-5_kbindh.png",
+        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1788982915/skrivel-3_erxh3v.png",
+        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1788982915/skrivel-2_f5q88p.png",
+      ],
+    },
+  },
+
   // Coin15
   // {
   //   id: randomString(),
@@ -40,7 +74,7 @@ export const PROJECTS: Project[] = [
     tags: ["Next.js", "Tailwind CSS"],
     category: "Full Stack",
     image:
-      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660585/private/projects/teacat_rk2y27.png",
+      "https://res.cloudinary.com/lbsvdx2r/image/upload/v1788984533/teacat-poster_y7hmvx.png",
     link: "https://teacat.elpis.cc/",
     github: "https://github.com/Elpis-alpha/Teacat-Books-FE",
     backendGithub: "https://github.com/Elpis-alpha/Teacat-Books-BE",
@@ -97,22 +131,22 @@ export const PROJECTS: Project[] = [
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773669380/private/projects/dedash_jga6lo.png",
     // link: "https://dedash.fun/",
     twitter: "https://x.com/dedashdotfun",
-    featured: {
-      images: [
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770652/dedash-1_cv7iy1.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770650/dedash-2_rsigoq.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770649/dedash-3_yl7atw.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770648/dedash-4_hrlnrj.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770647/dedash-5_j96vvz.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770646/dedash-6_erqz61.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770644/dedash-7_nyquwm.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770643/dedash-8_wsvldd.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770642/dedash-9_tl3p8c.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770641/dedash-10_bdkan9.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770639/dedash-11_p3ftgu.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770640/dedash-12_d4seaj.png",
-      ],
-    },
+    // featured: {
+    //   images: [
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770652/dedash-1_cv7iy1.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770650/dedash-2_rsigoq.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770649/dedash-3_yl7atw.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770648/dedash-4_hrlnrj.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770647/dedash-5_j96vvz.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770646/dedash-6_erqz61.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770644/dedash-7_nyquwm.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770643/dedash-8_wsvldd.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770642/dedash-9_tl3p8c.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770641/dedash-10_bdkan9.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770639/dedash-11_p3ftgu.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785770640/dedash-12_d4seaj.png",
+    //   ],
+    // },
   },
 
   // Dot PvP
@@ -154,19 +188,19 @@ export const PROJECTS: Project[] = [
       "https://res.cloudinary.com/elpis-cloud/image/upload/v1773660589/private/projects/2xsols_ku9ihx.png",
     // link: "https://2x-solutions.netlify.app/",
     twitter: "https://x.com/2xsolution",
-    featured: {
-      images: [
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768226/2x-sol-1_bfrlfj.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768225/2x-sol-2_cikdsm.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768226/2x-sol-4_ml9luo.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768226/2x-sol-3_kaacag.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768226/2x-sol-5_uaeb3s.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768228/2x-sol-6_jv7mds.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768232/2x-sol-7_edoxz6.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768230/2x-sol-9_ao02f9.png",
-        "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768228/2x-sol-8_tcvtg9.png",
-      ],
-    },
+    // featured: {
+    //   images: [
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768226/2x-sol-1_bfrlfj.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768225/2x-sol-2_cikdsm.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768226/2x-sol-4_ml9luo.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768226/2x-sol-3_kaacag.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768226/2x-sol-5_uaeb3s.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768228/2x-sol-6_jv7mds.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768232/2x-sol-7_edoxz6.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768230/2x-sol-9_ao02f9.png",
+    //     "https://res.cloudinary.com/lbsvdx2r/image/upload/v1785768228/2x-sol-8_tcvtg9.png",
+    //   ],
+    // },
   },
 
   // The Sapphire Plaza
