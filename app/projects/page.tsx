@@ -10,6 +10,7 @@ import {
   ExternalLink,
   Github,
   Maximize2,
+  Server,
   Sparkles,
 } from "lucide-react";
 import LazyCDImage from "@/source/components/reusables/image/LazyCDImage";
@@ -145,7 +146,7 @@ export default function Home() {
               },
             },
           }}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8"
         >
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
@@ -175,7 +176,7 @@ export default function Home() {
                 <div className="aspect-4/3 overflow-hidden relative">
                   <LazyCDImage
                     initialWidth={100}
-                    finalWidth={800}
+                    finalWidth={1200}
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
@@ -188,50 +189,7 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="absolute inset-0 bg-linear-to-t from-bg-dark/80 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
-                    <div className="flex gap-3">
-                      {project.link && (
-                        <a
-                          href={project.link}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-3 bg-brand-primary text-bg-dark rounded-xl hover:scale-110 transition-transform shadow-xl"
-                        >
-                          <ExternalLink size={20} />
-                        </a>
-                      )}
-                      {project.github && filter !== "Backend" && (
-                        <a
-                          href={project.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-3 bg-white text-bg-dark rounded-xl hover:scale-110 transition-transform shadow-xl"
-                        >
-                          <Github size={20} />
-                        </a>
-                      )}
-                      {project.backendGithub && filter === "Backend" && (
-                        <a
-                          href={project.backendGithub}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-3 bg-white text-bg-dark rounded-xl hover:scale-110 transition-transform shadow-xl"
-                        >
-                          <Github size={20} />
-                        </a>
-                      )}
-                      {project.twitter && (
-                        <a
-                          href={project.twitter}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="p-3 bg-white text-bg-dark rounded-xl hover:scale-110 transition-transform shadow-xl"
-                        >
-                          <BsTwitterX size={20} />
-                        </a>
-                      )}
-                    </div>
-                  </div>
+                  <div className="absolute inset-0 bg-linear-to-t from-bg-dark/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <div className="p-8 flex-1 flex flex-col relative z-10">
                   <div className="flex flex-wrap gap-2 mb-4">
@@ -250,6 +208,58 @@ export default function Home() {
                   <p className="text-white/60 text-sm leading-relaxed mb-6 flex-1">
                     {project.description}
                   </p>
+
+                  {(project.link ||
+                    project.github ||
+                    project.backendGithub ||
+                    project.twitter) && (
+                    <div className="flex flex-wrap items-center gap-2 pt-5 border-t border-white/10">
+                      {project.link && (
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-brand-primary text-bg-dark text-xs font-mono font-bold hover:scale-105 transition-transform shadow-lg shadow-brand-primary/20"
+                        >
+                          <ExternalLink size={14} />
+                          Live Demo
+                        </a>
+                      )}
+                      {project.github && (
+                        <a
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/70 text-xs font-mono font-bold hover:text-brand-primary hover:border-brand-primary/40 transition-colors"
+                        >
+                          <Github size={14} />
+                          Code
+                        </a>
+                      )}
+                      {project.backendGithub && (
+                        <a
+                          href={project.backendGithub}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/70 text-xs font-mono font-bold hover:text-brand-primary hover:border-brand-primary/40 transition-colors"
+                        >
+                          <Server size={14} />
+                          Backend
+                        </a>
+                      )}
+                      {project.twitter && (
+                        <a
+                          href={project.twitter}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-white/70 text-xs font-mono font-bold hover:text-brand-primary hover:border-brand-primary/40 transition-colors"
+                        >
+                          <BsTwitterX size={12} />
+                          See on X
+                        </a>
+                      )}
+                    </div>
+                  )}
                 </div>
                 {/* Electric Hover Effect */}
                 <div className="absolute inset-0 bg-brand-primary/0 group-hover:bg-brand-primary/2 transition-colors pointer-events-none" />
@@ -271,6 +281,14 @@ const FeaturedProjectsSection = () => {
     setActiveProjectIdx(idx);
     setActiveImageIdx(0);
   };
+
+  const handleNextProject = () =>
+    handleSelectProject((activeProjectIdx + 1) % featuredProjects.length);
+
+  const handlePrevProject = () =>
+    handleSelectProject(
+      (activeProjectIdx - 1 + featuredProjects.length) % featuredProjects.length,
+    );
 
   if (featuredProjects.length === 0) return null;
 
@@ -302,22 +320,45 @@ const FeaturedProjectsSection = () => {
         </div>
 
         {/* Navigation Controls for Featured Projects */}
-        <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none">
-          <div className="flex flex-wrap justify-center items-center gap-2 bg-card-dark/60 p-1.5 rounded-full border border-white/10 backdrop-blur-md">
-            {featuredProjects.map((proj, idx) => (
-              <button
-                key={proj.id}
-                onClick={() => handleSelectProject(idx)}
-                className={cn(
-                  "px-4 py-2 rounded-full text-xs font-mono font-bold transition-all duration-300 whitespace-nowrap",
-                  activeProjectIdx === idx
-                    ? "bg-brand-primary text-bg-dark shadow-md shadow-brand-primary/30 scale-105"
-                    : "text-white/50 hover:text-white hover:bg-white/5",
-                )}
-              >
-                {proj.title}
-              </button>
-            ))}
+        <div className="flex flex-col items-center lg:items-end gap-2 max-lg:w-full">
+          <span className="text-[10px] font-mono uppercase tracking-[0.2em] text-white/45">
+            Browse all {featuredProjects.length} flagship projects
+          </span>
+          <div className="flex items-center gap-2 max-lg:w-full max-lg:justify-center">
+            <button
+              type="button"
+              onClick={handlePrevProject}
+              aria-label="Previous featured project"
+              className="shrink-0 p-2.5 rounded-full bg-card-dark/60 border border-white/10 text-white/60 hover:text-brand-primary hover:border-brand-primary/40 transition-all backdrop-blur-md"
+            >
+              <ChevronLeft size={18} />
+            </button>
+
+            <div className="flex items-center gap-2 bg-card-dark/60 p-1.5 rounded-full border border-white/10 backdrop-blur-md overflow-x-auto scrollbar-none max-w-[55vw] lg:max-w-none">
+              {featuredProjects.map((proj, idx) => (
+                <button
+                  key={proj.id}
+                  onClick={() => handleSelectProject(idx)}
+                  className={cn(
+                    "px-4 py-2 rounded-full text-xs font-mono font-bold transition-all duration-300 whitespace-nowrap",
+                    activeProjectIdx === idx
+                      ? "bg-brand-primary text-bg-dark shadow-md shadow-brand-primary/30 scale-105"
+                      : "text-white/50 hover:text-white hover:bg-white/5",
+                  )}
+                >
+                  {proj.title}
+                </button>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={handleNextProject}
+              aria-label="Next featured project"
+              className="shrink-0 p-2.5 rounded-full bg-card-dark/60 border border-white/10 text-white/60 hover:text-brand-primary hover:border-brand-primary/40 transition-all backdrop-blur-md"
+            >
+              <ChevronRight size={18} />
+            </button>
           </div>
         </div>
       </div>
@@ -395,7 +436,7 @@ const FeaturedProjectsSection = () => {
               </div>
 
               {/* Thumbnails Strip */}
-              <div className="flex items-center gap-3 overflow-x-auto py-2 scrollbar-thin scrollbar-thumb-white/10">
+              <div className="flex items-center gap-3 overflow-x-auto py-2 scrollbar-thin scrollbar-thumb-white/10 pl-1">
                 {images.map((imgUrl, idx) => (
                   <button
                     key={idx}
@@ -481,14 +522,74 @@ const FeaturedProjectsSection = () => {
                   )}
                 </div>
 
-                <div className="text-xs font-mono text-white/40">
-                  {activeProjectIdx + 1} of {featuredProjects.length} Featured
-                </div>
+                <button
+                  type="button"
+                  onClick={handleNextProject}
+                  className="group/next flex items-center gap-1.5 text-xs font-mono text-white/40 hover:text-brand-primary transition-colors"
+                >
+                  <span>
+                    Next:{" "}
+                    {
+                      featuredProjects[
+                        (activeProjectIdx + 1) % featuredProjects.length
+                      ].title
+                    }
+                  </span>
+                  <ChevronRight
+                    size={14}
+                    className="group-hover/next:translate-x-0.5 transition-transform"
+                  />
+                </button>
               </div>
             </div>
           </div>
         </motion.div>
       </AnimatePresence>
+
+      {/* Featured Project Pager */}
+      <div className="mt-8 flex flex-col items-center gap-3">
+        <div className="flex items-center gap-4">
+          <button
+            type="button"
+            onClick={handlePrevProject}
+            aria-label="Previous featured project"
+            className="p-3 rounded-full bg-card-dark/60 border border-white/10 text-white/70 hover:text-brand-primary hover:border-brand-primary/40 transition-all backdrop-blur-md"
+          >
+            <ChevronLeft size={20} />
+          </button>
+
+          <div className="flex items-center gap-2">
+            {featuredProjects.map((proj, idx) => (
+              <button
+                key={proj.id}
+                type="button"
+                onClick={() => handleSelectProject(idx)}
+                aria-label={`Show ${proj.title}`}
+                aria-current={activeProjectIdx === idx}
+                className={cn(
+                  "h-2 rounded-full transition-all duration-300",
+                  activeProjectIdx === idx
+                    ? "w-8 bg-brand-primary"
+                    : "w-2 bg-white/20 hover:bg-white/40",
+                )}
+              />
+            ))}
+          </div>
+
+          <button
+            type="button"
+            onClick={handleNextProject}
+            aria-label="Next featured project"
+            className="p-3 rounded-full bg-card-dark/60 border border-white/10 text-white/70 hover:text-brand-primary hover:border-brand-primary/40 transition-all backdrop-blur-md"
+          >
+            <ChevronRight size={20} />
+          </button>
+        </div>
+
+        <p className="text-xs font-mono text-white/40 tracking-wide">
+          Featured project {activeProjectIdx + 1} of {featuredProjects.length}
+        </p>
+      </div>
 
       {/* Lightbox Modal */}
       <ProjectLightbox

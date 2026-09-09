@@ -25,15 +25,9 @@ export const PROJECTS: Project[] = [
     description:
       "A real-time collaborative whiteboard (built with Yjs (CRDT) sync server), open a link, no sign-up, and start drawing with anyone else on it.",
     tags: [
-      "Next.js",
-      "TypeScript",
-      "Tailwind CSS",
-      "Express",
-      "Socket.IO",
       "Yjs (CRDT)",
       "PostgreSQL",
       "Prisma",
-      "Redis",
     ],
     category: "Full Stack",
     image: "https://res.cloudinary.com/lbsvdx2r/image/upload/v1788984532/skrivel-poster_wxa4fe.png",
@@ -71,7 +65,7 @@ export const PROJECTS: Project[] = [
     title: "Teacat Books",
     description:
       "Teacat Books, built with Next.js and Tailwind CSS, is a platform for discovering, borrowing and purchasing books.",
-    tags: ["Next.js", "Tailwind CSS"],
+    tags: ["Next.js", "Tailwind CSS", "MongoDB"],
     category: "Full Stack",
     image:
       "https://res.cloudinary.com/lbsvdx2r/image/upload/v1788984533/teacat-poster_y7hmvx.png",
@@ -423,19 +417,19 @@ export const PROJECTS: Project[] = [
   },
 
   // Elpis Weather
-  {
-    id: randomString(),
-    title: "Elpis Weather",
-    description:
-      "Elpis Weather, a MERN stack app that uses geolocation and weather APIs, provides accurate forecasts",
-    tags: ["React", "Node.js", "MongoDB", "Express"],
-    category: "Full Stack",
-    image:
-      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773246049/private/projects/weather_lxlcxe.png",
-    link: "https://weather.elpis.cc/",
-    github: "https://github.com/Elpis-alpha/weather-frontend",
-    backendGithub: "https://github.com/Elpis-alpha/weather-backend",
-  },
+  // {
+  //   id: randomString(),
+  //   title: "Elpis Weather",
+  //   description:
+  //     "Elpis Weather, a MERN stack app that uses geolocation and weather APIs, provides accurate forecasts",
+  //   tags: ["React", "Node.js", "MongoDB", "Express"],
+  //   category: "Full Stack",
+  //   image:
+  //     "https://res.cloudinary.com/elpis-cloud/image/upload/v1773246049/private/projects/weather_lxlcxe.png",
+  //   link: "https://weather.elpis.cc/",
+  //   github: "https://github.com/Elpis-alpha/weather-frontend",
+  //   backendGithub: "https://github.com/Elpis-alpha/weather-backend",
+  // },
 
   // Ludo
   {
