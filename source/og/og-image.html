@@ -1,0 +1,191 @@
+<!doctype html>
+<!--
+  Source for public/og-image.png (the 1200x630 Open Graph card).
+  Not served by the site. After editing, re-render from the repo root with:
+
+  google-chrome --headless=new --hide-scrollbars --allow-file-access-from-files \
+    --force-device-scale-factor=1 --window-size=1200,630 \
+    --screenshot="$PWD/public/og-image.png" "file://$PWD/source/og/og-image.html"
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<style>
+  @font-face {
+    font-family: "Inter";
+    src: url("../../public/fonts/Inter-Variable.ttf");
+    font-weight: 100 900;
+  }
+  @font-face {
+    font-family: "JetBrains Mono";
+    src: url("../../public/fonts/JetBrainsMono-Variable.ttf");
+    font-weight: 100 800;
+  }
+
+  :root {
+    --brand-primary: #00f2ff;
+    --brand-secondary: #7000ff;
+    --bg-dark: #02040a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: var(--bg-dark);
+  }
+
+  body {
+    position: relative;
+    font-family: "Inter", sans-serif;
+    color: #fff;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Background layers */
+  .glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+  }
+  .glow.cyan {
+    width: 620px; height: 620px;
+    left: -220px; top: -300px;
+    background: var(--brand-primary);
+    opacity: 0.22;
+  }
+  .glow.purple {
+    width: 760px; height: 760px;
+    right: -260px; bottom: -420px;
+    background: var(--brand-secondary);
+    opacity: 0.42;
+  }
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+    background-size: 60px 60px;
+    background-position: -1px -1px;
+    -webkit-mask-image: radial-gradient(ellipse 85% 85% at 70% 45%, #000 0%, transparent 78%);
+    mask-image: radial-gradient(ellipse 85% 85% at 70% 45%, #000 0%, transparent 78%);
+  }
+
+  /* Content */
+  .card {
+    position: absolute;
+    inset: 0;
+    padding: 64px 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: "JetBrains Mono", monospace;
+    font-weight: 700;
+    font-size: 28px;
+    letter-spacing: -0.05em;
+  }
+  .brand img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: block;
+  }
+  .url {
+    font-family: "JetBrains Mono", monospace;
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .pill {
+    display: inline-block;
+    padding: 10px 24px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 22px;
+    color: var(--brand-primary);
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-size: 138px;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1.05;
+    white-space: nowrap;
+    filter: drop-shadow(0 0 30px rgba(0, 242, 255, 0.2));
+  }
+  h1 .grad {
+    background-image: linear-gradient(to right, #00f2ff, #ffffff, #7000ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    /* keeps the descender-less last glyph from clipping the gradient box */
+    padding-right: 0.06em;
+  }
+  .tagline {
+    margin-top: 22px;
+    font-size: 30px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.66);
+  }
+
+  .stack {
+    display: flex;
+    gap: 14px;
+  }
+  .stack span {
+    padding: 10px 20px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: "JetBrains Mono", monospace;
+    font-size: 21px;
+    color: rgba(255, 255, 255, 0.78);
+  }
+</style>
+</head>
+<body>
+  <div class="glow cyan"></div>
+  <div class="glow purple"></div>
+  <div class="grid"></div>
+
+  <div class="card">
+    <div class="top">
+      <div class="brand">
+        <img src="../../public/logo-filled.svg" alt="">
+        <span>ELPIS</span>
+      </div>
+      <div class="url">elpis.cc</div>
+    </div>
+
+    <div class="middle">
+      <div class="pill">MERN Stack Developer</div>
+      <h1>Festus <span class="grad">Gbolade</span></h1>
+      <p class="tagline">Full-stack engineer building high-performance web applications.</p>
+    </div>
+
+    <div class="stack">
+      <span>React</span>
+      <span>Next.js</span>
+      <span>Node.js</span>
+      <span>TypeScript</span>
+      <span>MongoDB</span>
+    </div>
+  </div>
+</body>
+</html>
