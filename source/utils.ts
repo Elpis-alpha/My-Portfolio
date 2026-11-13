@@ -1,21 +1,11 @@
-import { clsx, type ClassValue } from 'clsx';
-import { twMerge } from 'tailwind-merge';
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
 }
 
-export function calculateAge(birthDate: string): number {
-  const today = new Date(); // Using current date
-  const birth = new Date(birthDate);
-  let age = today.getFullYear() - birth.getFullYear();
-  const m = today.getMonth() - birth.getMonth();
-  if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) {
-    age--;
-  }
-  return age;
-}
-
+/** Years (one decimal) between a date string and now. */
 export function calculateExperience(startDate: string): number {
   const today = new Date();
   const start = new Date(startDate);
@@ -23,3 +13,11 @@ export function calculateExperience(startDate: string): number {
   const diffYears = diffTime / (1000 * 60 * 60 * 24 * 365.25);
   return Number(diffYears.toFixed(1));
 }
+
+/** "4+" style label: whole years completed, with a plus. */
+export function experienceLabel(startDate: string): string {
+  return `${Math.floor(calculateExperience(startDate))}+`;
+}
+
+/** Zero-padded figure / sheet numbers: 1 -> "01". */
+export const pad = (n: number) => String(n).padStart(2, "0");

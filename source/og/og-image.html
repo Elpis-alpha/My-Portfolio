@@ -11,180 +11,87 @@
 <head>
 <meta charset="utf-8">
 <style>
-  @font-face {
-    font-family: "Inter";
-    src: url("../../public/fonts/Inter-Variable.ttf");
-    font-weight: 100 900;
-  }
-  @font-face {
-    font-family: "JetBrains Mono";
-    src: url("../../public/fonts/JetBrainsMono-Variable.ttf");
-    font-weight: 100 800;
-  }
+  @font-face { font-family: "Geist"; src: url("../../public/fonts/Geist-Variable.woff2"); font-weight: 100 900; }
+  @font-face { font-family: "Geist Mono"; src: url("../../public/fonts/GeistMono-Variable.woff2"); font-weight: 100 900; }
+  @font-face { font-family: "Instrument Serif"; src: url("../../public/fonts/InstrumentSerif-Regular.woff2"); font-style: normal; }
+  @font-face { font-family: "Instrument Serif"; src: url("../../public/fonts/InstrumentSerif-Italic.woff2"); font-style: italic; }
 
   :root {
-    --brand-primary: #00f2ff;
-    --brand-secondary: #7000ff;
-    --bg-dark: #02040a;
+    --bg: #0b0d10; --raise: #12151a; --ink: #ece8df; --muted: #a6a299; --faint: #6f6c65;
+    --line: rgba(236,232,223,.12); --line-strong: rgba(236,232,223,.26); --accent: #ff6a3d;
   }
-
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-
-  html, body {
-    width: 1200px;
-    height: 630px;
-    overflow: hidden;
-    background: var(--bg-dark);
-  }
-
+  * { box-sizing: border-box; margin: 0; }
+  html, body { width: 1200px; height: 630px; overflow: hidden; }
   body {
-    position: relative;
-    font-family: "Inter", sans-serif;
-    color: #fff;
+    background: var(--bg); color: var(--ink); font-family: "Geist", sans-serif; position: relative;
     -webkit-font-smoothing: antialiased;
   }
-
-  /* Background layers */
-  .glow {
-    position: absolute;
-    border-radius: 50%;
-    filter: blur(120px);
-  }
-  .glow.cyan {
-    width: 620px; height: 620px;
-    left: -220px; top: -300px;
-    background: var(--brand-primary);
-    opacity: 0.22;
-  }
-  .glow.purple {
-    width: 760px; height: 760px;
-    right: -260px; bottom: -420px;
-    background: var(--brand-secondary);
-    opacity: 0.42;
-  }
   .grid {
-    position: absolute;
-    inset: 0;
+    position: absolute; inset: 0;
     background-image:
-      linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
-    background-size: 60px 60px;
-    background-position: -1px -1px;
-    -webkit-mask-image: radial-gradient(ellipse 85% 85% at 70% 45%, #000 0%, transparent 78%);
-    mask-image: radial-gradient(ellipse 85% 85% at 70% 45%, #000 0%, transparent 78%);
+      linear-gradient(rgba(236,232,223,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(236,232,223,.06) 1px, transparent 1px),
+      linear-gradient(rgba(236,232,223,.028) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(236,232,223,.028) 1px, transparent 1px);
+    background-size: 160px 160px, 160px 160px, 32px 32px, 32px 32px;
+    -webkit-mask-image: radial-gradient(ellipse 90% 90% at 30% 20%, #000 30%, transparent 100%);
   }
+  .glow { position: absolute; left: 10%; top: -45%; width: 80%; height: 80%; border-radius: 50%; background: var(--accent); opacity: .1; filter: blur(110px); }
+  .label { font-family: "Geist Mono", monospace; font-size: 14px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .accent { color: var(--accent); }
+  .faint { color: var(--faint); }
 
-  /* Content */
-  .card {
-    position: absolute;
-    inset: 0;
-    padding: 64px 80px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
+  .sheet { position: absolute; inset: 44px 56px; display: flex; flex-direction: column; }
+  .top { display: flex; justify-content: space-between; border-bottom: 1px solid var(--line); padding-bottom: 16px; }
+  .body { flex: 1; display: grid; grid-template-columns: 610px minmax(0, 1fr); gap: 40px; align-items: center; }
+  h1 { font-family: "Instrument Serif", serif; font-weight: 400; font-size: 76px; line-height: 1.02; letter-spacing: -.018em; }
+  h1 em { color: var(--accent); position: relative; white-space: nowrap; }
+  h1 em svg { position: absolute; left: 0; bottom: -1px; width: 100%; height: 10px; overflow: visible; }
+  .sub { margin-top: 26px; font-size: 22px; line-height: 1.45; color: var(--muted); max-width: 560px; }
 
-  .top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  .brand {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    font-family: "JetBrains Mono", monospace;
-    font-weight: 700;
-    font-size: 28px;
-    letter-spacing: -0.05em;
-  }
-  .brand img {
-    width: 52px;
-    height: 52px;
-    border-radius: 50%;
-    display: block;
-  }
-  .url {
-    font-family: "JetBrains Mono", monospace;
-    font-size: 24px;
-    color: rgba(255, 255, 255, 0.55);
-  }
+  .frame { border: 1px solid var(--line-strong); border-radius: 10px; overflow: hidden; background: var(--raise); box-shadow: 0 30px 80px -30px rgba(0,0,0,.8); width: 100%; }
+  .bar { height: 30px; display: flex; align-items: center; gap: 12px; padding: 0 12px; border-bottom: 1px solid var(--line); }
+  .dots { display: flex; gap: 5px; } .dots i { width: 7px; height: 7px; border-radius: 50%; background: var(--line-strong); }
+  .bar span { font-family: "Geist Mono", monospace; font-size: 11px; color: var(--faint); }
+  .frame img { display: block; width: 100%; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; }
 
-  .pill {
-    display: inline-block;
-    padding: 10px 24px;
-    border-radius: 999px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-    font-family: "JetBrains Mono", monospace;
-    font-size: 22px;
-    color: var(--brand-primary);
-    margin-bottom: 20px;
-  }
-  h1 {
-    font-size: 138px;
-    font-weight: 700;
-    letter-spacing: -0.05em;
-    line-height: 1.05;
-    white-space: nowrap;
-    filter: drop-shadow(0 0 30px rgba(0, 242, 255, 0.2));
-  }
-  h1 .grad {
-    background-image: linear-gradient(to right, #00f2ff, #ffffff, #7000ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    /* keeps the descender-less last glyph from clipping the gradient box */
-    padding-right: 0.06em;
-  }
-  .tagline {
-    margin-top: 22px;
-    font-size: 30px;
-    line-height: 1.4;
-    color: rgba(255, 255, 255, 0.66);
-  }
-
-  .stack {
-    display: flex;
-    gap: 14px;
-  }
-  .stack span {
-    padding: 10px 20px;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    font-family: "JetBrains Mono", monospace;
-    font-size: 21px;
-    color: rgba(255, 255, 255, 0.78);
-  }
+  .block { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .cell { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 12px 16px; }
+  .cell .k { font-family: "Geist Mono", monospace; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--faint); }
+  .cell .v { margin-top: 6px; font-family: "Geist Mono", monospace; font-size: 15px; color: var(--ink); }
 </style>
 </head>
 <body>
-  <div class="glow cyan"></div>
-  <div class="glow purple"></div>
   <div class="grid"></div>
+  <div class="glow"></div>
 
-  <div class="card">
-    <div class="top">
-      <div class="brand">
-        <img src="../../public/logo-filled.svg" alt="">
-        <span>ELPIS</span>
+  <div class="sheet">
+    <div class="top label">
+      <span>Festus Gbolade <span class="faint">/ Portfolio</span></span>
+      <span>elpis.cc</span>
+    </div>
+
+    <div class="body">
+      <div>
+        <h1>
+          I build
+          <em>real-time<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M3 12 C 50 4, 96 16, 148 9 S 250 5, 297 11" fill="none" stroke="#ff6a3d" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg></em>
+          web products that hold up in production.
+        </h1>
+        <p class="sub">Full-stack engineer. TypeScript, React, Next.js and Node.js, from schema to deploy.</p>
       </div>
-      <div class="url">elpis.cc</div>
+
+      <div class="frame">
+        <div class="bar"><div class="dots"><i></i><i></i><i></i></div><span>skrivle.elpis.cc</span></div>
+        <img src="../../public/work/skrivle-board-1600.webp" alt="">
+      </div>
     </div>
 
-    <div class="middle">
-      <div class="pill">MERN Stack Developer</div>
-      <h1>Festus <span class="grad">Gbolade</span></h1>
-      <p class="tagline">Full-stack engineer building high-performance web applications.</p>
-    </div>
-
-    <div class="stack">
-      <span>React</span>
-      <span>Next.js</span>
-      <span>Node.js</span>
-      <span>TypeScript</span>
-      <span>MongoDB</span>
+    <div class="block">
+      <div class="cell"><div class="k">Role</div><div class="v">Full-Stack Engineer</div></div>
+      <div class="cell"><div class="k">Experience</div><div class="v">4+ years, remote</div></div>
+      <div class="cell"><div class="k">Focus</div><div class="v">Real-time systems</div></div>
+      <div class="cell"><div class="k">Location</div><div class="v">Lagos, NG · UTC+1</div></div>
     </div>
   </div>
 </body>

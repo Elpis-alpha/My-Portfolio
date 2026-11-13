@@ -1,27 +1,35 @@
-"use client";
-import FloatingLines from "../reusables/FloatingLines";
-
+/**
+ * The drafting sheet behind every page: a fine grid with heavier lines every
+ * fifth division, fading out towards the edges, plus a little paper grain.
+ * Pure CSS, no canvas.
+ */
 const SiteBackground = () => (
-  <div className="fixed inset-0 -z-10 overflow-hidden bg-bg-dark w-full h-full">
-    <FloatingLines
-      enabledWaves={["top", "middle", "bottom"]}
-      // Array - specify line count per wave; Number - same count for all waves
-      lineCount={5}
-      // Array - specify line distance per wave; Number - same distance for all waves
-      lineDistance={5}
-      bendRadius={5}
-      bendStrength={-0.5}
-      interactive={true}
-      parallax={true}
-      // linesGradient, string[], Array of hex color strings for gradient coloring of lines (max 8 colors).
-      linesGradient={[
-        "#00f2ff",
-        "#7000ff",
-      ]}
+  <div aria-hidden className="pointer-events-none fixed inset-0 -z-10 overflow-hidden bg-bg">
+    <div
+      className="absolute inset-0"
+      style={{
+        backgroundImage: [
+          "linear-gradient(var(--grid-major) 1px, transparent 1px)",
+          "linear-gradient(90deg, var(--grid-major) 1px, transparent 1px)",
+          "linear-gradient(var(--grid-minor) 1px, transparent 1px)",
+          "linear-gradient(90deg, var(--grid-minor) 1px, transparent 1px)",
+        ].join(","),
+        backgroundSize: "160px 160px, 160px 160px, 32px 32px, 32px 32px",
+        backgroundPosition: "center top",
+        maskImage:
+          "radial-gradient(ellipse 85% 70% at 50% 0%, #000 35%, transparent 100%)",
+        WebkitMaskImage:
+          "radial-gradient(ellipse 85% 70% at 50% 0%, #000 35%, transparent 100%)",
+      }}
     />
-
-    {/* Dark overlay */}
-    <div className="absolute inset-0 bg-bg-dark/60 pointer-events-none" />
+    <div
+      className="absolute -top-[30vh] left-1/2 h-[70vh] w-[90vw] -translate-x-1/2 rounded-full opacity-[0.07] blur-[120px]"
+      style={{ background: "var(--accent)" }}
+    />
+    <div
+      className="absolute inset-0 opacity-[0.05] mix-blend-overlay"
+      style={{ backgroundImage: "url(/misc/noise.svg)" }}
+    />
   </div>
 );
 
