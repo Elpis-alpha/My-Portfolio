@@ -5,178 +5,268 @@ export const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 export const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
 export const EMAILJS_PUBLIC_KEY = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
 
-export const YEARS_OF_EXPERIENCE_START_DATE = "2022-02-01";
-export const BIRTH_DATE = "2001-09-18";
+/** First professional role. "Years of experience" is computed from this. */
+export const YEARS_OF_EXPERIENCE_START_DATE = "2022-01-01";
+
+export const PROFILE = {
+  name: "Festus Gbolade",
+  firstName: "Festus",
+  alias: "Elpis",
+  role: "Full-Stack Engineer",
+  location: "Lagos, Nigeria",
+  locationShort: "Lagos, NG",
+  timeZone: "Africa/Lagos",
+  utcOffset: "UTC+1",
+  currentRole: "Full Stack Engineer",
+  currentCompany: "Manthic Technologies",
+  /** One sentence used for <meta description>, OG and JSON-LD. */
+  description:
+    "Full-stack engineer with 4+ years shipping real-time web products in TypeScript, React, Next.js and Node.js: multiplayer games, collaborative tools, commerce and on-chain platforms. Fully remote, end to end.",
+};
 
 export const SOCIAL = {
   email: "festus.gbolade@gmail.com",
-  phoneLine: "+2349163704134",
   telegram: "https://t.me/mr_elpis",
-  whatsapp: "https://wa.me/%2B2349163704134?text=Hello%20Elpis",
+  telegramHandle: "@mr_elpis",
+  whatsapp: "https://wa.me/%2B2349163704134?text=Hello%20Festus",
   twitter: "https://twitter.com/elpis_alpha",
-  stackOverflow: "https://stackoverflow.com/users/13952926/elpis",
+  twitterHandle: "@elpis_alpha",
   linkedin: "https://www.linkedin.com/in/elpis-alpha",
-  instagram: "https://www.instagram.com/elpis_alpha/",
   github: "https://github.com/Elpis-alpha",
-  binance: "/images/BinancePayQR.png",
+  repo: "https://github.com/Elpis-alpha/My-Portfolio",
 };
 
+/** The first entry is the default one linked from the nav. */
 export const RESUMES = [
   {
-    label: "Full Stack Resume",
+    label: "Full-stack",
     link: "https://drive.google.com/file/d/1gJtAPPLSCbasKo47uoijM2pEGbJRzWus/view",
   },
   {
-    label: "Frontend Resume",
+    label: "Frontend",
     link: "https://drive.google.com/file/d/1X91cRIt_jqyvlLocv_eWvEt8_845x98j/view",
   },
   {
-    label: "Backend Resume",
+    label: "Backend",
     link: "https://drive.google.com/file/d/13HFlKYnfi3qUVTCOuS6TM8bA0ga4J92U/view",
   },
 ];
 
-export interface SkillCategory {
-  title: string;
-  items: {
-    title: string;
-    certLink?: string;
-    langLevel?: string;
-    level?: number;
-    icon?: string;
-  }[];
+/* ------------------------------------------------------------------ */
+/*  Home                                                                */
+/* ------------------------------------------------------------------ */
+
+/** `value: "years"` is replaced with the live years-of-experience figure. */
+export const STATS = [
+  {
+    value: "years",
+    label: "shipping production software, fully remote",
+  },
+  {
+    value: "5+",
+    label: "production applications shipped end to end",
+  },
+  {
+    value: "~70%",
+    label: "more concurrent players per room after a sync rewrite",
+  },
+  {
+    value: "16 ms",
+    label: "batching window in a real-time game pipeline",
+  },
+];
+
+export const PRINCIPLES = [
+  {
+    title: "Measure, then optimise",
+    body: "Dot PvP's real-time payloads were measured in kilobytes, and the game lagged as rooms filled. Delta updates and a 16 ms batching pipeline cut them to bytes and made room for about 70% more players.",
+    proof: "Dot PvP",
+    slug: "dot-pvp",
+  },
+  {
+    title: "Contracts over conventions",
+    body: "In Aide-mémoire the API's zod schemas generate the OpenAPI spec, and the front end generates its types from that spec. A breaking change shows up as a compile error instead of a production surprise.",
+    proof: "Aide-mémoire",
+    slug: "aide-memoire",
+  },
+  {
+    title: "Write it down",
+    body: "Hæstore ships with architecture docs and a decision record for every contested fork. Remote teams run on writing, so I treat documentation as part of the feature.",
+    proof: "Hæstore",
+    slug: "haestore",
+  },
+  {
+    title: "Own it end to end",
+    body: "Schema, API, UI, admin tooling, Docker and CI/CD. On Ricefi I worked across all of it as the senior full-stack developer on a three-engineer team.",
+    proof: "Ricefi",
+    slug: "ricefi",
+  },
+];
+
+/* ------------------------------------------------------------------ */
+/*  Experience & education                                              */
+/* ------------------------------------------------------------------ */
+
+export interface ExperienceItem {
+  company: string;
+  role: string;
+  type: string;
+  start: string;
+  end: string;
+  location: string;
+  current?: boolean;
+  summary: string;
+  points?: string[];
 }
-export const SKILL_CATEGORIES: SkillCategory[] = [
+
+export const EXPERIENCE: ExperienceItem[] = [
+  {
+    company: "Manthic Technologies",
+    role: "Full Stack Engineer",
+    type: "Full-time",
+    start: "Oct 2026",
+    end: "Present",
+    location: "Remote",
+    current: true,
+    summary: "Full-stack product engineering on a remote team.",
+  },
+  {
+    company: "2X Solution",
+    role: "Full Stack Developer",
+    type: "Full-time",
+    start: "Jul 2022",
+    end: "Sep 2026",
+    location: "Remote",
+    summary:
+      "Shipped 5+ major production-grade applications end to end across Web3, real-time gaming, fintech and e-commerce.",
+    points: [
+      "Senior full-stack developer on Ricefi within a three-engineer team, working alongside sales, UI/UX, product and QA.",
+      "Rebuilt Dot PvP's state sync with delta updates, binary diffs and a 16 ms batching pipeline: payloads went from kilobytes to bytes, with about 70% more concurrent players per room.",
+      "Integrated a custom Envio indexer to sync on-chain events, presale transactions, rewards and land metadata with the backend.",
+      "Shipped Docker-based backend deployments through CI/CD, plus admin tooling for invite codes, presales, Merkle roots and rate limiting.",
+    ],
+  },
+  {
+    company: "Upwork",
+    role: "Full Stack Developer",
+    type: "Freelance",
+    start: "Jan 2022",
+    end: "Jul 2022",
+    location: "EMEA · Remote",
+    summary: "Freelance full-stack builds for clients across EMEA.",
+  },
+];
+
+export const EDUCATION = {
+  school: "Obafemi Awolowo University",
+  degree: "B.Sc. Mechanical Engineering",
+  detail: "Second Class Upper (Hons)",
+  years: "2017 – 2024",
+};
+
+export const LANGUAGES = [{ title: "English", level: "Fluent" }];
+
+/* ------------------------------------------------------------------ */
+/*  Toolkit                                                             */
+/* ------------------------------------------------------------------ */
+
+export const TOOLKIT = [
+  {
+    title: "Languages",
+    items: ["TypeScript", "JavaScript", "SQL"],
+  },
   {
     title: "Frontend",
     items: [
-      { title: "React", level: 95, icon: "react" },
-      { title: "Next.js", level: 90, icon: "nextjs" },
-      { title: "TypeScript", level: 88, icon: "typescript" },
-      { title: "Redux", level: 85, icon: "redux" },
-      { title: "Tailwind CSS", level: 92, icon: "tailwind" },
-      { title: "Context API", level: 80, icon: "code" },
-      { title: "Motion", level: 70, icon: "animation" },
-      { title: "Material UI", level: 78, icon: "mui" },
-      { title: "Jest", level: 65, icon: "jest" },
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Redux Toolkit",
+      "TanStack Query",
+      "Zustand",
+      "Motion",
+      "TipTap",
     ],
   },
   {
     title: "Backend",
     items: [
-      { title: "Node.js", level: 90, icon: "nodejs" },
-      { title: "TypeScript", level: 88, icon: "typescript" },
-      { title: "Express", level: 85, icon: "express" },
-      { title: "GraphQL", level: 75, icon: "graphql" },
-      { title: "Socket.IO", level: 75, icon: "socketio" },
-      { title: "MongoDB", level: 90, icon: "mongodb" },
-      { title: "PostgreSQL", level: 82, icon: "postgresql" },
-      { title: "Redis", level: 70, icon: "redis" },
-      { title: "Swagger", level: 65, icon: "swagger" },
-      { title: "Cloudinary", level: 70, icon: "cloudinary" },
-      { title: "OAuth (Passport)", level: 80, icon: "oauth" },
+      "Node.js",
+      "Express",
+      "REST & OpenAPI",
+      "GraphQL",
+      "zod",
+      "OAuth & sessions",
     ],
   },
   {
-    title: "DevOps & Tools",
+    title: "Real-time",
+    items: ["Socket.IO", "Colyseus", "Yjs (CRDT)", "Delta sync"],
+  },
+  {
+    title: "Data",
+    items: ["PostgreSQL", "MongoDB", "Redis", "Prisma", "Meilisearch"],
+  },
+  {
+    title: "Web3",
+    items: ["ethers", "SIWE", "Solana web3.js", "Envio indexer"],
+  },
+  {
+    title: "Infra & testing",
     items: [
-      { title: "Git", level: 90, icon: "git" },
-      { title: "GitHub", level: 88, icon: "github" },
-      { title: "Docker", level: 80, icon: "docker" },
-      { title: "Vercel", level: 85, icon: "vercel" },
-      { title: "Nginx", level: 70, icon: "nginx" },
-      { title: "CI/CD", level: 75, icon: "code" },
+      "Docker",
+      "Nginx",
+      "CI/CD",
+      "Cloudflare Workers",
+      "Vercel",
+      "Vitest",
+      "Jest",
     ],
   },
 ];
 
-export const SPECIALIZED_SKILLS = [
-  { title: "REST API Design" },
-  { title: "JWT Authentication" },
-  { title: "OAuth Integration" },
-  { title: "Rate Limiting" },
-  { title: "Real-time Systems" },
-  { title: "Microservices Architecture" },
-  { title: "System Design" },
-  { title: "API Integration" },
-  { title: "State Management" },
-  { title: "Responsive Design" },
-  { title: "Component Architecture" },
-  { title: "Test-Driven Development" },
-  { title: "Agile/Scrum Collaboration" },
-];
-
-export const CERTIFICATIONS = [
-  {
-    title: "React - The Complete Guide (2024, incl. Next.js, Redux)",
-    certLink:
-      "https://www.udemy.com/certificate/UC-d7e879e1-dd78-425d-9df8-92ee3de1abc5/",
-  },
-  {
-    title: "SQL and PostgreSQL: The Complete Developer's Guide",
-    certLink:
-      "https://www.udemy.com/certificate/UC-de698c48-0830-4819-b429-1e1d7d4c6ed1/",
-  },
-  {
-    title: "Data Structures + Algorithms",
-    certLink:
-      "https://www.udemy.com/certificate/UC-77828108-5b41-4aac-89fc-149d20242019/",
-  },
-  {
-    title: "JavaScript Algorithms and Data Structures",
-    certLink:
-      "https://www.freecodecamp.org/certification/elpis-alpha/javascript-algorithms-and-data-structures-v8",
-  },
-  {
-    title: "Responsive Web Design",
-    certLink:
-      "https://www.freecodecamp.org/certification/elpis-alpha/responsive-web-design",
-  },
-];
-
-export const LANGUAGES = [{ title: "English", langLevel: "Fluent/Bilingual" }];
+/* ------------------------------------------------------------------ */
+/*  About                                                               */
+/* ------------------------------------------------------------------ */
 
 export const ABOUT_DATA = {
-  bio: (expV2: string) =>
-    `I'm a Software Engineer with a deep passion for building scalable, efficient web applications. ${expV2} years working with the MERN stack, I've contributed to diverse projects, from early-stage startups to large-scale enterprise platforms. It all started with a simple curiosity about how the web works, and grew into a career dedicated to crafting high-quality digital experiences.`,
-  images: {
-    imageThree:
-      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773224482/private/corporate_emkakn.jpg",
-    imageOne:
-      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773224482/private/native_p5rtat.jpg",
-    imageTwo:
-      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773224483/private/stylish_vudwvg.jpg",
-    fullStackCrop:
-      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773232366/private/full-stack-crop_gzzej0.png",
-  },
-  interests: [
-    { name: "Open Source", icon: "Github" },
-    { name: "System Design", icon: "Cloud" },
-    { name: "Fitness", icon: "Fitness" },
-    { name: "Music", icon: "Music" },
-    { name: "Reading", icon: "Book" },
-    { name: "Traveling", icon: "Globe" },
+  story: [
+    "I trained as a mechanical engineer at Obafemi Awolowo University. That is where I learned to care about tolerances, about load paths, and about what a system does when something in it fails.",
+    "A simple curiosity about how the web works turned into paid work in 2022, while I was still finishing the degree. Since then I have shipped multiplayer games, collaborative tools, commerce platforms and on-chain products, usually owning the work from database schema to deployment.",
+    "The discipline carried over. I still think in terms of failure modes and measured results, and I still believe the drawing matters as much as the part: clear contracts, written decisions, and code the next engineer can read.",
   ],
-  funFacts: [
-    "I'm a pianist (still learning though)",
-    "I love cats but don't have one (yet!).",
-    "My favourite color is white",
-    "I'm so into latest tech",
-    "I love anime",
-    "I'm an INTJ-T",
-    "I'm my role model (yeah! yeah!!)",
-    "I'm a graduate of OAU!",
-    "I love sweets (hope I don't get diabetes)",
-    "I love designing (both web and structural)",
-    "I don't have a girlfriend (yet!)",
-    "I wish I can fly (who doesn't)",
-    "I'm almost two meters tall (1.96m)",
-    "I love video games",
-    "I workout everyday",
-    "I love Japanese music",
-    "I love pizza (who doesn't, except the healthy ones)",
-    "I'm a bit wierd (who isn't)",
-    "I really love cats (really really)",
-    "I've been to the Moon (now that's a lie)",
+  images: {
+    corporate:
+      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773224482/private/corporate_emkakn.jpg",
+    native:
+      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773224482/private/native_p5rtat.jpg",
+    stylish:
+      "https://res.cloudinary.com/elpis-cloud/image/upload/v1773224483/private/stylish_vudwvg.jpg",
+  },
+  offClock: [
+    "Pianist, still learning",
+    "1.96 m tall",
+    "Trains every day",
+    "Cat person, no cat yet",
+    "Anime and Japanese music",
+    "INTJ",
+    "Enjoys design, web and structural",
+    "Reads and travels when he can",
+  ],
+};
+
+/* ------------------------------------------------------------------ */
+/*  Site chrome                                                         */
+/* ------------------------------------------------------------------ */
+
+/** Shown in the footer title block. Bump when the site changes meaningfully. */
+export const SITE_REVISION = "2026.11";
+
+export const AVAILABILITY = {
+  /** Kept deliberately low-key: employed, and open to a good conversation. */
+  note: `I'm currently building at ${PROFILE.currentCompany}, and I'm always glad to hear about hard problems, ambitious products and strong remote teams.`,
+  overlap: [
+    { region: "Europe", window: "Full working day" },
+    { region: "US East Coast", window: "Morning to early afternoon" },
   ],
 };

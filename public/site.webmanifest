@@ -1,6 +1,6 @@
 {
-  "name": "Festus Gbolade (Elpis) | MERN Stack Developer",
-  "short_name": "Festus Gbolade (Elpis) | MERN Stack Developer",
+  "name": "Festus Gbolade | Full-Stack Engineer",
+  "short_name": "Festus Gbolade",
   "icons": [
     {
       "src": "/web-app-manifest-192x192.png",
@@ -15,7 +15,7 @@
       "purpose": "maskable"
     }
   ],
-  "theme_color": "#02040a",
-  "background_color": "#02040a",
+  "theme_color": "#0b0d10",
+  "background_color": "#0b0d10",
   "display": "standalone"
 }

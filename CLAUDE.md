@@ -19,28 +19,49 @@ Next.js 16 (App Router) + React 19 + TypeScript (strict) + Tailwind CSS v4. Depl
 
 ## Architecture
 
-**This is a static content-driven portfolio site.** There is no backend, database, or API route. Every page is a client component (`"use client"`) and all displayed data is hardcoded in `source/`.
+**This is a static content-driven portfolio site.** There is no backend, database, or API route. All displayed data is hardcoded in `source/`, and every route is statically prerendered.
+
+Pages are **Server Components** that export their own `metadata` and compose sections; only the interactive pieces are client components (`"use client"`): nav, command palette, theme toggle, lightbox, hero showcase, contact form, and small islands such as `Reveal`, `LocalTime`, `Years`, `DimensionLine`, `CopyEmail`.
+
+### Routes
+
+- `/` — hero, selected work (the case studies), experience, how I work + toolkit, about teaser.
+- `/projects` — case study rows, then the "More work" card grid.
+- `/projects/[slug]` — one page per project that has a `caseStudy` (`generateStaticParams`, `dynamicParams = false`).
+- `/about` — story, experience + education, toolkit (`#toolkit`), principles, photos, résumé links.
+- `/contact` — channels and the EmailJS form.
+- `/skills` permanently redirects to `/about#toolkit` (`next.config.ts`).
+- `app/sitemap.ts`, `app/robots.ts`, `app/not-found.tsx`.
 
 ### Directory layout
 
-- `app/` — routes only. One folder per page (`/`, `/about`, `/skills`, `/projects`, `/contact`), plus `layout.tsx`, `not-found.tsx`, and `styles/global.css`. Pages compose components and pull their data from `source/`.
-- `source/config.ts` — all site content that isn't projects: social links, resume links, skill categories with proficiency levels, certifications, about-page bio/images/fun-facts, and the experience/birth-date anchors. **Edit this file to change site copy.**
-- `source/projects.tsx` — the `PROJECTS` array (typed `Project[]`) plus large blocks of commented-out project entries kept as an archive. Portfolio images are Cloudinary URLs; `featured.images` drives the project lightbox gallery.
-- `source/utils.ts` — `cn()` (clsx + tailwind-merge), plus `calculateAge` / `calculateExperience` which compute from date strings in `config.ts` at render time so "years of experience" is always current.
-- `source/components/general/` — site chrome used by every page via `AppProvider` (NavBar, Footer, SiteBackground, ProjectLightbox).
-- `source/components/reusables/` — animated text/UI effects (DecryptedText, TextType, SplitText, CountUp, GradientText, SpotlightCard, FloatingLines, PageTransition) and `reusables/image/` for progressive image loading.
-- `source/components/providers/` — `AppProvider` wraps all pages (top loader, tooltip, toaster, nav, footer, background); `TimerProvider` exposes `useTimer()`, a 1-second ticking timestamp context.
+- `app/` — routes only, plus `layout.tsx` (fonts, metadata, JSON-LD, theme init script) and `styles/global.css`.
+- `source/config.ts` — all site content that isn't projects: profile, social links, résumé links, stats, principles, experience, education, toolkit, about copy/images, availability note. **Edit this file to change site copy.**
+- `source/projects.tsx` — the `PROJECTS` array (typed `Project[]`). Projects with a `caseStudy` object get a case study page and appear first; the rest are "More work" cards. `CASE_STUDIES`, `MORE_WORK`, `getProject()` are derived from it. Retired projects are listed in a comment at the bottom.
+- `source/theme.ts` — theme switching (see below).
+- `source/utils.ts` — `cn()` (clsx + tailwind-merge), `calculateExperience` / `experienceLabel` (computed from `YEARS_OF_EXPERIENCE_START_DATE` at render so "years of experience" is always current), `pad()`.
+- `source/components/general/` — site chrome used by every page via `AppProvider`: `NavBar`, `Footer` (title block + `ContactCTA` on every page except `/contact`), `SiteBackground`, `CommandPalette`, `ThemeToggle`, `Lightbox`.
+- `source/components/reusables/` — `PageTransition`, `Reveal`, `SectionHeader`, `Frame`, `Shot`, `Logo`, `Icons` (inline brand SVGs), `LocalTime`, `Years`, `DimensionLine`, `CopyEmail`.
+- `source/components/home/`, `work/`, `contact/` — page sections.
+- `source/components/providers/` — `AppProvider` wraps all pages (top loader, toaster, nav, footer, background, command palette); `TimerProvider` exposes `useTimer()`, a 1-second ticking timestamp context (used by `LocalTime`).
+- `source/og/og-image.html` — source for `public/og-image.png`; the render command is in its header comment.
 
 ### Key conventions
 
 - **Path alias:** `@/*` maps to the repo root, so imports are `@/source/...` and `@/app/...`.
-- **Animation:** the dependency is `motion` (v12), but code imports from **both** `framer-motion` and `motion/react` (framer-motion is a transitive dep). Match whichever the file you're editing already uses.
-- **Every page wraps its content in `<PageTransition>`** for route-change animation.
-- **Styling is Tailwind v4 via `@import "tailwindcss"` in `global.css`** — no `tailwind.config`. Theme tokens, a fully custom breakpoint scale (`xsm`…`7xl`), custom utilities (`.glass`, `.text-gradient`, `.electric-glow`, `.full-screen-minus-footer`, `.animate-lightning`), and base resets all live in `app/styles/global.css`. Brand palette: `brand-primary` (#00f2ff cyan), `brand-secondary` (#7000ff purple), `bg-dark`, `card-dark`.
-- **Dark theme only** — `colorScheme: "dark"` is fixed in `app/layout.tsx`.
-- **Fonts** are self-hosted variable fonts loaded via `next/font/local` from `public/fonts/` (Inter → `--font-inter`, JetBrains Mono → `--font-jetbrains-mono`).
-- **Images:** remote images (Cloudinary, Twitter avatars) are loaded through `SafeImage` / `LazyImage` / `LazyCDImage` (plain `<img>` with progressive low-res→high-res swap), **not** `next/image`. `LazyCDImage` rewrites Cloudinary URLs by injecting `/upload/c_scale,w_<n>/` for responsive sizing.
+- **Design language:** an engineering-drawing motif. Serif display type, mono "annotation" labels, hairline rules, numbered sections (`§ 01`), figure captions (`Fig. 01`), registration marks (`.regmark`), and a title block in the footer. Keep new UI inside that vocabulary.
+- **Theming:** two themes driven by `data-theme` on `<html>`: `dark` ("blueprint", the server default) and `light` ("paper"). An inline script in `layout.tsx` applies the stored choice, or the system preference, before first paint. **Components only use the semantic tokens** defined in `global.css` (`bg-bg`, `bg-raise`, `bg-sunk`, `text-ink`, `text-muted`, `text-faint`, `border-line`, `border-line-strong`, `text-accent`, `bg-accent`, `text-accent-ink`, `bg-ok`). Never hardcode `white`/`black` or hex colours in components.
+- **Styling is Tailwind v4 via `@import "tailwindcss"` in `global.css`** — no `tailwind.config`. Theme tokens, a fully custom breakpoint scale (`xsm`…`7xl`), and the component classes (`.shell`, `.label`, `.display`, `.prose-body`, `.btn` / `.btn-primary` / `.btn-ghost`, `.link`, `.chip`, `.frame`, `.field`, `.regmark`) all live in `app/styles/global.css`.
+- **Fonts** are self-hosted woff2 loaded via `next/font/local` from `public/fonts/`, with their CSS variables set on `<html>`: Geist (`font-sans`), Geist Mono (`font-mono`), Instrument Serif (`font-display`, used through `.display`).
+- **Motion:**
+  - Above-the-fold entrances and route changes are CSS only (`.rise` with a `--i` stagger index, `.page-enter`), so server-rendered content is never hidden behind JavaScript.
+  - Scroll reveals use `<Reveal>` (IntersectionObserver toggling `.reveal.is-in`).
+  - JS-driven animation (palette, lightbox, nav pill, hero showcase) imports from `motion/react`.
+  - Everything respects `prefers-reduced-motion`.
+- **Every page wraps its content in `<PageTransition>`.**
+- **Images:** plain `<img>` through `Shot` (not `next/image`). Local project screenshots live in `public/work/` as `<name>-800.webp` and `<name>-1600.webp`; reference them as `/work/<name>` and `Shot` builds the `srcSet`. Cloudinary URLs get `f_auto,q_auto,c_scale,w_<n>` injected after `/upload/`. `Frame` wraps a `Shot` in the browser-chrome frame.
+- **A fixed/absolute overlay must not be rendered inside the header:** the header uses `backdrop-filter`, which makes it the containing block for fixed descendants (the mobile menu is a sibling for this reason).
 
 ## Environment
 
-`.env` holds EmailJS credentials for the contact form (`NEXT_PUBLIC_EMAILJS_*`). `NEXT_PUBLIC_HOST_URL` sets `HOST_URL` (used for metadata/canonical), defaulting to `http://localhost:3000`. See `.env.example`.
+`.env` holds EmailJS credentials for the contact form (`NEXT_PUBLIC_EMAILJS_*`). `NEXT_PUBLIC_HOST_URL` sets `HOST_URL` (used for metadata, canonical URLs, sitemap), defaulting to `http://localhost:3000`. See `.env.example`.
