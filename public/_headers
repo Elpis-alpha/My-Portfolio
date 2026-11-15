@@ -1,0 +1,13 @@
+# Cloudflare Workers static-asset headers (ignored by Vercel).
+
+# Next.js build output is content-hashed, so it can be cached forever.
+/_next/static/*
+  Cache-Control: public,max-age=31536000,immutable
+
+# Fonts never change under the same name.
+/fonts/*
+  Cache-Control: public,max-age=31536000,immutable
+
+# Project screenshots keep their names when re-shot, so cache for a day.
+/work/*
+  Cache-Control: public,max-age=86400,stale-while-revalidate=604800

@@ -31,7 +31,7 @@ export default function Work() {
           Built to be used, <em className="text-accent">written to be read.</em>
         </h1>
         <p className="rise prose-body mt-8 max-w-2xl text-lg md:text-xl" style={{ "--i": 2 } as React.CSSProperties}>
-          Five projects with the full story of what was hard and how it was
+          Six projects with the full story of what was hard and how it was
           solved, followed by smaller pieces. Most are live, and most of the
           code is public.
         </p>
@@ -53,7 +53,7 @@ export default function Work() {
             <ProjectCard key={project.slug} project={project} delay={(i % 3) * 80} />
           ))}
 
-          <Reveal delay={160} className="flex">
+          <Reveal delay={160} className="flex lg:col-span-2">
             <a
               href={SOCIAL.github}
               target="_blank"

@@ -27,8 +27,9 @@ const SelectedWork = () => (
 
     <Reveal className="mt-20 flex flex-col items-start justify-between gap-6 border-t border-line pt-8 sm:flex-row sm:items-center md:mt-28">
       <p className="prose-body max-w-xl">
-        Plus {MORE_WORK.length} more: client sites, a bookstore with a built-in
-        reader, and browser games written without a single dependency.
+        Plus {MORE_WORK.length} more: concept sites for a hotel and a
+        restaurant, a bookstore with a built-in reader, and browser games
+        written without a single dependency.
       </p>
       <Link href="/projects" className="btn btn-ghost">
         Browse all work <ArrowRight size={16} className="nudge-x" />

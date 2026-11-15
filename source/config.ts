@@ -1,5 +1,13 @@
+/**
+ * Public origin, used for canonical URLs, Open Graph and the sitemap.
+ * NEXT_PUBLIC_* values are inlined at build time, so a production build
+ * falls back to the live domain rather than to localhost.
+ */
 export const HOST_URL =
-  process.env.NEXT_PUBLIC_HOST_URL || "http://localhost:3000";
+  process.env.NEXT_PUBLIC_HOST_URL ||
+  (process.env.NODE_ENV === "production"
+    ? "https://www.elpis.cc"
+    : "http://localhost:3000");
 
 export const EMAILJS_SERVICE_ID = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
 export const EMAILJS_TEMPLATE_ID = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;

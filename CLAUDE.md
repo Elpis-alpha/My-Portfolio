@@ -9,13 +9,17 @@ npm run dev      # Next.js dev server (Turbopack), http://localhost:3000
 npm run build    # production build
 npm run start    # serve the production build
 npm run lint     # eslint (next/core-web-vitals + next/typescript)
+
+npm run preview  # build with OpenNext and serve it in the local Workers runtime (:8787)
+npm run deploy   # build with OpenNext and deploy the Worker to Cloudflare
+npm run upload   # build and upload a new Worker version without promoting it
 ```
 
 There is no test runner configured. `eslint-config-next` treats `jest` as expected tooling but no Jest setup exists.
 
 ## Stack
 
-Next.js 16 (App Router) + React 19 + TypeScript (strict) + Tailwind CSS v4. Deployed on Vercel. Live at https://www.elpis.cc/.
+Next.js 16 (App Router) + React 19 + TypeScript (strict) + Tailwind CSS v4. Live at https://www.elpis.cc/. Deployable to Vercel (zero config) and to Cloudflare Workers through the OpenNext adapter (see Deployment).
 
 ## Architecture
 
@@ -62,6 +66,18 @@ Pages are **Server Components** that export their own `metadata` and compose sec
 - **Images:** plain `<img>` through `Shot` (not `next/image`). Local project screenshots live in `public/work/` as `<name>-800.webp` and `<name>-1600.webp`; reference them as `/work/<name>` and `Shot` builds the `srcSet`. Cloudinary URLs get `f_auto,q_auto,c_scale,w_<n>` injected after `/upload/`. `Frame` wraps a `Shot` in the browser-chrome frame.
 - **A fixed/absolute overlay must not be rendered inside the header:** the header uses `backdrop-filter`, which makes it the containing block for fixed descendants (the mobile menu is a sibling for this reason).
 
+## Deployment (Cloudflare Workers)
+
+The Worker is named `elpis-portfolio`. Configuration lives in three files:
+
+- `wrangler.jsonc` — Worker name, compatibility date and flags, the static-assets binding. There are no R2, D1, KV or Images bindings because the site has no ISR, no `next/image` and no server state. The custom-domain route is present but commented out.
+- `open-next.config.ts` — uses the static-assets incremental cache with cache interception, so prerendered pages are served from the Worker's assets without booting the Next.js server. If a route ever uses `revalidate` or `use cache`, switch to an R2 or KV cache.
+- `public/_headers` — long-lived cache headers for `/_next/static/*`, `/fonts/*` and `/work/*`.
+
+`@opennextjs/cloudflare` requires Next.js 16.4.5 or newer; keep `next` and `eslint-config-next` on the same version. Build output goes to `.open-next/` (git-ignored). `next.config.ts` redirects work unchanged on Workers.
+
+`NEXT_PUBLIC_*` variables are inlined at **build** time, so they must be in `.env` (local `npm run deploy`) or in the build variables (Workers Builds); setting them as Worker runtime `vars` has no effect.
+
 ## Environment
 
-`.env` holds EmailJS credentials for the contact form (`NEXT_PUBLIC_EMAILJS_*`). `NEXT_PUBLIC_HOST_URL` sets `HOST_URL` (used for metadata, canonical URLs, sitemap), defaulting to `http://localhost:3000`. See `.env.example`.
+`.env` holds EmailJS credentials for the contact form (`NEXT_PUBLIC_EMAILJS_*`). `NEXT_PUBLIC_HOST_URL` sets `HOST_URL` (used for metadata, canonical URLs, sitemap); when unset it falls back to `https://www.elpis.cc` in production builds and `http://localhost:3000` in development. See `.env.example`.

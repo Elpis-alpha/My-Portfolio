@@ -459,6 +459,98 @@ export const PROJECTS: Project[] = [
     },
   },
 
+  {
+    slug: "master-your-mortgage",
+    title: "Master Your Mortgage",
+    kind: "Front-end engineering study",
+    year: "2026",
+    context: "Personal",
+    summary:
+      "A concept mortgage broker drawn like a set of architectural drawings, with three working calculators and a house that fills in as you pay it off.",
+    highlights: [
+      "Charts and drawings are hand-written SVG. There is no chart or animation library.",
+      "The finance maths is pure functions with unit tests: amortisation, stamp duty, affordability.",
+      "Calculator inputs are mirrored in the address bar, so any result can be shared as a link.",
+    ],
+    stack: [
+      "React 19",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS v4",
+      "React Router",
+      "SVG",
+    ],
+    host: "mortgage.elpis.cc",
+    cover: local(
+      "mortgage",
+      "The Master Your Mortgage home page with the equity elevation",
+    ),
+    gallery: [
+      local(
+        "mortgage",
+        "The Master Your Mortgage home page with the equity elevation",
+      ),
+      local(
+        "mortgage-charts",
+        "The repayment calculator with an overpayment, a balance chart and a capital-versus-interest chart",
+      ),
+      local(
+        "mortgage-calc-dark",
+        "The repayment calculator in the dark blueprint theme",
+      ),
+      local(
+        "mortgage-stamp",
+        "The stamp duty calculator with a band-by-band breakdown",
+      ),
+      local(
+        "mortgage-dashboard",
+        "The demo account's agreement in principle and progress tracker",
+      ),
+      local("mortgage-home-dark", "The home page in the dark blueprint theme"),
+      local(
+        "mortgage-borrow",
+        "The borrowing calculator showing a cautious, typical and stretch range",
+      ),
+    ],
+    links: {
+      live: "https://mortgage.elpis.cc/",
+      code: "https://github.com/Elpis-alpha/Simple-Mortgage",
+    },
+    caseStudy: {
+      role: "Design and front-end engineering",
+      timeline: "2026",
+      facts: [
+        { value: "3", label: "calculators: repayments, borrowing, stamp duty" },
+        { value: "0", label: "chart or animation libraries" },
+        { value: "0", label: "servers: everything runs in the browser" },
+      ],
+      problem:
+        "A design and front-end engineering study: could thirty years of mortgage numbers become something you can see and drag? The constraints were real arithmetic, no chart library, no backend, and every figure showing its working.",
+      built: [
+        "An equity elevation: set a price, deposit and term, then drag or play the timeline. The shaded part of the house matches the share owned, and the windows light as the level passes them.",
+        "A repayment calculator with monthly payment, total interest, overpayments, interest-only, a rate stress table, two charts and a year-by-year schedule with CSV export.",
+        "A borrowing calculator that gives a cautious, typical and stretch range from income and outgoings, with the working shown.",
+        "A stamp duty calculator with band-by-band Stamp Duty Land Tax for England and Northern Ireland, for first-time buyers, movers and additional properties.",
+        "An agreement in principle: a four-step form with validation and autosave that produces an on-screen decision and a printable certificate, plus a dashboard behind a sign-in.",
+        "Two themes, a layout that holds down to phone width, charts that can be read by keyboard, and reduced-motion support.",
+      ],
+      notes: [
+        {
+          title: "No chart library",
+          body: "The balance chart, the yearly bars, the house elevation and the dimension lines are all hand-written SVG, animated with a small spring hook. That keeps the bundle small and lets the charts follow the drawing style exactly.",
+        },
+        {
+          title: "Logic you can test",
+          body: "Amortisation, stamp duty, affordability and the application assessment live in pure functions with unit tests, separate from the components. The interface is a thin layer over arithmetic that has been checked.",
+        },
+        {
+          title: "State in the URL, data in the browser",
+          body: "Every calculator input is mirrored in the address bar, so a result is a link. There is no server: accounts and applications stay in the visitor's own browser, which suits a demo and is stated plainly as not fit for a real product.",
+        },
+      ],
+    },
+  },
+
   /* ------------------------------------------------------------ */
   /*  More work                                                     */
   /* ------------------------------------------------------------ */
@@ -493,6 +585,63 @@ export const PROJECTS: Project[] = [
     },
   },
   {
+    slug: "sapphire-plaza",
+    title: "The Sapphire Plaza",
+    kind: "Hotel concept site",
+    year: "2026",
+    context: "Personal",
+    summary:
+      "A concept site for a lagoon-side hotel in Sri Lanka. The pool in the hero is a live WebGL shader, and the page counts down to tonight's real blue hour.",
+    stack: ["Next.js", "TypeScript", "WebGL", "GSAP", "Lenis", "Sanity"],
+    host: "sapphire-plaza.elpis.cc",
+    cover: local("sapphire", "The Sapphire Plaza hero with its live pool"),
+    gallery: [
+      local("sapphire", "The Sapphire Plaza hero with its live pool"),
+      local(
+        "sapphire-bluehour",
+        "The Hours: a pinned chapter that walks through one evening as the sky changes",
+      ),
+      local(
+        "sapphire-rooms",
+        "The room index, a typographic list with one photograph that follows the room in focus",
+      ),
+      local("sapphire-house", "The introduction to the house"),
+    ],
+    links: {
+      live: "https://sapphire-plaza.elpis.cc/",
+      code: "https://github.com/Elpis-alpha/The-Sapphire-Plaza",
+    },
+  },
+  {
+    slug: "fresh-bites",
+    title: "Fresh Bites Grill",
+    kind: "Restaurant concept site",
+    year: "2026",
+    context: "Personal",
+    summary:
+      "A concept site for a fire-grilled restaurant in Sedona, with a menu managed in Sanity, an \"open now\" computed in the restaurant's own time zone, and a working reservation ticket.",
+    stack: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Lenis",
+      "Sanity",
+    ],
+    host: "fresh-bites.elpis.cc",
+    cover: local("freshbites", "The Fresh Bites Grill hero"),
+    gallery: [
+      local("freshbites", "The Fresh Bites Grill hero"),
+      local("freshbites-menu", "The menu, edited in Sanity"),
+      local("freshbites-favourites", "The regulars' favourites"),
+      local("freshbites-reserve", "The reservation ticket"),
+    ],
+    links: {
+      live: "https://fresh-bites.elpis.cc/",
+      code: "https://github.com/Elpis-alpha/Small-Resturant",
+    },
+  },
+  {
     slug: "dedash",
     title: "DeDash",
     kind: "Multi-chain analytics",
@@ -505,51 +654,6 @@ export const PROJECTS: Project[] = [
       "The DeDash activity feed",
     ),
     links: { x: "https://x.com/dedashdotfun" },
-  },
-  {
-    slug: "sapphire-plaza",
-    title: "The Sapphire Plaza",
-    kind: "Hotel website",
-    context: "Personal",
-    summary:
-      "A hotel site with rooms and reservations, with all content managed in Sanity.",
-    stack: ["Next.js", "Tailwind CSS", "Sanity CMS"],
-    host: "sapphire-plaza.elpis.cc",
-    cover: local("sapphire", "The Sapphire Plaza hotel home page"),
-    links: {
-      live: "https://sapphire-plaza.elpis.cc/",
-      code: "https://github.com/Elpis-alpha/The-Sapphire-Plaza",
-    },
-  },
-  {
-    slug: "fresh-bites",
-    title: "Fresh Bites Grill",
-    kind: "Restaurant website",
-    context: "Personal",
-    summary:
-      "A restaurant site whose menu and reservations are managed through Sanity.",
-    stack: ["Next.js", "Tailwind CSS", "Sanity CMS"],
-    host: "fresh-bites.elpis.cc",
-    cover: local("freshbites", "The Fresh Bites Grill home page"),
-    links: {
-      live: "https://fresh-bites.elpis.cc/",
-      code: "https://github.com/Elpis-alpha/Small-Resturant",
-    },
-  },
-  {
-    slug: "master-your-mortgage",
-    title: "Master Your Mortgage",
-    kind: "Marketing site and calculator",
-    context: "Personal",
-    summary:
-      "A mortgage services site with a repayment calculator and a friendly, illustrated interface.",
-    stack: ["React", "Tailwind CSS"],
-    host: "mortgage.elpis.cc",
-    cover: local("mortgage", "The Master Your Mortgage home page"),
-    links: {
-      live: "https://mortgage.elpis.cc/",
-      code: "https://github.com/Elpis-alpha/Simple-Mortgage",
-    },
   },
   {
     slug: "ludo",
