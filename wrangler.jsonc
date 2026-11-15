@@ -1,0 +1,29 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "elpis-portfolio",
+  "main": ".open-next/worker.js",
+
+  // Pins Workers runtime behaviour. Bump it now and then, with a redeploy.
+  "compatibility_date": "2026-11-01",
+
+  // nodejs_compat is required by the adapter so Node built-ins resolve.
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+
+  // Every page is prerendered, so the build output is served from here.
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+
+  "observability": {
+    "enabled": true
+  }
+
+  // The site has no ISR, no next/image and no server state, so there are no
+  // R2, D1, KV or Images bindings to create.
+
+  // Custom domain. Leave this commented until the domain's DNS is on
+  // Cloudflare and you are ready to move it off Vercel, then uncomment and
+  // redeploy (or attach it in the dashboard under Settings > Domains & Routes).
+  // "routes": [{ "pattern": "www.elpis.cc", "custom_domain": true }]
+}
