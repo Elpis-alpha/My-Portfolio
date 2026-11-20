@@ -22,8 +22,12 @@
   // The site has no ISR, no next/image and no server state, so there are no
   // R2, D1, KV or Images bindings to create.
 
-  // Custom domain. The domain's DNS must be on Cloudflare; each deploy then
-  // keeps www.elpis.cc attached to this Worker (it can also be managed in the
-  // dashboard under Settings > Domains & Routes).
-  "routes": [{ "pattern": "www.elpis.cc", "custom_domain": true }]
+  // Custom domains. The domain's DNS must be on Cloudflare. Each deploy makes
+  // the Worker's custom domains match this list, so any domain added only in
+  // the dashboard (Settings > Domains & Routes) is removed by the next deploy.
+  // List every hostname that should serve the site here.
+  "routes": [
+    { "pattern": "www.elpis.cc", "custom_domain": true },
+    { "pattern": "elpis.cc", "custom_domain": true }
+  ]
 }
